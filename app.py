@@ -1,20 +1,30 @@
 import telegram
-import os
+from decouple import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
-import sqlite3
-import random
+import random, logging, sqlite3
 from telegram.ext import CallbackContext
 
 # Replace 'YOUR_BOT_TOKEN' with the token you received from the BotFather
-updater = Updater(token=os.environ['TOKEN_BOT'], use_context=True)
+updater = Updater(token=config('TOKEN_BOT'), use_context=True)
 dispatcher = updater.dispatcher
+
+# Configure the logging module
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Create a logger for your bot
+logger = logging.getLogger(__name__)
 
 # Dictionary to store user responses
 user_responses = {}
 
 # Add a variable to specify the number of questions in the challenge
 NUM_QUESTIONS = 3
+
+# Add variables to keep track of correct and incorrect answers
+correct_answers_count = {}
+incorrect_answers_count = {}
 
 def get_random_question():
     # Connect to your SQLite database
@@ -47,7 +57,18 @@ def start(update, context):
 # Command to start the challenge
 def start_challenge(update, context: CallbackContext):
     user_id = update.effective_user.id
-    user_responses[user_id] = {'current_question_index': 0, 'questions': []}
+
+    # Log when a new user starts a challenge
+    logger.info(f"New user (ID: {user_id}) started a challenge.")
+
+    # Clear the user's previous responses before starting a new challenge
+    user_responses[user_id] = {}
+    user_responses[user_id]['current_question_index'] = 0
+    user_responses[user_id]['questions'] = []
+
+    # Reset the counts for correct and incorrect answers
+    correct_answers_count[user_id] = 0
+    incorrect_answers_count[user_id] = 0
 
     # Add questions to the challenge until the desired number is reached
     for _ in range(NUM_QUESTIONS):
@@ -56,6 +77,7 @@ def start_challenge(update, context: CallbackContext):
 
     # Display the first question
     display_question(update, user_id)
+
 
 def display_question(update, user_id):
     current_question_index = user_responses[user_id]['current_question_index']
@@ -72,8 +94,33 @@ def display_question(update, user_id):
         updater.bot.send_message(user_id, text=question_text, reply_markup=reply_markup)
     else:
         # All questions have been answered
-        updater.bot.send_message(user_id, text="Challenge is over! Thank you for participating.")
-        del user_responses[user_id]
+        display_results(update, user_id)
+def display_results(update, user_id):
+    # Calculate the percentage of correct answers
+    total_questions = NUM_QUESTIONS
+    correct_count = correct_answers_count.get(user_id, 0)
+    incorrect_count = incorrect_answers_count.get(user_id, 0)
+
+    if total_questions > 0:
+        percentage_correct = (correct_count / total_questions) * 100
+        percentage_incorrect = (incorrect_count / total_questions) * 100
+    else:
+        percentage_correct = 0
+        percentage_incorrect = 0
+
+    # Define emojis
+    correct_emoji = "✅"
+    incorrect_emoji = "❌"
+
+    # Display the results with emojis
+    results_message = "Challenge is over!\n\n"
+    results_message += f"Total questions: {total_questions}\n"
+    results_message += f"Correct answers: {correct_emoji} {correct_count} ({percentage_correct:.2f}%)\n"
+    results_message += f"Incorrect answers: {incorrect_emoji} {incorrect_count} ({percentage_incorrect:.2f}%)"
+
+    updater.bot.send_message(user_id, text=results_message)
+    del user_responses[user_id]
+
 
 # Update the receive_choice function
 def receive_choice(update, context: CallbackContext):
@@ -98,15 +145,50 @@ def receive_choice(update, context: CallbackContext):
 
         if is_correct:
             update.callback_query.answer("Correct answer!", show_alert=True)
+            # Increment the correct answers count for the user
+            correct_answers_count[user_id] = correct_answers_count.get(user_id, 0) + 1
         else:
             update.callback_query.answer("Incorrect answer. Try the next question.", show_alert=True)
+            # Increment the incorrect answers count for the user
+            incorrect_answers_count[user_id] = incorrect_answers_count.get(user_id, 0) + 1
 
         # Move to the next question or finish the challenge
         user_responses[user_id]['current_question_index'] += 1
         display_question(update, user_id)
+
+# ...
+
+def display_results(update, user_id):
+    # Calculate the percentage of correct answers
+    total_questions = NUM_QUESTIONS
+    correct_count = correct_answers_count.get(user_id, 0)
+    incorrect_count = incorrect_answers_count.get(user_id, 0)
+
+    if total_questions > 0:
+        percentage_correct = (correct_count / total_questions) * 100
+        percentage_incorrect = (incorrect_count / total_questions) * 100
     else:
-        # All questions have been answered
-        update.callback_query.answer("Challenge is over!", show_alert=True)
+        percentage_correct = 0
+        percentage_incorrect = 0
+
+    # Define emojis
+    correct_emoji = "✅"
+    incorrect_emoji = "❌"
+
+    # Display the results with emojis
+    results_message = "Challenge is over!\n\n"
+    results_message += f"Total questions: {total_questions}\n"
+    results_message += f"Correct answers: {correct_emoji} {correct_count} ({percentage_correct:.2f}%)\n"
+    results_message += f"Incorrect answers: {incorrect_emoji} {incorrect_count} ({percentage_incorrect:.2f}%)"
+
+
+    updater.bot.send_message(user_id, text=results_message)
+    # Log when a user finishes a challenge
+    logger.info(f"User (ID: {user_id}) finished a challenge with {correct_count} correct answers and {incorrect_count} incorrect answers.")
+
+    del user_responses[user_id]
+
+# ...
 
 # Create a command handler for starting the challenge
 dispatcher.add_handler(CommandHandler('start', start))
