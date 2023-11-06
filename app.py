@@ -28,7 +28,7 @@ incorrect_answers_count = {}
 
 def get_random_question():
     # Connect to your SQLite database
-    conn = sqlite3.connect('QuestionsAnswersDB')
+    conn = sqlite3.connect('sql/QuestionsAnswersDB')
     cursor = conn.cursor()
 
     # Count the total number of questions in the Questions table

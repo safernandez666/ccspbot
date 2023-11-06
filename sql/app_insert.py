@@ -1,28 +1,28 @@
 import sqlite3
 
-# Establecer una conexión a la base de datos
-conn = sqlite3.connect('QuestionsAnswersDB')
+# Establish a connection to the database
+conn = sqlite3.connect('sql/QuestionsAnswersDB')
 
-# Crear un cursor
+# Create a cursor
 cursor = conn.cursor()
 
 cursor.execute("INSERT INTO Questions (QuestionText) VALUES (?)",
-               ("Which of the following roles involves overseeing billing, purchasing, and requesting audit reports for an organization within a cloud environment?",))
+               ("What does the management plane typically utilize to perform administrative functions on the hypervisors that it has access to?",))
 
-# Obtener el ID de la pregunta recién insertada
+# Get the ID of the newly inserted question
 cursor.execute("SELECT last_insert_rowid() AS LastID")
 last_inserted_id = cursor.fetchone()[0]
 
-# Insertar las respuestas para esa pregunta en la tabla "Answers"
+# Insert the answers for that question into the "Answers" table
 answers = [
-    (last_inserted_id, 'Cloud service integrator', 0),
-    (last_inserted_id, 'Cloud service administrator', 0),
-    (last_inserted_id, 'Cloud service user', 0),
-    (last_inserted_id, 'Cloud service business manager', 1)
+    (last_inserted_id, 'Scripts', 0),
+    (last_inserted_id, 'RDP', 0),
+    (last_inserted_id, 'APIs', 1),
+    (last_inserted_id, 'XML', 0)
 ]
 
 cursor.executemany("INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (?, ?, ?)", answers)
 
-# Confirmar los cambios y cerrar la conexión
+# Confirm the changes and close the connection
 conn.commit()
 conn.close()
