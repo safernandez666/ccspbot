@@ -1,8 +1,7 @@
 -- Create the Questions table
 CREATE TABLE Questions (
     QuestionID INTEGER PRIMARY KEY,
-    QuestionText TEXT,
-    CorrectAnswerID INTEGER
+    QuestionText TEXT
 );
 
 -- Create the Answers table
