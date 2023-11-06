@@ -13,6 +13,9 @@ dispatcher = updater.dispatcher
 # Dictionary to store user responses
 user_responses = {}
 
+# Add a variable to specify the number of questions in the challenge
+NUM_QUESTIONS = 3
+
 def get_random_question():
     # Connect to your SQLite database
     conn = sqlite3.connect('QuestionsAnswersDB')
@@ -39,73 +42,81 @@ def get_random_question():
     return question_text, answer_options
 
 def start(update, context):
-    update.message.reply_text("Welcome! Type /askquestion to start the quiz.")
+    update.message.reply_text("Welcome! Type /askchallenge to start the challenge.")
 
-# Command to start the multiple-choice question
-def start_question(update, context: CallbackContext):
+# Command to start the challenge
+def start_challenge(update, context: CallbackContext):
     user_id = update.effective_user.id
-    user_responses[user_id] = {'current_question_index': -1, 'questions': []}
+    user_responses[user_id] = {'current_question_index': 0, 'questions': []}
 
-    # Generate a new question
-    question_text, answer_options = get_random_question()
-    user_responses[user_id]['questions'].append((question_text, answer_options))
-    user_responses[user_id]['current_question_index'] += 1
+    # Add questions to the challenge until the desired number is reached
+    for _ in range(NUM_QUESTIONS):
+        question_text, answer_options = get_random_question()
+        user_responses[user_id]['questions'].append((question_text, answer_options))
 
-    question = question_text
-    options = [answer[0] for answer in answer_options]
-    keyboard = [[InlineKeyboardButton(option, callback_data=option)] for option in options]
-    reply_markup = InlineKeyboardMarkup(keyboard)
+    # Display the first question
+    display_question(update, user_id)
 
-    update.message.reply_text(question, reply_markup=reply_markup)
+def display_question(update, user_id):
+    current_question_index = user_responses[user_id]['current_question_index']
 
+    if current_question_index < NUM_QUESTIONS:
+        question_text = user_responses[user_id]['questions'][current_question_index][0]
+        answer_options = user_responses[user_id]['questions'][current_question_index][1]
+
+        options = [answer[0] for answer in answer_options]
+        keyboard = [[InlineKeyboardButton(option, callback_data=option)] for option in options]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Use the user_id to send the message
+        updater.bot.send_message(user_id, text=question_text, reply_markup=reply_markup)
+    else:
+        # All questions have been answered
+        updater.bot.send_message(user_id, text="Challenge is over! Thank you for participating.")
+        del user_responses[user_id]
+
+# Update the receive_choice function
 def receive_choice(update, context: CallbackContext):
     user_id = update.callback_query.from_user.id
     choice = update.callback_query.data
 
     if user_id not in user_responses:
-        # Handle the case where the user hasn't started the quiz or the quiz is over.
-        update.callback_query.answer("No active quiz.")
+        # Handle the case where the user hasn't started the challenge or the challenge is over.
+        update.callback_query.answer("No active challenge.")
         return
 
-    user_responses[user_id]['choice'] = choice
+    current_question_index = user_responses[user_id]['current_question_index']
 
-    # Get the IsCorrect value of the selected answer from the answer_options list
-    is_correct = next(answer[1] for answer in user_responses[user_id]['questions'][user_responses[user_id]['current_question_index']][1] if answer[0] == choice)
+    if current_question_index < NUM_QUESTIONS:
+        is_correct = False
 
-    if is_correct:
-        update.callback_query.answer("Correct answer!", show_alert=True)
+        # Check if the choice is correct
+        for answer in user_responses[user_id]['questions'][current_question_index][1]:
+            if answer[0] == choice and answer[1] == 1:
+                is_correct = True
+                break
+
+        if is_correct:
+            update.callback_query.answer("Correct answer!", show_alert=True)
+        else:
+            update.callback_query.answer("Incorrect answer. Try the next question.", show_alert=True)
+
+        # Move to the next question or finish the challenge
+        user_responses[user_id]['current_question_index'] += 1
+        display_question(update, user_id)
     else:
-        correct_answer = next(answer[0] for answer in user_responses[user_id]['questions'][user_responses[user_id]['current_question_index']][1] if answer[1] == 1)
-        update.callback_query.answer("Incorrect answer. The correct answer is: " + correct_answer, show_alert=True)
+        # All questions have been answered
+        update.callback_query.answer("Challenge is over!", show_alert=True)
 
-    # Generate and show a new question
-    question_text, answer_options = get_random_question()
-    user_responses[user_id]['questions'].append((question_text, answer_options))
-    user_responses[user_id]['current_question_index'] += 1
-
-    if user_responses[user_id]['current_question_index'] < len(user_responses[user_id]['questions']):
-        question = question_text
-        options = [answer[0] for answer in answer_options]
-        keyboard = [[InlineKeyboardButton(option, callback_data=option)] for option in options]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-
-        update.callback_query.message.reply_text(question, reply_markup=reply_markup)
-        update.callback_query.message.reply_text(answer_message)
-    else:
-        # No more questions, finish the quiz
-        update.callback_query.message.reply_text("Quiz is over! Thank you for participating.")
-        del user_responses[user_id]
-
-
-# Create a command handler for starting the multiple-choice question
+# Create a command handler for starting the challenge
 dispatcher.add_handler(CommandHandler('start', start))
-dispatcher.add_handler(CommandHandler('askquestion', start_question))
+dispatcher.add_handler(CommandHandler('askchallenge', start_challenge))
 # Create a callback query handler for processing the user's choice
 dispatcher.add_handler(CallbackQueryHandler(receive_choice))
 
 # Add a message handler to handle text input
 def text_input(update, context):
-    update.message.reply_text("Please type /askquestion to start the quiz.")
+    update.message.reply_text("Please type /askchallenge to start the challenge.")
 
 dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, text_input))
 
