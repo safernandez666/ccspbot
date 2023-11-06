@@ -2,7 +2,7 @@ import telegram
 from decouple import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
-import random, logging, sqlite3
+import random, logging, sqlite3, random
 from telegram.ext import CallbackContext
 
 # Replace 'YOUR_BOT_TOKEN' with the token you received from the BotFather
@@ -73,11 +73,11 @@ def start_challenge(update, context: CallbackContext):
     # Add questions to the challenge until the desired number is reached
     for _ in range(NUM_QUESTIONS):
         question_text, answer_options = get_random_question()
+        random.shuffle(answer_options)  # Shuffle the answer options randomly
         user_responses[user_id]['questions'].append((question_text, answer_options))
 
     # Display the first question
     display_question(update, user_id)
-
 
 def display_question(update, user_id):
     current_question_index = user_responses[user_id]['current_question_index']
@@ -136,19 +136,23 @@ def receive_choice(update, context: CallbackContext):
 
     if current_question_index < NUM_QUESTIONS:
         is_correct = False
+        correct_answers = []
 
         # Check if the choice is correct
         for answer in user_responses[user_id]['questions'][current_question_index][1]:
             if answer[0] == choice and answer[1] == 1:
                 is_correct = True
-                break
+            if answer[1] == 1:
+                correct_answers.append(answer[0])
 
         if is_correct:
             update.callback_query.answer("Correct answer!", show_alert=True)
             # Increment the correct answers count for the user
             correct_answers_count[user_id] = correct_answers_count.get(user_id, 0) + 1
         else:
-            update.callback_query.answer("Incorrect answer. Try the next question.", show_alert=True)
+            # Display the correct answer(s) in the alert message
+            correct_answer_str = "Correct answer(s): " + ", ".join(correct_answers)
+            update.callback_query.answer(f"Incorrect answer. {correct_answer_str}. Try the next question.", show_alert=True)
             # Increment the incorrect answers count for the user
             incorrect_answers_count[user_id] = incorrect_answers_count.get(user_id, 0) + 1
 
