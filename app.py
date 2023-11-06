@@ -73,10 +73,10 @@ def receive_choice(update, context: CallbackContext):
     is_correct = next(answer[1] for answer in user_responses[user_id]['questions'][user_responses[user_id]['current_question_index']][1] if answer[0] == choice)
 
     if is_correct:
-        update.callback_query.answer("Correct answer!")
+        update.callback_query.answer("Correct answer!", show_alert=True)
     else:
         correct_answer = next(answer[0] for answer in user_responses[user_id]['questions'][user_responses[user_id]['current_question_index']][1] if answer[1] == 1)
-        update.callback_query.answer(f"Incorrect answer. The correct answer is: {correct_answer}")
+        update.callback_query.answer("Incorrect answer. The correct answer is: " + correct_answer, show_alert=True)
 
     # Generate and show a new question
     question_text, answer_options = get_random_question()
@@ -90,10 +90,12 @@ def receive_choice(update, context: CallbackContext):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         update.callback_query.message.reply_text(question, reply_markup=reply_markup)
+        update.callback_query.message.reply_text(answer_message)
     else:
         # No more questions, finish the quiz
         update.callback_query.message.reply_text("Quiz is over! Thank you for participating.")
         del user_responses[user_id]
+
 
 # Create a command handler for starting the multiple-choice question
 dispatcher.add_handler(CommandHandler('start', start))
