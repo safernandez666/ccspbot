@@ -52,7 +52,21 @@ def get_random_question():
     return question_text, answer_options
 
 def start(update, context):
-    update.message.reply_text("Welcome! Type /askchallenge to start the challenge.")
+    # Connect to your SQLite database
+    conn = sqlite3.connect('sql/QuestionsAnswersDB')
+    cursor = conn.cursor()
+
+    # Count the total number of questions in the Questions table
+    cursor.execute("SELECT COUNT(*) FROM Questions")
+    total_questions = cursor.fetchone()[0]
+
+    # Close the database connection
+    conn.close()
+
+    message = f"Welcome! Type /askchallenge to start the challenge. There are {total_questions} questions available in the database."
+
+    update.message.reply_text(message)
+
 
 # Command to start the challenge
 def start_challenge(update, context: CallbackContext):
@@ -77,7 +91,10 @@ def start_challenge(update, context: CallbackContext):
         user_responses[user_id]['questions'].append((question_text, answer_options))
 
     # Display the first question
+    message = f"Challenge started! You will be asked {NUM_QUESTIONS} questions. Good luck!"
+    update.message.reply_text(message)
     display_question(update, user_id)
+
 
 def display_question(update, user_id):
     current_question_index = user_responses[user_id]['current_question_index']
@@ -178,13 +195,14 @@ def display_results(update, user_id):
     # Define emojis
     correct_emoji = "✅"
     incorrect_emoji = "❌"
+    reload_emoji = "🔄"
 
     # Display the results with emojis
     results_message = "Challenge is over!\n\n"
     results_message += f"Total questions: {total_questions}\n"
     results_message += f"Correct answers: {correct_emoji} {correct_count} ({percentage_correct:.2f}%)\n"
-    results_message += f"Incorrect answers: {incorrect_emoji} {incorrect_count} ({percentage_incorrect:.2f}%)"
-
+    results_message += f"Incorrect answers: {incorrect_emoji} {incorrect_count} ({percentage_incorrect:.2f}%)\n\n"
+    results_message += f"Please type {reload_emoji} /askchallenge to start the challenge again."
 
     updater.bot.send_message(user_id, text=results_message)
     # Log when a user finishes a challenge
