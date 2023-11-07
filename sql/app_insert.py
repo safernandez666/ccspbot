@@ -7,7 +7,7 @@ conn = sqlite3.connect('sql/QuestionsAnswersDB')
 cursor = conn.cursor()
 
 cursor.execute("INSERT INTO Questions (QuestionText) VALUES (?)",
-               ("What does the management plane typically utilize to perform administrative functions on the hypervisors that it has access to?",))
+               ("Which of the following storage types is most closely associated with a database-type storage implementation?",))
 
 # Get the ID of the newly inserted question
 cursor.execute("SELECT last_insert_rowid() AS LastID")
@@ -15,10 +15,10 @@ last_inserted_id = cursor.fetchone()[0]
 
 # Insert the answers for that question into the "Answers" table
 answers = [
-    (last_inserted_id, 'Scripts', 0),
-    (last_inserted_id, 'RDP', 0),
-    (last_inserted_id, 'APIs', 1),
-    (last_inserted_id, 'XML', 0)
+    (last_inserted_id, 'Object', 0),
+    (last_inserted_id, 'Unstructured', 0),
+    (last_inserted_id, 'Volume', 0),
+    (last_inserted_id, 'Structured', 1)
 ]
 
 cursor.executemany("INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (?, ?, ?)", answers)
