@@ -7,7 +7,7 @@ conn = sqlite3.connect('sql/QuestionsAnswersDB')
 cursor = conn.cursor()
 
 cursor.execute("INSERT INTO Questions (QuestionText) VALUES (?)",
-               ("What is the biggest negative to leasing space in a data center versus building or maintain your own?",))
+               ("What type of PII is controlled based on laws and carries legal penalties for noncompliance with requirements?",))
 
 # Get the ID of the newly inserted question
 cursor.execute("SELECT last_insert_rowid() AS LastID")
@@ -15,10 +15,10 @@ last_inserted_id = cursor.fetchone()[0]
 
 # Insert the answers for that question into the "Answers" table
 answers = [
-    (last_inserted_id, 'Regulation', 0),
-    (last_inserted_id, 'Certification', 0),
-    (last_inserted_id, 'Costs', 0),
-    (last_inserted_id, 'Control', 1)
+    (last_inserted_id, 'Regulated', 1),
+    (last_inserted_id, 'Contractual', 0),
+    (last_inserted_id, 'Specific', 0),
+    (last_inserted_id, 'Jurisdictional', 0)
 ]
 
 cursor.executemany("INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (?, ?, ?)", answers)
