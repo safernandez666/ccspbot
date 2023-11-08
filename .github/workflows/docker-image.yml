@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Set Environment Variable from GitHub Secrets
+      env:
+        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      run: echo "BOT_TOKEN=$BOT_TOKEN" >> $GITHUB_ENV
     - name: docker login
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD

@@ -2,11 +2,11 @@ import telegram
 from decouple import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
-import random, logging, sqlite3, random
+import random, logging, sqlite3, random, os
 from telegram.ext import CallbackContext
 
 # Replace 'YOUR_BOT_TOKEN' with the token you received from the BotFather
-updater = Updater(token=config('TOKEN_BOT'), use_context=True)
+updater = Updater(token=os.environ.get('TOKEN_BOT'), use_context=True)
 dispatcher = updater.dispatcher
 
 # Configure the logging module
