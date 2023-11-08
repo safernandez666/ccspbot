@@ -1,8 +1,8 @@
 # Use an official Python runtime as a parent image
 FROM python:3.10-slim
 
-ARG BOT_TOKEN
-ENV BOT_TOKEN=$BOT_TOKEN
+ARG TOKEN_BOT
+ENV TOKEN_BOT=$TOKEN_BOT
 
 # Set the working directory to /app
 WORKDIR /app

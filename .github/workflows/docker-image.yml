@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set Environment Variable from GitHub Secrets
       env:
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-      run: echo "BOT_TOKEN=$BOT_TOKEN" >> $GITHUB_ENV
+        BOT_TOKEN: ${{ secrets.TOKEN_BOT }}
+      run: echo "TOKEN_BOT=$TOKEN_BOT" >> $GITHUB_ENV
     - name: docker login
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
