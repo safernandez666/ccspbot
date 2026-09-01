@@ -1,0 +1,733 @@
+{
+  "domain": 3,
+  "questions": [
+    {
+      "slug": "d3-0001",
+      "subdomain": "3.1",
+      "difficulty": 1,
+      "question": "What does the management plane typically utilize to perform administrative functions on the hypervisors that it has access to?",
+      "answers": [
+        {
+          "text": "Scripts",
+          "correct": false
+        },
+        {
+          "text": "RDP",
+          "correct": false
+        },
+        {
+          "text": "APIs",
+          "correct": true
+        },
+        {
+          "text": "XML",
+          "correct": false
+        }
+      ],
+      "explanation": "The management plane drives hypervisors through their APIs, which is what makes cloud orchestration programmable and also what makes the management plane such a high-value target. Scripts are merely a way of calling those APIs, while RDP and XML are a remote desktop protocol and a data format respectively.",
+      "reference": "CCSP 3.1 - Management plane"
+    },
+    {
+      "slug": "d3-0002",
+      "subdomain": "3.1",
+      "difficulty": 1,
+      "question": "Which networking concept in a cloud environment allows for network segregation and isolation of IP spaces?",
+      "answers": [
+        {
+          "text": "LAN",
+          "correct": false
+        },
+        {
+          "text": "VLAN",
+          "correct": true
+        },
+        {
+          "text": "WAN",
+          "correct": false
+        },
+        {
+          "text": "PLAN",
+          "correct": false
+        }
+      ],
+      "explanation": "A VLAN logically segments a physical network so separate IP spaces stay isolated from each other. A LAN and a WAN describe the geographic scope of a network rather than segmentation within it, and 'PLAN' is not a networking term.",
+      "reference": "CCSP 3.1 - Network and communications"
+    },
+    {
+      "slug": "d3-0003",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "Which of the following standards primarily pertains to cabling designs and setups in a data center?",
+      "answers": [
+        {
+          "text": "IDCA",
+          "correct": false
+        },
+        {
+          "text": "BICSI",
+          "correct": true
+        },
+        {
+          "text": "NFPA",
+          "correct": false
+        },
+        {
+          "text": "Uptime Institute",
+          "correct": false
+        }
+      ],
+      "explanation": "BICSI publishes the ANSI/BICSI 002 standard, which covers cabling design and installation among other data centre topics. The Uptime Institute defines the tier model for availability, IDCA takes a macro-level view of the whole facility, and NFPA writes fire protection standards.",
+      "reference": "CCSP 3.2 - Physical design"
+    },
+    {
+      "slug": "d3-0004",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "Which of the following publishes the most commonly used standard for data center design in regard to tiers and topologies?",
+      "answers": [
+        {
+          "text": "IDCA",
+          "correct": false
+        },
+        {
+          "text": "BICSI",
+          "correct": false
+        },
+        {
+          "text": "NFPA",
+          "correct": false
+        },
+        {
+          "text": "Uptime Institute",
+          "correct": true
+        }
+      ],
+      "explanation": "The Uptime Institute's Tier I-IV model is the most widely used standard for data centre topology and redundancy. BICSI addresses cabling, NFPA fire safety, and IDCA offers an alternative macro-level framework that never achieved the same adoption.",
+      "reference": "CCSP 3.2 - Design resilience"
+    },
+    {
+      "slug": "d3-0005",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "What type of segregation and separation of resources is needed within a cloud environment for multitenancy purposes versus a traditional data center model?",
+      "answers": [
+        {
+          "text": "Virtual",
+          "correct": false
+        },
+        {
+          "text": "Security",
+          "correct": false
+        },
+        {
+          "text": "Physical",
+          "correct": false
+        },
+        {
+          "text": "Logical",
+          "correct": true
+        }
+      ],
+      "explanation": "Multitenancy is achieved through logical segregation, because tenants deliberately share the same physical hardware - that sharing is what makes the economics work. Physical separation would defeat the purpose, 'virtual' describes the mechanism rather than the type of segregation, and 'security' is the goal rather than the method.",
+      "reference": "CCSP 3.1 - Virtualization"
+    },
+    {
+      "slug": "d3-0006",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "What is the biggest benefit to leasing space in a data center versus building or maintain your own?",
+      "answers": [
+        {
+          "text": "Certification",
+          "correct": false
+        },
+        {
+          "text": "Control",
+          "correct": false
+        },
+        {
+          "text": "Regulation",
+          "correct": false
+        },
+        {
+          "text": "Costs",
+          "correct": true
+        }
+      ],
+      "explanation": "Leasing spreads the enormous capital cost of a facility across many tenants, so cost is the headline benefit. Certification and regulation are unaffected either way, and control is what you give up by leasing rather than what you gain.",
+      "reference": "CCSP 3.2 - Physical design"
+    },
+    {
+      "slug": "d3-0007",
+      "subdomain": "3.4",
+      "difficulty": 2,
+      "question": "Which of the following security measures done at the network layer in a traditional data center are also applicable to a cloud environment?",
+      "answers": [
+        {
+          "text": "Dedicated switches",
+          "correct": false
+        },
+        {
+          "text": "Direct connections",
+          "correct": false
+        },
+        {
+          "text": "Redundant network circuits",
+          "correct": false
+        },
+        {
+          "text": "Trust zones",
+          "correct": true
+        }
+      ],
+      "explanation": "Trust zones are a logical construct, so they transfer directly to a cloud environment. Dedicated switches, direct connections and redundant circuits are all physical arrangements that a tenant has no ability to specify in someone else's data centre.",
+      "reference": "CCSP 3.4 - System, storage and communication protection"
+    },
+    {
+      "slug": "d3-0008",
+      "subdomain": "3.1",
+      "difficulty": 1,
+      "question": "Which protocol allows a system to use block-level storage as if it was a SAN, but over TCP network traffic instead?",
+      "answers": [
+        {
+          "text": "SCSI",
+          "correct": false
+        },
+        {
+          "text": "TLS",
+          "correct": false
+        },
+        {
+          "text": "SATA",
+          "correct": false
+        },
+        {
+          "text": "iSCSI",
+          "correct": true
+        }
+      ],
+      "explanation": "iSCSI carries SCSI block commands over TCP/IP, so a host sees remote storage as if it were a locally attached SAN. Plain SCSI and SATA are direct physical attachment standards, and TLS is a security protocol rather than a storage transport.",
+      "reference": "CCSP 3.1 - Storage"
+    },
+    {
+      "slug": "d3-0009",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "Why does a Type 2 hypervisor typically offer less security control than a Type 1 hypervisor?",
+      "answers": [
+        {
+          "text": "A Type 2 hypervisor is always exposed to the public Internet for federated identity access.",
+          "correct": false
+        },
+        {
+          "text": "A Type 2 hypervisor is open source, so attackers can more easily find exploitable vulnerabilities with that access.",
+          "correct": false
+        },
+        {
+          "text": "A Type 2 hypervisor allows users to directly perform some functions with their own access.",
+          "correct": false
+        },
+        {
+          "text": "A Type 2 hypervisor runs on top of another operating system and is dependent on the security of the OS for its own security.",
+          "correct": true
+        }
+      ],
+      "explanation": "A Type 2 hypervisor runs as an application on a host operating system, so it inherits every weakness of that OS and of everything else installed on it. Type 2 hypervisors are not inherently open source or Internet-exposed, and neither type patches its guests.",
+      "reference": "CCSP 3.1 - Virtualization"
+    },
+    {
+      "slug": "d3-0010",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "Which of the following is the optimal temperature for a data center, per the guidelines established by the America Society of Heating, Refrigeration, and Air Conditioning Engineers (ASHRAE)?",
+      "answers": [
+        {
+          "text": "69.8-86.0degF (21-30degC)",
+          "correct": false
+        },
+        {
+          "text": "44.6-60-8degF(7-16degC)",
+          "correct": false
+        },
+        {
+          "text": "51.8-66.2degF(11-19degC)",
+          "correct": false
+        },
+        {
+          "text": "64.4-80.6degF(18-27degC)",
+          "correct": true
+        }
+      ],
+      "explanation": "ASHRAE's recommended envelope for a data centre is 64.4-80.6 degrees Fahrenheit (18-27 Celsius). The colder ranges waste enormous cooling energy for no reliability gain, and the widest range exceeds the recommended envelope at its upper end.",
+      "reference": "CCSP 3.2 - Environmental design"
+    },
+    {
+      "slug": "d3-0011",
+      "subdomain": "3.2",
+      "difficulty": 2,
+      "question": "Which of the following is considered an internal redundancy for a data center?",
+      "answers": [
+        {
+          "text": "Power distribution units",
+          "correct": true
+        },
+        {
+          "text": "Network circuits",
+          "correct": false
+        },
+        {
+          "text": "Power substations",
+          "correct": false
+        },
+        {
+          "text": "Generators",
+          "correct": false
+        }
+      ],
+      "explanation": "Power distribution units sit inside the facility and distribute power to racks, so redundant PDUs are internal redundancy. Generators, power substations and network circuits all come from or sit outside the building, making them external redundancy.",
+      "reference": "CCSP 3.2 - Design resilience"
+    },
+    {
+      "slug": "d3-0012",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "Which of the following represents a control on the maximum amount of resources that a single customer, virtual machine, or application can consume within a cloud environment?",
+      "answers": [
+        {
+          "text": "Share",
+          "correct": false
+        },
+        {
+          "text": "Reservation",
+          "correct": false
+        },
+        {
+          "text": "Provision",
+          "correct": false
+        },
+        {
+          "text": "Limit",
+          "correct": true
+        }
+      ],
+      "explanation": "A limit is the ceiling on what one customer, VM or application may consume, which stops a single tenant starving the others. A reservation is the opposite - a guaranteed floor - and a share sets relative priority when contention occurs. 'Provision' is not one of these three controls.",
+      "reference": "CCSP 3.1 - Compute"
+    },
+    {
+      "slug": "d3-0013",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "Which of the following represents a prioritization of applications or cloud customers for the allocation of additional requested resources when there is a limitation on available resources?",
+      "answers": [
+        {
+          "text": "Provision",
+          "correct": false
+        },
+        {
+          "text": "Limit",
+          "correct": false
+        },
+        {
+          "text": "Reservation",
+          "correct": false
+        },
+        {
+          "text": "Share",
+          "correct": true
+        }
+      ],
+      "explanation": "A share sets relative priority, so when resources are constrained the customer with the larger share receives proportionally more. A limit caps consumption and a reservation guarantees a minimum; neither expresses priority between competing consumers.",
+      "reference": "CCSP 3.1 - Compute"
+    },
+    {
+      "slug": "d3-0014",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "Which of the following statements accurately describes VLANs?",
+      "answers": [
+        {
+          "text": "They are not restricted to the same rack but restricted to same switches.",
+          "correct": false
+        },
+        {
+          "text": "They are restricted to the same racks and data centers.",
+          "correct": false
+        },
+        {
+          "text": "They are not restricted to the name rack but restricted to the same data center.",
+          "correct": false
+        },
+        {
+          "text": "They are not restricted to the same data center or the same racks.",
+          "correct": true
+        }
+      ],
+      "explanation": "A VLAN is a logical construct, so with trunking it can span switches, racks and even data centres - the whole point is that membership is independent of physical location. Every other option imposes a physical boundary that VLANs specifically remove.",
+      "reference": "CCSP 3.1 - Network and communications"
+    },
+    {
+      "slug": "d3-0015",
+      "subdomain": "3.4",
+      "difficulty": 2,
+      "question": "Which of the following security technologies is commonly used to give administrators access into trust zones within an environment?",
+      "answers": [
+        {
+          "text": "HTTPS",
+          "correct": false
+        },
+        {
+          "text": "IPSec",
+          "correct": false
+        },
+        {
+          "text": "WAF",
+          "correct": false
+        },
+        {
+          "text": "VPN",
+          "correct": true
+        }
+      ],
+      "explanation": "A VPN terminates inside the trust zone and authenticates the administrator before granting access, which is how remote admins reach protected segments. IPsec is a building block a VPN may use rather than the access mechanism, HTTPS secures a single web session, and a WAF filters inbound application traffic.",
+      "reference": "CCSP 3.4 - Identification, authentication and authorization"
+    },
+    {
+      "slug": "d3-0016",
+      "subdomain": "3.2",
+      "difficulty": 2,
+      "question": "Which of the following pertains to a macro level approach to data center design rather than the traditional tiered approach to data centers?",
+      "answers": [
+        {
+          "text": "Uptime Institute",
+          "correct": false
+        },
+        {
+          "text": "BICSI",
+          "correct": false
+        },
+        {
+          "text": "NFPA",
+          "correct": false
+        },
+        {
+          "text": "IDCA",
+          "correct": true
+        }
+      ],
+      "explanation": "IDCA's Infinity Paradigm takes a macro view, assessing the whole facility and its topology rather than assigning a single tier. The Uptime Institute is the tiered approach the question contrasts with, BICSI covers cabling, and NFPA fire safety.",
+      "reference": "CCSP 3.2 - Logical design"
+    },
+    {
+      "slug": "d3-0017",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "Why does a Type 1 hypervisor typically offer tighter security controls than a Type 2 hypervisor?",
+      "answers": [
+        {
+          "text": "A Type 1 hypervisor only hosts virtual machines with the same operating systems as the hypervisor.",
+          "correct": false
+        },
+        {
+          "text": "A Type 1 hypervisor performs hardware-level encryption for tighter security and efficiency.",
+          "correct": false
+        },
+        {
+          "text": "A Type 1 hypervisor also controls patching of its hosted virtual machines ensure they are always secure.",
+          "correct": false
+        },
+        {
+          "text": "A Type 1 hypervisor is tied directly to the bare metal and only runs with code necessary to perform its specific mission.",
+          "correct": true
+        }
+      ],
+      "explanation": "A Type 1 hypervisor runs directly on the hardware with only the code needed for virtualisation, so its attack surface is minimal. It does not restrict guests to matching operating systems, does not patch its guests, and does not perform hardware-level encryption.",
+      "reference": "CCSP 3.1 - Virtualization"
+    },
+    {
+      "slug": "d3-0018",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "What is the biggest negative to leasing space in a data center versus building or maintain your own?",
+      "answers": [
+        {
+          "text": "Regulation",
+          "correct": false
+        },
+        {
+          "text": "Certification",
+          "correct": false
+        },
+        {
+          "text": "Costs",
+          "correct": false
+        },
+        {
+          "text": "Control",
+          "correct": true
+        }
+      ],
+      "explanation": "Leasing means the facility is run to someone else's standards and priorities, so control is what you surrender. Cost is the benefit rather than the drawback, and certification and regulatory posture can be satisfied by a well-chosen colocation provider.",
+      "reference": "CCSP 3.2 - Physical design"
+    },
+    {
+      "slug": "d3-0019",
+      "subdomain": "3.1",
+      "difficulty": 2,
+      "question": "Which of the following represents a minimum guaranteed resource within a cloud environment for the cloud customer?",
+      "answers": [
+        {
+          "text": "Provision",
+          "correct": false
+        },
+        {
+          "text": "Limit",
+          "correct": false
+        },
+        {
+          "text": "Share",
+          "correct": false
+        },
+        {
+          "text": "Reservation",
+          "correct": true
+        }
+      ],
+      "explanation": "A reservation guarantees a customer a minimum amount of resource that is always available to them. A limit is the maximum ceiling, a share governs relative priority under contention, and 'provision' is not one of these controls.",
+      "reference": "CCSP 3.1 - Compute"
+    },
+    {
+      "slug": "d3-0020",
+      "subdomain": "3.1",
+      "difficulty": 3,
+      "question": "When is a virtual machine susceptible to attacks while a physical server in the same state would not be?",
+      "answers": [
+        {
+          "text": "When it is behind a WAF",
+          "correct": false
+        },
+        {
+          "text": "When it is behind an IPS",
+          "correct": false
+        },
+        {
+          "text": "When it is not patched",
+          "correct": false
+        },
+        {
+          "text": "When it is powered off",
+          "correct": true
+        }
+      ],
+      "explanation": "A powered-off VM is just a file on storage, so it can be copied, mounted or modified while none of its own defences - host firewall, agents, logging - are running, and it will not be patched either. A powered-off physical server is inert metal that offers an attacker nothing comparable. The other options describe protections that apply equally to physical machines.",
+      "reference": "CCSP 3.1 - Virtualization"
+    },
+    {
+      "slug": "d3-0021",
+      "subdomain": "3.2",
+      "difficulty": 2,
+      "question": "Which of the following is considered an external redundancy for a data center?",
+      "answers": [
+        {
+          "text": "Generators",
+          "correct": true
+        },
+        {
+          "text": "Power feeds to rack",
+          "correct": false
+        },
+        {
+          "text": "Power distribution units",
+          "correct": false
+        },
+        {
+          "text": "Storage systems",
+          "correct": false
+        }
+      ],
+      "explanation": "Generators sit outside the facility's normal supply chain and take over when external power fails, making them external redundancy. PDUs, feeds to the rack and storage systems are all inside the building and are therefore internal.",
+      "reference": "CCSP 3.2 - Design resilience"
+    },
+    {
+      "slug": "d3-0022",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "Which of the following is the optimal humidity level for a data center, per the guidelines established by the America Society of Heating, Refrigeration, and AirConditioning Engineers (ASHRAE)?",
+      "answers": [
+        {
+          "text": "40-60 percent relative humidity",
+          "correct": true
+        },
+        {
+          "text": "20-40 percent relative humidity",
+          "correct": false
+        },
+        {
+          "text": "50-75 percent relative humidity",
+          "correct": false
+        },
+        {
+          "text": "30-50 percent relative humidity",
+          "correct": false
+        }
+      ],
+      "explanation": "ASHRAE recommends 40-60 percent relative humidity. Below that range static discharge becomes a risk to equipment; above it condensation and corrosion do.",
+      "reference": "CCSP 3.2 - Environmental design"
+    },
+    {
+      "slug": "d3-0023",
+      "subdomain": "3.1",
+      "difficulty": 1,
+      "question": "What does SDN stand for within a cloud environment?",
+      "answers": [
+        {
+          "text": "Software-defined networking",
+          "correct": true
+        },
+        {
+          "text": "Software-dynamic networking",
+          "correct": false
+        },
+        {
+          "text": "Software-dependent networking",
+          "correct": false
+        },
+        {
+          "text": "System-dynamic nodes",
+          "correct": false
+        }
+      ],
+      "explanation": "SDN stands for software-defined networking, which separates the control plane from the forwarding plane so that network configuration becomes programmable. The other expansions are invented.",
+      "reference": "CCSP 3.1 - Network and communications"
+    },
+    {
+      "slug": "d3-0024",
+      "subdomain": "3.2",
+      "difficulty": 1,
+      "question": "Which of the following pertains to fire safety standards within a data center, specifically with their enormous electrical consumption?",
+      "answers": [
+        {
+          "text": "NFPA",
+          "correct": true
+        },
+        {
+          "text": "BICSI",
+          "correct": false
+        },
+        {
+          "text": "IDCA",
+          "correct": false
+        },
+        {
+          "text": "Uptime Institute",
+          "correct": false
+        }
+      ],
+      "explanation": "NFPA publishes fire protection standards, including those covering the electrical loads and suppression systems found in data centres. BICSI covers cabling, the Uptime Institute availability tiers, and IDCA a macro-level facility framework.",
+      "reference": "CCSP 3.2 - Environmental design"
+    },
+    {
+      "slug": "d3-0025",
+      "subdomain": "3.5",
+      "difficulty": 1,
+      "question": "Which value refers to the amount of time it takes to recover operations in a BCDR situation to meet management's objectives?",
+      "answers": [
+        {
+          "text": "RTO",
+          "correct": true
+        },
+        {
+          "text": "RSL",
+          "correct": false
+        },
+        {
+          "text": "RPO",
+          "correct": false
+        },
+        {
+          "text": "SRE",
+          "correct": false
+        }
+      ],
+      "explanation": "The recovery time objective is how long recovery may take before the impact becomes unacceptable. The recovery point objective is how much data loss is tolerable, the recovery service level is what proportion of capacity must be restored, and SRE is a job discipline rather than a BCDR metric.",
+      "reference": "CCSP 3.5 - Business requirements"
+    },
+    {
+      "slug": "d3-0026",
+      "subdomain": "3.5",
+      "difficulty": 1,
+      "question": "Which value refers to the amount of data an organization would need to recover in the event of a BCDR situation in order to reach an acceptable level of operations?",
+      "answers": [
+        {
+          "text": "RPO",
+          "correct": true
+        },
+        {
+          "text": "SRE",
+          "correct": false
+        },
+        {
+          "text": "RTO",
+          "correct": false
+        },
+        {
+          "text": "RSL",
+          "correct": false
+        }
+      ],
+      "explanation": "The recovery point objective defines how much data the organisation can afford to lose, and therefore how much must be recovered to resume acceptable operations. RTO is about elapsed time rather than data volume, RSL about the proportion of capacity restored, and SRE is not a BCDR metric.",
+      "reference": "CCSP 3.5 - Business requirements"
+    },
+    {
+      "slug": "d3-0027",
+      "subdomain": "3.5",
+      "difficulty": 2,
+      "question": "From a security perspective, which of the following is a major concern when evaluating possible BCDR solutions?",
+      "answers": [
+        {
+          "text": "Jurisdictions",
+          "correct": true
+        },
+        {
+          "text": "Auditing",
+          "correct": false
+        },
+        {
+          "text": "Access provisioning",
+          "correct": false
+        },
+        {
+          "text": "Authorization",
+          "correct": false
+        }
+      ],
+      "explanation": "A BCDR site in another country puts data under a second legal regime, which can breach residency rules or expose it to foreign lawful access - and the moment you fail over is the worst possible time to discover it. Auditing, access provisioning and authorisation are all controls you carry over to the recovery site by design.",
+      "reference": "CCSP 3.5 - Business continuity / disaster recovery strategy"
+    },
+    {
+      "slug": "d3-0028",
+      "subdomain": "3.4",
+      "difficulty": 1,
+      "question": "Which of the following is NOT a factor that is part of a firewall configuration?",
+      "answers": [
+        {
+          "text": "Encryption",
+          "correct": true
+        },
+        {
+          "text": "Port",
+          "correct": false
+        },
+        {
+          "text": "Protocol",
+          "correct": false
+        },
+        {
+          "text": "Source IP",
+          "correct": false
+        }
+      ],
+      "explanation": "A firewall rule matches on source and destination IP, port and protocol, and then permits or denies. Encryption is handled by protocols such as IPsec or TLS, not by the firewall's filtering decision.",
+      "reference": "CCSP 3.4 - System, storage and communication protection"
+    }
+  ]
+}

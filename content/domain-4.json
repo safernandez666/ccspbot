@@ -1,0 +1,421 @@
+{
+  "domain": 4,
+  "questions": [
+    {
+      "slug": "d4-0001",
+      "subdomain": "4.5",
+      "difficulty": 1,
+      "question": "What is the only data format permitted with the SOAP API?",
+      "answers": [
+        {
+          "text": "HTML",
+          "correct": false
+        },
+        {
+          "text": "SAML",
+          "correct": false
+        },
+        {
+          "text": "XSML",
+          "correct": false
+        },
+        {
+          "text": "XML",
+          "correct": true
+        }
+      ],
+      "explanation": "SOAP is an XML protocol by definition: the envelope, header and body are all XML, and no other encoding is permitted. REST is the interface that accepts multiple formats. SAML is an XML-based assertion format, not a SOAP payload format, and HTML is a presentation language.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0002",
+      "subdomain": "4.5",
+      "difficulty": 1,
+      "question": "Which data formats are most commonly used with the REST API?",
+      "answers": [
+        {
+          "text": "JSON and SAML",
+          "correct": false
+        },
+        {
+          "text": "XML and SAML",
+          "correct": false
+        },
+        {
+          "text": "SAML and HTML",
+          "correct": false
+        },
+        {
+          "text": "XML and JSON",
+          "correct": true
+        }
+      ],
+      "explanation": "REST is format-agnostic and in practice carries XML and JSON, with JSON dominant because it is lighter to parse. SAML is an authentication assertion format rather than a general payload format, and HTML is for rendering pages, so any option pairing them is wrong.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0003",
+      "subdomain": "4.1",
+      "difficulty": 2,
+      "question": "Which of the following threat types involves an application that does not validate authorization for portions of itself after the initial checks?",
+      "answers": [
+        {
+          "text": "Injection",
+          "correct": false
+        },
+        {
+          "text": "Cross-site scripting",
+          "correct": false
+        },
+        {
+          "text": "Cross-site request forgery",
+          "correct": false
+        },
+        {
+          "text": "Missing function-level access control",
+          "correct": true
+        }
+      ],
+      "explanation": "Missing function-level access control is the failure to re-check authorisation on each function after the initial login check, so a user who knows a URL can reach functions they were never granted. Injection is untrusted data reaching an interpreter, XSS executes script in the victim's browser, and CSRF rides an existing authenticated session.",
+      "reference": "CCSP 4.1 - Common cloud vulnerabilities"
+    },
+    {
+      "slug": "d4-0004",
+      "subdomain": "4.5",
+      "difficulty": 1,
+      "question": "Which protocol does the REST API depend on?",
+      "answers": [
+        {
+          "text": "SAML",
+          "correct": false
+        },
+        {
+          "text": "SSH",
+          "correct": false
+        },
+        {
+          "text": "XML",
+          "correct": false
+        },
+        {
+          "text": "HTTP",
+          "correct": true
+        }
+      ],
+      "explanation": "REST is defined over HTTP and uses its verbs, status codes and caching semantics. XML and SAML are data formats carried over a protocol rather than protocols themselves, and SSH is a remote shell transport unrelated to REST.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0005",
+      "subdomain": "4.5",
+      "difficulty": 1,
+      "question": "Which of the following APIs are most commonly used within a cloud environment?",
+      "answers": [
+        {
+          "text": "REST and SAML",
+          "correct": false
+        },
+        {
+          "text": "REST and XML",
+          "correct": false
+        },
+        {
+          "text": "XML and SAML",
+          "correct": false
+        },
+        {
+          "text": "SOAP and REST",
+          "correct": true
+        }
+      ],
+      "explanation": "SOAP and REST are the two API styles found throughout cloud services. XML and SAML are formats, not APIs, so any option offering them as an API type is wrong on its face.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0006",
+      "subdomain": "4.1",
+      "difficulty": 2,
+      "question": "Which of the following threat types involves the sending of untrusted data to a user's browser to be executed with their own credentials and access?",
+      "answers": [
+        {
+          "text": "Missing function level access control",
+          "correct": false
+        },
+        {
+          "text": "Injection",
+          "correct": false
+        },
+        {
+          "text": "Cross-site request forgery",
+          "correct": false
+        },
+        {
+          "text": "Cross-site scripting",
+          "correct": true
+        }
+      ],
+      "explanation": "Cross-site scripting is untrusted data sent to a browser and executed there with the victim's own credentials and access. CSRF is different: it makes the victim's browser issue a forged request to another site using an existing session, without injecting script. Injection targets a server-side interpreter, and missing function-level access control is an authorisation failure.",
+      "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP"
+    },
+    {
+      "slug": "d4-0007",
+      "subdomain": "4.1",
+      "difficulty": 2,
+      "question": "Which of the following threat types can occur when encryption is not properly applied or insecure transport mechanisms are used?",
+      "answers": [
+        {
+          "text": "Security misconfiguration",
+          "correct": false
+        },
+        {
+          "text": "Insecure direct object references",
+          "correct": false
+        },
+        {
+          "text": "Sensitive data exposure",
+          "correct": true
+        },
+        {
+          "text": "Unvalidated redirects and forwards",
+          "correct": false
+        }
+      ],
+      "explanation": "Sensitive data exposure is the category for data left unencrypted at rest or carried over an insecure transport. Security misconfiguration concerns unhardened settings, insecure direct object references expose internal identifiers, and unvalidated redirects send users to hostile sites - none of which is about the encryption of the data itself.",
+      "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP"
+    },
+    {
+      "slug": "d4-0008",
+      "subdomain": "4.5",
+      "difficulty": 2,
+      "question": "What does the REST API support that SOAP does NOT support?",
+      "answers": [
+        {
+          "text": "Redundancy",
+          "correct": false
+        },
+        {
+          "text": "Acceleration",
+          "correct": false
+        },
+        {
+          "text": "Encryption",
+          "correct": false
+        },
+        {
+          "text": "Caching",
+          "correct": true
+        }
+      ],
+      "explanation": "REST inherits HTTP's caching semantics, so responses can be cached by intermediaries - a large part of why REST scales. SOAP messages are not cacheable in that way. Encryption, redundancy and acceleration are available to both and depend on the surrounding infrastructure.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0009",
+      "subdomain": "4.1",
+      "difficulty": 2,
+      "question": "Which of the following threat types can occur when baselines are not appropriately applied or unauthorized changes are made?",
+      "answers": [
+        {
+          "text": "Insecure direct object references",
+          "correct": false
+        },
+        {
+          "text": "Unvalidated redirects and forwards",
+          "correct": false
+        },
+        {
+          "text": "Sensitive data exposure",
+          "correct": false
+        },
+        {
+          "text": "Security misconfiguration",
+          "correct": true
+        }
+      ],
+      "explanation": "Security misconfiguration covers systems that drift from their hardened baseline or are changed without authorisation. Sensitive data exposure is about unprotected data, insecure direct object references about exposed internal identifiers, and unvalidated redirects about hostile destinations.",
+      "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP"
+    },
+    {
+      "slug": "d4-0010",
+      "subdomain": "4.5",
+      "difficulty": 1,
+      "question": "What is the data encapsulation used with the SOAP protocol referred to?",
+      "answers": [
+        {
+          "text": "Packet",
+          "correct": false
+        },
+        {
+          "text": "Object",
+          "correct": false
+        },
+        {
+          "text": "Payload",
+          "correct": false
+        },
+        {
+          "text": "Envelope",
+          "correct": true
+        }
+      ],
+      "explanation": "A SOAP message is wrapped in an envelope containing an optional header and a mandatory body. 'Packet' belongs to networking, and 'payload' and 'object' are generic terms that SOAP does not use for its outermost structure.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0011",
+      "subdomain": "4.1",
+      "difficulty": 2,
+      "question": "Which of the following threat types can occur when an application does not properly validate input and can be leveraged to send users to malicious sites that appear to be legitimate?",
+      "answers": [
+        {
+          "text": "Sensitive data exposure",
+          "correct": false
+        },
+        {
+          "text": "Security miscomfiguration",
+          "correct": false
+        },
+        {
+          "text": "Insecure direct object references",
+          "correct": false
+        },
+        {
+          "text": "Unvalidated redirects and forwards",
+          "correct": true
+        }
+      ],
+      "explanation": "Unvalidated redirects and forwards occur when an application accepts a destination from user input without validating it, letting an attacker send victims to a malicious site from a link that looks legitimate. The other three categories concern unprotected data, unhardened configuration and exposed internal references.",
+      "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP"
+    },
+    {
+      "slug": "d4-0012",
+      "subdomain": "4.1",
+      "difficulty": 2,
+      "question": "Which of the following threat types involves an application developer leaving references to internal information and configurations in code that is exposed to the client?",
+      "answers": [
+        {
+          "text": "Sensitive data exposure",
+          "correct": false
+        },
+        {
+          "text": "Security misconfiguration",
+          "correct": false
+        },
+        {
+          "text": "Unvalidated redirect and forwards",
+          "correct": false
+        },
+        {
+          "text": "Insecure direct object references",
+          "correct": true
+        }
+      ],
+      "explanation": "Insecure direct object references occur when internal identifiers or configuration details are exposed to the client, letting an attacker manipulate them to reach objects they should not. Sensitive data exposure concerns the data itself, misconfiguration the system settings, and unvalidated redirects the destination of a link.",
+      "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP"
+    },
+    {
+      "slug": "d4-0013",
+      "subdomain": "4.7",
+      "difficulty": 1,
+      "question": "Which if the following is NOT one of the three components of a federated identity system transaction?",
+      "answers": [
+        {
+          "text": "Proxy relay",
+          "correct": true
+        },
+        {
+          "text": "User",
+          "correct": false
+        },
+        {
+          "text": "Identity provider",
+          "correct": false
+        },
+        {
+          "text": "Relying party",
+          "correct": false
+        }
+      ],
+      "explanation": "A federated transaction has three parties: the user, the identity provider that authenticates them, and the relying party that consumes the assertion. 'Proxy relay' is not one of them - no intermediary is required for the trust relationship to work.",
+      "reference": "CCSP 4.7 - Federated identity"
+    },
+    {
+      "slug": "d4-0014",
+      "subdomain": "4.7",
+      "difficulty": 2,
+      "question": "What provides the information to an application to make decisions about the authorization level appropriate when granting access?",
+      "answers": [
+        {
+          "text": "Identity Provider",
+          "correct": true
+        },
+        {
+          "text": "Federation",
+          "correct": false
+        },
+        {
+          "text": "Relying party",
+          "correct": false
+        },
+        {
+          "text": "User",
+          "correct": false
+        }
+      ],
+      "explanation": "The identity provider authenticates the user and asserts the attributes - group, role, entitlements - that the application uses to decide the appropriate authorisation level. The relying party consumes that assertion rather than producing it, the user is the subject, and federation is the arrangement rather than the source of information.",
+      "reference": "CCSP 4.7 - Identity providers"
+    },
+    {
+      "slug": "d4-0015",
+      "subdomain": "4.6",
+      "difficulty": 1,
+      "question": "What is the concept of segregating information or processes, within the same system or application, for security reasons?",
+      "answers": [
+        {
+          "text": "Sandboxing",
+          "correct": true
+        },
+        {
+          "text": "fencing",
+          "correct": false
+        },
+        {
+          "text": "Cellblocking",
+          "correct": false
+        },
+        {
+          "text": "Pooling",
+          "correct": false
+        }
+      ],
+      "explanation": "Sandboxing isolates information or processes within the same system so a compromise in one part cannot reach another. Pooling is the opposite - sharing resources - and 'fencing' and 'cellblocking' are not established security terms.",
+      "reference": "CCSP 4.6 - Sandboxing"
+    },
+    {
+      "slug": "d4-0016",
+      "subdomain": "4.5",
+      "difficulty": 2,
+      "question": "What must SOAP rely on for security?",
+      "answers": [
+        {
+          "text": "Encryption",
+          "correct": true
+        },
+        {
+          "text": "Tokenization",
+          "correct": false
+        },
+        {
+          "text": "TLS",
+          "correct": false
+        },
+        {
+          "text": "SSL",
+          "correct": false
+        }
+      ],
+      "explanation": "SOAP secures the message itself through WS-Security, which applies encryption and signing to the XML so protection survives intermediaries and store-and-forward hops. REST instead leans on the transport, which is why TLS and SSL are the wrong answers here: they secure the channel, not the message. Tokenization is a data protection technique, not a SOAP security mechanism.",
+      "reference": "CCSP 4.5 - Securing application programming interfaces"
+    }
+  ]
+}

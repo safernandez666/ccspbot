@@ -1,0 +1,551 @@
+{
+  "domain": 2,
+  "questions": [
+    {
+      "slug": "d2-0001",
+      "subdomain": "2.3",
+      "difficulty": 2,
+      "question": "What is the biggest concern with hosting a key management system outside of the cloud environment?",
+      "answers": [
+        {
+          "text": "Confidentiality",
+          "correct": false
+        },
+        {
+          "text": "Portability",
+          "correct": false
+        },
+        {
+          "text": "Availability",
+          "correct": true
+        },
+        {
+          "text": "Integrity",
+          "correct": false
+        }
+      ],
+      "explanation": "Holding keys outside the cloud is good for confidentiality, which is precisely why it is done. The cost is availability: if the external key store or the link to it is unreachable, every workload that needs those keys stops, and the provider's own resilience cannot help. Integrity and portability are not materially affected by key location.",
+      "reference": "CCSP 2.3 - Encryption and key management"
+    },
+    {
+      "slug": "d2-0002",
+      "subdomain": "2.7",
+      "difficulty": 2,
+      "question": "Which of the following approaches would NOT be considered sufficient to meet the requirements of secure data destruction within a cloud environment?",
+      "answers": [
+        {
+          "text": "Cryptographic erasure",
+          "correct": false
+        },
+        {
+          "text": "Zeroing",
+          "correct": false
+        },
+        {
+          "text": "Overwriting",
+          "correct": false
+        },
+        {
+          "text": "Deletion",
+          "correct": true
+        }
+      ],
+      "explanation": "Deletion only unlinks the data; the blocks remain until overwritten and can be recovered. Overwriting and zeroing do destroy the data but require physical control of the media, which a tenant does not have. Cryptographic erasure - destroying the keys - is the technique that works in the cloud, which is why deletion is the odd one out.",
+      "reference": "CCSP 2.7 - Data deletion procedures and mechanisms"
+    },
+    {
+      "slug": "d2-0003",
+      "subdomain": "2.3",
+      "difficulty": 1,
+      "question": "What type of masking strategy involves making a separate and distinct copy of data with masking in place?",
+      "answers": [
+        {
+          "text": "Dynamic",
+          "correct": false
+        },
+        {
+          "text": "Replication",
+          "correct": false
+        },
+        {
+          "text": "Duplication",
+          "correct": false
+        },
+        {
+          "text": "Static",
+          "correct": true
+        }
+      ],
+      "explanation": "Static masking produces a separate, permanently masked copy, which is why it suits test and development environments. Dynamic masking leaves the source intact and masks values as they are returned at query time. Replication and duplication copy data without masking anything.",
+      "reference": "CCSP 2.3 - Data obfuscation"
+    },
+    {
+      "slug": "d2-0004",
+      "subdomain": "2.2",
+      "difficulty": 1,
+      "question": "Which of the following storage types is most closely associated with a database-type storage implementation?",
+      "answers": [
+        {
+          "text": "Object",
+          "correct": false
+        },
+        {
+          "text": "Unstructured",
+          "correct": false
+        },
+        {
+          "text": "Volume",
+          "correct": false
+        },
+        {
+          "text": "Structured",
+          "correct": true
+        }
+      ],
+      "explanation": "Structured storage is data organised into a defined schema of tables and fields, which is exactly a database. Object storage holds opaque blobs with metadata, volume storage presents raw block devices, and unstructured is the category structured storage is contrasted with.",
+      "reference": "CCSP 2.2 - Storage types"
+    },
+    {
+      "slug": "d2-0005",
+      "subdomain": "2.1",
+      "difficulty": 2,
+      "question": "Which is the appropriate phase of the cloud data lifecycle for determining the data's classification?",
+      "answers": [
+        {
+          "text": "Store",
+          "correct": false
+        },
+        {
+          "text": "Share",
+          "correct": false
+        },
+        {
+          "text": "Use",
+          "correct": false
+        },
+        {
+          "text": "Create",
+          "correct": true
+        }
+      ],
+      "explanation": "Classification belongs in the create phase, because every later control - who may store it, share it, or how long it is kept - depends on knowing the classification first. Deciding it at store, use or share means data has already been handled without the protection its sensitivity requires.",
+      "reference": "CCSP 2.1 - Cloud data life cycle phases"
+    },
+    {
+      "slug": "d2-0006",
+      "subdomain": "2.2",
+      "difficulty": 1,
+      "question": "How is an object stored within an object storage system?",
+      "answers": [
+        {
+          "text": "Tree structure",
+          "correct": false
+        },
+        {
+          "text": "LDAP",
+          "correct": false
+        },
+        {
+          "text": "Key value",
+          "correct": true
+        },
+        {
+          "text": "Database",
+          "correct": false
+        }
+      ],
+      "explanation": "Object storage holds each object as an opaque value addressed by a unique key, with metadata attached - hence key-value. A tree structure describes a file system, and LDAP and databases are directory and structured-storage technologies rather than object stores.",
+      "reference": "CCSP 2.2 - Storage types"
+    },
+    {
+      "slug": "d2-0007",
+      "subdomain": "2.1",
+      "difficulty": 2,
+      "question": "Which of the following actions will NOT make data part of the create phase of the cloud data lifecycle?",
+      "answers": [
+        {
+          "text": "Constructing new data",
+          "correct": false
+        },
+        {
+          "text": "Modifying data",
+          "correct": false
+        },
+        {
+          "text": "Modifying metadata",
+          "correct": true
+        },
+        {
+          "text": "Importing data",
+          "correct": false
+        }
+      ],
+      "explanation": "The create phase covers new data entering the system: constructing it, importing it, or modifying the data itself, since modified data is treated as newly created. Changing only the metadata leaves the data unchanged, so it does not restart the lifecycle.",
+      "reference": "CCSP 2.1 - Cloud data life cycle phases"
+    },
+    {
+      "slug": "d2-0008",
+      "subdomain": "2.7",
+      "difficulty": 2,
+      "question": "Which type of cloud model typically presents the most challenges to a cloud customer during the destroy phase of the cloud data lifecycle?",
+      "answers": [
+        {
+          "text": "SaaS",
+          "correct": true
+        },
+        {
+          "text": "IaaS",
+          "correct": false
+        },
+        {
+          "text": "DaaS",
+          "correct": false
+        },
+        {
+          "text": "PaaS",
+          "correct": false
+        }
+      ],
+      "explanation": "In SaaS the customer controls neither the storage nor the keys, so they cannot verify destruction and must rely entirely on the provider's assertion. IaaS and PaaS leave the customer progressively more control - in IaaS they can encrypt and hold their own keys, making cryptographic erasure their own decision.",
+      "reference": "CCSP 2.7 - Data deletion procedures and mechanisms"
+    },
+    {
+      "slug": "d2-0009",
+      "subdomain": "2.3",
+      "difficulty": 2,
+      "question": "Which of the following does NOT relate to the hiding of sensitive data from data sets?",
+      "answers": [
+        {
+          "text": "Obfuscation",
+          "correct": false
+        },
+        {
+          "text": "Masking",
+          "correct": false
+        },
+        {
+          "text": "Anonymization",
+          "correct": false
+        },
+        {
+          "text": "Federation",
+          "correct": true
+        }
+      ],
+      "explanation": "Obfuscation, masking and anonymisation are all techniques for hiding sensitive values within a data set. Federation is an identity concept - trusting another organisation's authentication - and has nothing to do with concealing data.",
+      "reference": "CCSP 2.3 - Data obfuscation"
+    },
+    {
+      "slug": "d2-0010",
+      "subdomain": "2.2",
+      "difficulty": 1,
+      "question": "Which of the following are the storage types associated with IaaS?",
+      "answers": [
+        {
+          "text": "Object and target",
+          "correct": false
+        },
+        {
+          "text": "Volume and container",
+          "correct": false
+        },
+        {
+          "text": "Volume and label",
+          "correct": false
+        },
+        {
+          "text": "Volume and object",
+          "correct": true
+        }
+      ],
+      "explanation": "IaaS offers volume storage, which presents a raw block device to an instance, and object storage, which holds files as key-addressed objects. 'Target', 'container' and 'label' are not IaaS storage types, so every other pairing is wrong.",
+      "reference": "CCSP 2.2 - Storage types"
+    },
+    {
+      "slug": "d2-0011",
+      "subdomain": "2.3",
+      "difficulty": 2,
+      "question": "Which technology can be useful during the share phase of the cloud data lifecycle to continue to protect data as it leaves the original system and security controls?",
+      "answers": [
+        {
+          "text": "IPS",
+          "correct": false
+        },
+        {
+          "text": "WAF",
+          "correct": false
+        },
+        {
+          "text": "IDS",
+          "correct": false
+        },
+        {
+          "text": "DLP",
+          "correct": true
+        }
+      ],
+      "explanation": "DLP is the control that follows data as it leaves the originating system, inspecting and blocking sensitive content in transit or on endpoints. An IDS and IPS watch network traffic for attacks rather than for classified content, and a WAF protects an application from inbound requests.",
+      "reference": "CCSP 2.3 - Data loss prevention"
+    },
+    {
+      "slug": "d2-0012",
+      "subdomain": "2.2",
+      "difficulty": 1,
+      "question": "Which of the following storage types is most closely associated with a traditional file system and tree structure?",
+      "answers": [
+        {
+          "text": "Structured",
+          "correct": false
+        },
+        {
+          "text": "Object",
+          "correct": false
+        },
+        {
+          "text": "Unstructured",
+          "correct": false
+        },
+        {
+          "text": "Volume",
+          "correct": true
+        }
+      ],
+      "explanation": "Volume storage presents a block device that the guest formats with a normal file system, producing the familiar directory tree. Object storage has a flat key space with no real hierarchy, and structured and unstructured describe the data rather than the storage architecture.",
+      "reference": "CCSP 2.2 - Storage types"
+    },
+    {
+      "slug": "d2-0013",
+      "subdomain": "2.2",
+      "difficulty": 2,
+      "question": "If you're using iSCSI in a cloud environment, what must come from an external protocol or application?",
+      "answers": [
+        {
+          "text": "Kerberos support",
+          "correct": false
+        },
+        {
+          "text": "CHAP support",
+          "correct": false
+        },
+        {
+          "text": "Authentication",
+          "correct": false
+        },
+        {
+          "text": "Encryption",
+          "correct": true
+        }
+      ],
+      "explanation": "iSCSI has no encryption of its own, so confidentiality must come from an external mechanism such as IPsec. It does include authentication, and CHAP and Kerberos support are both built in, which is why encryption is the gap.",
+      "reference": "CCSP 2.2 - Threats to storage types"
+    },
+    {
+      "slug": "d2-0014",
+      "subdomain": "2.2",
+      "difficulty": 1,
+      "question": "Which of the following are the storage types associated with PaaS?",
+      "answers": [
+        {
+          "text": "Structured and freeform",
+          "correct": false
+        },
+        {
+          "text": "Volume and object",
+          "correct": false
+        },
+        {
+          "text": "Structured and unstructured",
+          "correct": false
+        },
+        {
+          "text": "Database and file system",
+          "correct": true
+        }
+      ],
+      "explanation": "PaaS exposes database storage and file system storage to the applications running on the platform. Volume and object are the IaaS storage types, and 'structured/unstructured' and 'freeform' describe data rather than PaaS storage offerings.",
+      "reference": "CCSP 2.2 - Storage types"
+    },
+    {
+      "slug": "d2-0015",
+      "subdomain": "2.7",
+      "difficulty": 2,
+      "question": "Which aspect of archiving must be tested regularly for the duration of retention requirements?",
+      "answers": [
+        {
+          "text": "Portability",
+          "correct": false
+        },
+        {
+          "text": "Auditability",
+          "correct": false
+        },
+        {
+          "text": "Availability",
+          "correct": false
+        },
+        {
+          "text": "Recoverability",
+          "correct": true
+        }
+      ],
+      "explanation": "An archive is worthless unless it can actually be restored, and over a long retention period media degrade, formats fall out of support and the keys needed to decrypt may be lost - so recoverability must be tested repeatedly, not assumed. Availability, portability and auditability matter but none of them proves the data can be read back.",
+      "reference": "CCSP 2.7 - Data archiving procedures and mechanisms"
+    },
+    {
+      "slug": "d2-0016",
+      "subdomain": "2.3",
+      "difficulty": 2,
+      "question": "Which of the following is the biggest concern or challenge with using encryption?",
+      "answers": [
+        {
+          "text": "Dependence on keys",
+          "correct": true
+        },
+        {
+          "text": "Cipher strength",
+          "correct": false
+        },
+        {
+          "text": "Efficiency",
+          "correct": false
+        },
+        {
+          "text": "Protocol standards",
+          "correct": false
+        }
+      ],
+      "explanation": "Encryption converts a data protection problem into a key management problem: lose the keys and the data is gone, leak them and the encryption was pointless. Modern cipher strength and protocol standards are settled questions, and the efficiency cost is usually acceptable.",
+      "reference": "CCSP 2.3 - Encryption and key management"
+    },
+    {
+      "slug": "d2-0017",
+      "subdomain": "2.1",
+      "difficulty": 2,
+      "question": "What is the first stage of the cloud data lifecycle where security controls can be implemented?",
+      "answers": [
+        {
+          "text": "Create",
+          "correct": true
+        },
+        {
+          "text": "Use",
+          "correct": false
+        },
+        {
+          "text": "Share",
+          "correct": false
+        },
+        {
+          "text": "Store",
+          "correct": false
+        }
+      ],
+      "explanation": "Create is the first phase of the lifecycle, so it is the earliest point at which any control can be applied - which is exactly why classification belongs there. Store, use and share all come later, by which time unprotected data has already existed.",
+      "reference": "CCSP 2.1 - Cloud data life cycle phases"
+    },
+    {
+      "slug": "d2-0018",
+      "subdomain": "2.2",
+      "difficulty": 2,
+      "question": "What controls the formatting and security settings of a volume storage system within a cloud environment?",
+      "answers": [
+        {
+          "text": "Operating system of the host",
+          "correct": true
+        },
+        {
+          "text": "Management plane",
+          "correct": false
+        },
+        {
+          "text": "SAN host controller",
+          "correct": false
+        },
+        {
+          "text": "Hypervisor",
+          "correct": false
+        }
+      ],
+      "explanation": "Volume storage is presented as a raw block device, so the guest operating system formats it and applies its own file-system permissions and encryption. The hypervisor and management plane allocate the volume but do not format it, and there is no SAN host controller in the guest's view.",
+      "reference": "CCSP 2.2 - Storage types"
+    },
+    {
+      "slug": "d2-0019",
+      "subdomain": "2.3",
+      "difficulty": 1,
+      "question": "Which technique involves replacing values within a specific data field to protect sensitive data?",
+      "answers": [
+        {
+          "text": "Masking",
+          "correct": true
+        },
+        {
+          "text": "Anonymization",
+          "correct": false
+        },
+        {
+          "text": "Tokenization",
+          "correct": false
+        },
+        {
+          "text": "Obfuscation",
+          "correct": false
+        }
+      ],
+      "explanation": "Masking replaces the values in a field with substitute characters while preserving the field's shape. Tokenization swaps the value for a surrogate held in a vault so the original can be recovered, anonymisation removes identifiability altogether, and obfuscation is the umbrella term rather than this specific technique.",
+      "reference": "CCSP 2.3 - Data obfuscation"
+    },
+    {
+      "slug": "d2-0020",
+      "subdomain": "2.6",
+      "difficulty": 2,
+      "question": "What type of data does data rights management (DRM) protect?",
+      "answers": [
+        {
+          "text": "Consumer",
+          "correct": true
+        },
+        {
+          "text": "PII",
+          "correct": false
+        },
+        {
+          "text": "Financial",
+          "correct": false
+        },
+        {
+          "text": "Healthcare",
+          "correct": false
+        }
+      ],
+      "explanation": "The CCSP distinction is that DRM protects consumer media - music, film, ebooks - while IRM protects an enterprise's own documents and intellectual property. PII, financial and healthcare data are regulated categories protected by other controls, not by DRM.",
+      "reference": "CCSP 2.6 - Information Rights Management objectives"
+    },
+    {
+      "slug": "d2-0021",
+      "subdomain": "2.3",
+      "difficulty": 2,
+      "question": "Which security concept, if implemented correctly, will protect the data on a system, even if a malicious actor gains access to the actual system?",
+      "answers": [
+        {
+          "text": "Encryption",
+          "correct": true
+        },
+        {
+          "text": "Sandboxing",
+          "correct": false
+        },
+        {
+          "text": "Firewalls",
+          "correct": false
+        },
+        {
+          "text": "Access control",
+          "correct": false
+        }
+      ],
+      "explanation": "Encryption protects the data itself, so an attacker who obtains the system still holds only ciphertext without the keys. Firewalls and access control guard the perimeter and the entry point, and both are bypassed once the attacker is inside; sandboxing isolates processes rather than protecting data at rest.",
+      "reference": "CCSP 2.3 - Encryption and key management"
+    }
+  ]
+}

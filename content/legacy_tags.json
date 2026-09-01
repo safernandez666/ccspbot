@@ -1,0 +1,805 @@
+{
+ "1": {
+  "subdomain": "5.1",
+  "difficulty": 1,
+  "reference": "CCSP 5.1 - Hardware specific security configuration requirements",
+  "explanation": "Vendor documentation is authoritative for a specific board's BIOS/UEFI settings, because only the vendor knows which options that firmware actually exposes. Security policies state what outcome is required but not which setting produces it; regulations are even further removed; man pages document operating system commands, not firmware."
+ },
+ "2": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service developer builds the components and performs the testing and validation of services. The auditor reviews controls rather than building them, the inter-cloud provider handles peering between clouds, and the broker intermediates between customers and providers commercially."
+ },
+ "3": {
+  "subdomain": "6.2",
+  "difficulty": 2,
+  "reference": "CCSP 6.2 - Difference between contractual and regulated private data",
+  "explanation": "Contractual PII terms define how data is handled: the scope of processing, where it may be located, and whether subcontractors may be used. The monetary value of the data is a business consideration, not a handling obligation, so it never appears as a contractual PII component."
+ },
+ "4": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Essential cloud computing characteristics",
+  "explanation": "Measured service is the NIST SP 800-145 characteristic covering metered, pay-for-what-you-use billing. 'Metered service', 'billable service' and 'consumable service' sound plausible but are not among the five essential characteristics NIST defines."
+ },
+ "5": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service administrator tests, monitors and secures services on behalf of the customer organisation. The integrator connects existing systems to the cloud, the business manager handles billing and contracts, and the user simply consumes the service."
+ },
+ "6": {
+  "subdomain": "4.5",
+  "difficulty": 1,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "SOAP is an XML protocol by definition: the envelope, header and body are all XML, and no other encoding is permitted. REST is the interface that accepts multiple formats. SAML is an XML-based assertion format, not a SOAP payload format, and HTML is a presentation language."
+ },
+ "7": {
+  "subdomain": "4.5",
+  "difficulty": 1,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "REST is format-agnostic and in practice carries XML and JSON, with JSON dominant because it is lighter to parse. SAML is an authentication assertion format rather than a general payload format, and HTML is for rendering pages, so any option pairing them is wrong."
+ },
+ "8": {
+  "subdomain": "4.1",
+  "difficulty": 2,
+  "reference": "CCSP 4.1 - Common cloud vulnerabilities",
+  "explanation": "Missing function-level access control is the failure to re-check authorisation on each function after the initial login check, so a user who knows a URL can reach functions they were never granted. Injection is untrusted data reaching an interpreter, XSS executes script in the victim's browser, and CSRF rides an existing authenticated session."
+ },
+ "9": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service business manager owns the commercial relationship: billing, purchasing and requesting audit reports. The administrator and integrator are technical roles, and the user consumes services without commercial authority."
+ },
+ "10": {
+  "subdomain": "2.3",
+  "difficulty": 2,
+  "reference": "CCSP 2.3 - Encryption and key management",
+  "explanation": "Holding keys outside the cloud is good for confidentiality, which is precisely why it is done. The cost is availability: if the external key store or the link to it is unreachable, every workload that needs those keys stops, and the provider's own resilience cannot help. Integrity and portability are not materially affected by key location."
+ },
+ "11": {
+  "subdomain": "2.7",
+  "difficulty": 2,
+  "reference": "CCSP 2.7 - Data deletion procedures and mechanisms",
+  "explanation": "Deletion only unlinks the data; the blocks remain until overwritten and can be recovered. Overwriting and zeroing do destroy the data but require physical control of the media, which a tenant does not have. Cryptographic erasure - destroying the keys - is the technique that works in the cloud, which is why deletion is the odd one out."
+ },
+ "12": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - eDiscovery",
+  "explanation": "Multitenancy is what complicates eDiscovery: one tenant's data sits alongside other tenants' on shared systems, so collection must isolate the target data without exposing anyone else's. Resource pooling, self-service and measured service describe how capacity is allocated and billed and raise no comparable evidentiary problem."
+ },
+ "13": {
+  "subdomain": "3.1",
+  "difficulty": 1,
+  "reference": "CCSP 3.1 - Management plane",
+  "explanation": "The management plane drives hypervisors through their APIs, which is what makes cloud orchestration programmable and also what makes the management plane such a high-value target. Scripts are merely a way of calling those APIs, while RDP and XML are a remote desktop protocol and a data format respectively."
+ },
+ "14": {
+  "subdomain": "6.1",
+  "difficulty": 1,
+  "reference": "CCSP 6.1 - Conflicting international legislation",
+  "explanation": "Operating internationally means being subject to multiple jurisdictions whose laws can contradict one another, so complying with one may put you in breach of another. Differing certifications, capabilities and procedures are operational friction that can be planned around; conflicting law cannot."
+ },
+ "15": {
+  "subdomain": "3.1",
+  "difficulty": 1,
+  "reference": "CCSP 3.1 - Network and communications",
+  "explanation": "A VLAN logically segments a physical network so separate IP spaces stay isolated from each other. A LAN and a WAN describe the geographic scope of a network rather than segmentation within it, and 'PLAN' is not a networking term."
+ },
+ "16": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Physical design",
+  "explanation": "BICSI publishes the ANSI/BICSI 002 standard, which covers cabling design and installation among other data centre topics. The Uptime Institute defines the tier model for availability, IDCA takes a macro-level view of the whole facility, and NFPA writes fire protection standards."
+ },
+ "17": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Design resilience",
+  "explanation": "The Uptime Institute's Tier I-IV model is the most widely used standard for data centre topology and redundancy. BICSI addresses cabling, NFPA fire safety, and IDCA offers an alternative macro-level framework that never achieved the same adoption."
+ },
+ "18": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Virtualization",
+  "explanation": "Multitenancy is achieved through logical segregation, because tenants deliberately share the same physical hardware - that sharing is what makes the economics work. Physical separation would defeat the purpose, 'virtual' describes the mechanism rather than the type of segregation, and 'security' is the goal rather than the method."
+ },
+ "19": {
+  "subdomain": "6.2",
+  "difficulty": 1,
+  "reference": "CCSP 6.2 - Country-specific legislation related to private data",
+  "explanation": "HIPAA governs protected health information in the United States. SOX covers financial reporting, GLBA covers financial-industry PII, and Safe Harbor was a transatlantic transfer mechanism, now defunct."
+ },
+ "20": {
+  "subdomain": "5.2",
+  "difficulty": 1,
+  "reference": "CCSP 5.2 - Access controls for local and remote access",
+  "explanation": "A KVM switch gives an operator local console access to hardware by sharing one keyboard, video display and mouse across many machines. SSH, RDP and VPN are all network protocols and therefore remote access, which is exactly what the question excludes."
+ },
+ "21": {
+  "subdomain": "1.1",
+  "difficulty": 2,
+  "reference": "CCSP 1.1 - Essential cloud computing characteristics",
+  "explanation": "IaaS meters the infrastructure it provides: CPU, memory and storage. The number of users is a SaaS billing dimension, because in IaaS the customer runs whatever they like on the instances and the provider has no visibility into user counts."
+ },
+ "22": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - eDiscovery",
+  "explanation": "eDiscovery scope is defined by possession, custody and control - whether you can produce the data, regardless of where it physically sits. Whether the data happens to be archived is irrelevant: archived data you control is still discoverable."
+ },
+ "23": {
+  "subdomain": "6.1",
+  "difficulty": 1,
+  "reference": "CCSP 6.1 - Legal framework and guidelines",
+  "explanation": "SOX (the Sarbanes-Oxley Act) regulates the accounting and financial reporting practices of publicly traded US companies. HIPAA covers health data, GLBA covers financial-industry privacy rather than accounting practice, and Safe Harbor concerned data transfers."
+ },
+ "24": {
+  "subdomain": "2.3",
+  "difficulty": 1,
+  "reference": "CCSP 2.3 - Data obfuscation",
+  "explanation": "Static masking produces a separate, permanently masked copy, which is why it suits test and development environments. Dynamic masking leaves the source intact and masks values as they are returned at query time. Replication and duplication copy data without masking anything."
+ },
+ "25": {
+  "subdomain": "2.2",
+  "difficulty": 1,
+  "reference": "CCSP 2.2 - Storage types",
+  "explanation": "Structured storage is data organised into a defined schema of tables and fields, which is exactly a database. Object storage holds opaque blobs with metadata, volume storage presents raw block devices, and unstructured is the category structured storage is contrasted with."
+ },
+ "26": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service business manager owns customer relationships and financial transactions. The service manager, operations manager and deployment role are all technical delivery functions with no commercial remit."
+ },
+ "27": {
+  "subdomain": "4.5",
+  "difficulty": 1,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "REST is defined over HTTP and uses its verbs, status codes and caching semantics. XML and SAML are data formats carried over a protocol rather than protocols themselves, and SSH is a remote shell transport unrelated to REST."
+ },
+ "28": {
+  "drop": "Tests the US-EU Safe Harbor framework, invalidated by the CJEU in Schrems I (2015). Its successor Privacy Shield was invalidated by Schrems II (2020). The current mechanism is the EU-US Data Privacy Framework (2023). Replaced by a new question in domain 6."
+ },
+ "29": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Physical design",
+  "explanation": "Leasing spreads the enormous capital cost of a facility across many tenants, so cost is the headline benefit. Certification and regulation are unaffected either way, and control is what you give up by leasing rather than what you gain."
+ },
+ "30": {
+  "subdomain": "3.4",
+  "difficulty": 2,
+  "reference": "CCSP 3.4 - System, storage and communication protection",
+  "explanation": "Trust zones are a logical construct, so they transfer directly to a cloud environment. Dedicated switches, direct connections and redundant circuits are all physical arrangements that a tenant has no ability to specify in someone else's data centre."
+ },
+ "31": {
+  "subdomain": "1.2",
+  "difficulty": 2,
+  "reference": "CCSP 1.2 - Cloud shared considerations",
+  "explanation": "Vendor lock-in is by definition the inability to move a workload elsewhere, which is portability. Interoperability concerns systems working together rather than relocating, reversibility is the narrower ability to exit and retrieve your data, and elasticity is about scaling within one provider."
+ },
+ "32": {
+  "subdomain": "4.5",
+  "difficulty": 1,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "SOAP and REST are the two API styles found throughout cloud services. XML and SAML are formats, not APIs, so any option offering them as an API type is wrong on its face."
+ },
+ "33": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - eDiscovery",
+  "explanation": "ISO/IEC 27050 is the international standard series for electronic discovery. ISO/IEC 27001 specifies an ISMS, ISO 31000 covers risk management, and ISO/IEC 19888 is not an eDiscovery standard."
+ },
+ "34": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service broker intermediates commercially, winning customers and negotiating contracts and agreements. The auditor assesses controls, the developer builds services, and the inter-cloud provider handles technical peering."
+ },
+ "35": {
+  "subdomain": "5.4",
+  "difficulty": 1,
+  "reference": "CCSP 5.4 - Forensic data collection methodologies",
+  "explanation": "Forensics is the application of scientific method to evidence so that findings are reproducible and admissible. 'Methodical', 'measured' and 'theoretical' describe qualities of an approach but none of them is the discipline the question names."
+ },
+ "36": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service manager handles provisioning and delivery of services. The deployment manager focuses on deployment processes and metrics, the operations manager on running systems, and the business manager on commercial matters."
+ },
+ "37": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - Conflicting international legislation",
+  "explanation": "There is no supranational authority able to bind sovereign states, so when two jurisdictions' laws conflict there is no forum that can definitively resolve the conflict. Cost, language and differing technical standards are practical obstacles that do not go to the root of the problem."
+ },
+ "38": {
+  "subdomain": "6.3",
+  "difficulty": 1,
+  "reference": "CCSP 6.3 - Internal and external audit controls",
+  "explanation": "The AICPA maintains Generally Accepted Accounting Principles, and also authors the SOC reporting framework. ISO and ISO/IEC publish management-system and technical standards, and the PCI Council governs payment card security."
+ },
+ "39": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service operations manager prepares systems, administers and monitors services, and manages inventory and assets. The deployment manager owns deployment processes, the service manager provisioning and delivery, and the business manager commercial matters."
+ },
+ "40": {
+  "subdomain": "3.1",
+  "difficulty": 1,
+  "reference": "CCSP 3.1 - Storage",
+  "explanation": "iSCSI carries SCSI block commands over TCP/IP, so a host sees remote storage as if it were a locally attached SAN. Plain SCSI and SATA are direct physical attachment standards, and TLS is a security protocol rather than a storage transport."
+ },
+ "41": {
+  "subdomain": "1.2",
+  "difficulty": 1,
+  "reference": "CCSP 1.2 - Cloud deployment models",
+  "explanation": "iCloud, Dropbox and OneDrive are open to anyone who signs up, which is the public model. Private serves a single organisation, community a defined group with shared concerns, and hybrid combines two or more models."
+ },
+ "42": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Virtualization",
+  "explanation": "A Type 2 hypervisor runs as an application on a host operating system, so it inherits every weakness of that OS and of everything else installed on it. Type 2 hypervisors are not inherently open source or Internet-exposed, and neither type patches its guests."
+ },
+ "43": {
+  "subdomain": "2.1",
+  "difficulty": 2,
+  "reference": "CCSP 2.1 - Cloud data life cycle phases",
+  "explanation": "Classification belongs in the create phase, because every later control - who may store it, share it, or how long it is kept - depends on knowing the classification first. Deciding it at store, use or share means data has already been handled without the protection its sensitivity requires."
+ },
+ "44": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Environmental design",
+  "explanation": "ASHRAE's recommended envelope for a data centre is 64.4-80.6 degrees Fahrenheit (18-27 Celsius). The colder ranges waste enormous cooling energy for no reliability gain, and the widest range exceeds the recommended envelope at its upper end."
+ },
+ "45": {
+  "subdomain": "6.4",
+  "difficulty": 1,
+  "reference": "CCSP 6.4 - Different risk frameworks",
+  "explanation": "Hex GBL is not a real framework. COBIT, NIST SP 800-37 (the Risk Management Framework) and ISO 31000 are all genuine, widely used risk management frameworks."
+ },
+ "46": {
+  "subdomain": "4.1",
+  "difficulty": 2,
+  "correct": "Cross-site scripting",
+  "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP",
+  "explanation": "Cross-site scripting is untrusted data sent to a browser and executed there with the victim's own credentials and access. CSRF is different: it makes the victim's browser issue a forged request to another site using an existing session, without injecting script. Injection targets a server-side interpreter, and missing function-level access control is an authorisation failure."
+ },
+ "47": {
+  "subdomain": "2.2",
+  "difficulty": 1,
+  "reference": "CCSP 2.2 - Storage types",
+  "explanation": "Object storage holds each object as an opaque value addressed by a unique key, with metadata attached - hence key-value. A tree structure describes a file system, and LDAP and databases are directory and structured-storage technologies rather than object stores."
+ },
+ "48": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - Legal framework and guidelines",
+  "explanation": "PCI DSS is a contractual standard imposed by the payment card brands, not law, so no government enforces it - breaching it costs you card processing rather than a statutory penalty. HIPAA, SOX and FISMA are all US federal statutes."
+ },
+ "49": {
+  "subdomain": "6.2",
+  "difficulty": 2,
+  "reference": "CCSP 6.2 - Jurisdictional differences in data privacy",
+  "explanation": "The United States regulates privacy sectorally - HIPAA for health, GLBA for finance, and a patchwork of state laws - with no comprehensive federal privacy statute. The EU has the GDPR, Germany is bound by it and adds national law, and Russia has a comprehensive localisation and privacy regime."
+ },
+ "50": {
+  "subdomain": "6.2",
+  "difficulty": 1,
+  "reference": "CCSP 6.2 - Country-specific legislation related to private data",
+  "explanation": "GLBA (the Gramm-Leach-Bliley Act) governs how financial institutions handle customer PII. HIPAA covers health data, SOX covers financial reporting rather than personal data, and Safe Harbor concerned international transfers."
+ },
+ "51": {
+  "subdomain": "4.1",
+  "difficulty": 2,
+  "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP",
+  "explanation": "Sensitive data exposure is the category for data left unencrypted at rest or carried over an insecure transport. Security misconfiguration concerns unhardened settings, insecure direct object references expose internal identifiers, and unvalidated redirects send users to hostile sites - none of which is about the encryption of the data itself."
+ },
+ "52": {
+  "subdomain": "5.2",
+  "difficulty": 2,
+  "reference": "CCSP 5.2 - Operating system hardening",
+  "explanation": "Removing an unneeded service eliminates the attack surface permanently. Stopping or disabling leaves the vulnerable code on disk, where a later patch, misconfiguration or attacker can start it again, and monitoring detects abuse without preventing it. Hardening baselines therefore call for removal wherever the platform allows it."
+ },
+ "53": {
+  "subdomain": "2.1",
+  "difficulty": 2,
+  "reference": "CCSP 2.1 - Cloud data life cycle phases",
+  "explanation": "The create phase covers new data entering the system: constructing it, importing it, or modifying the data itself, since modified data is treated as newly created. Changing only the metadata leaves the data unchanged, so it does not restart the lifecycle."
+ },
+ "54": {
+  "subdomain": "1.3",
+  "difficulty": 1,
+  "reference": "CCSP 1.3 - Cryptography and key management",
+  "explanation": "TLS is built from the handshake protocol, which negotiates parameters and authenticates the peers, and the record protocol, which then carries the encrypted application data. The other pairings mix in transport-layer terms that are not TLS sub-protocols."
+ },
+ "55": {
+  "drop": "Duplicate of question 54, identical text and options."
+ },
+ "56": {
+  "subdomain": "2.7",
+  "difficulty": 2,
+  "reference": "CCSP 2.7 - Data deletion procedures and mechanisms",
+  "explanation": "In SaaS the customer controls neither the storage nor the keys, so they cannot verify destruction and must rely entirely on the provider's assertion. IaaS and PaaS leave the customer progressively more control - in IaaS they can encrypt and hold their own keys, making cryptographic erasure their own decision."
+ },
+ "57": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - Evaluation of legal risks specific to cloud computing",
+  "explanation": "Regulation can forbid a hosting arrangement outright, and no amount of compensating control changes that - it is a legal bar, not a risk to be treated. Multitenancy and virtualisation are technical properties that can be mitigated, and certification is something a provider can obtain."
+ },
+ "58": {
+  "subdomain": "3.2",
+  "difficulty": 2,
+  "reference": "CCSP 3.2 - Design resilience",
+  "explanation": "Power distribution units sit inside the facility and distribute power to racks, so redundant PDUs are internal redundancy. Generators, power substations and network circuits all come from or sit outside the building, making them external redundancy."
+ },
+ "59": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Compute",
+  "explanation": "A limit is the ceiling on what one customer, VM or application may consume, which stops a single tenant starving the others. A reservation is the opposite - a guaranteed floor - and a share sets relative priority when contention occurs. 'Provision' is not one of these three controls."
+ },
+ "60": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The inter-cloud provider peers and federates with other cloud services and providers. The broker is a commercial intermediary, the auditor assesses controls, and the developer builds service components."
+ },
+ "61": {
+  "subdomain": "2.3",
+  "difficulty": 2,
+  "reference": "CCSP 2.3 - Data obfuscation",
+  "explanation": "Obfuscation, masking and anonymisation are all techniques for hiding sensitive values within a data set. Federation is an identity concept - trusting another organisation's authentication - and has nothing to do with concealing data."
+ },
+ "62": {
+  "subdomain": "2.2",
+  "difficulty": 1,
+  "reference": "CCSP 2.2 - Storage types",
+  "explanation": "IaaS offers volume storage, which presents a raw block device to an instance, and object storage, which holds files as key-addressed objects. 'Target', 'container' and 'label' are not IaaS storage types, so every other pairing is wrong."
+ },
+ "63": {
+  "subdomain": "2.3",
+  "difficulty": 2,
+  "reference": "CCSP 2.3 - Data loss prevention",
+  "explanation": "DLP is the control that follows data as it leaves the originating system, inspecting and blocking sensitive content in transit or on endpoints. An IDS and IPS watch network traffic for attacks rather than for classified content, and a WAF protects an application from inbound requests."
+ },
+ "64": {
+  "subdomain": "2.2",
+  "difficulty": 1,
+  "reference": "CCSP 2.2 - Storage types",
+  "explanation": "Volume storage presents a block device that the guest formats with a normal file system, producing the familiar directory tree. Object storage has a flat key space with no real hierarchy, and structured and unstructured describe the data rather than the storage architecture."
+ },
+ "65": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Compute",
+  "explanation": "A share sets relative priority, so when resources are constrained the customer with the larger share receives proportionally more. A limit caps consumption and a reservation guarantees a minimum; neither expresses priority between competing consumers."
+ },
+ "66": {
+  "subdomain": "6.3",
+  "difficulty": 1,
+  "reference": "CCSP 6.3 - Types of audit reports",
+  "explanation": "SOC 2 reports on the Trust Services Criteria - security, availability, processing integrity, confidentiality and privacy - which is what a cloud customer needs to see. SOC 1 addresses controls over financial reporting, SAS-70 is the retired predecessor, and SOX is legislation rather than a report."
+ },
+ "67": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Network and communications",
+  "explanation": "A VLAN is a logical construct, so with trunking it can span switches, racks and even data centres - the whole point is that membership is independent of physical location. Every other option imposes a physical boundary that VLANs specifically remove."
+ },
+ "68": {
+  "subdomain": "5.1",
+  "difficulty": 1,
+  "reference": "CCSP 5.1 - Hardware specific security configuration requirements",
+  "explanation": "The BIOS/UEFI runs before any operating system, so an attacker who reaches it can change the boot order or install firmware-level code that no OS control can see. RDP and SSH are remote access services that run after boot, and ALOM is a specific vendor management module rather than the general answer."
+ },
+ "69": {
+  "subdomain": "6.2",
+  "difficulty": 1,
+  "reference": "CCSP 6.2 - Difference between contractual and regulated private data",
+  "explanation": "Contractual PII is protected because a contract says so - the hosting agreement or application terms define the obligation. Regulated PII derives its protection from law and carries statutory penalties. 'Specific' and 'jurisdictional' are not PII categories."
+ },
+ "70": {
+  "subdomain": "3.4",
+  "difficulty": 2,
+  "reference": "CCSP 3.4 - Identification, authentication and authorization",
+  "explanation": "A VPN terminates inside the trust zone and authenticates the administrator before granting access, which is how remote admins reach protected segments. IPsec is a building block a VPN may use rather than the access mechanism, HTTPS secures a single web session, and a WAF filters inbound application traffic."
+ },
+ "71": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Essential cloud computing characteristics",
+  "explanation": "Rapid elasticity is the automatic scaling of resources up and down with demand. On-demand self-service is the customer provisioning without human interaction, resource pooling is the multi-tenant sharing that makes elasticity possible, and measured service is the metering."
+ },
+ "72": {
+  "subdomain": "2.2",
+  "difficulty": 2,
+  "reference": "CCSP 2.2 - Threats to storage types",
+  "explanation": "iSCSI has no encryption of its own, so confidentiality must come from an external mechanism such as IPsec. It does include authentication, and CHAP and Kerberos support are both built in, which is why encryption is the gap."
+ },
+ "73": {
+  "subdomain": "3.2",
+  "difficulty": 2,
+  "reference": "CCSP 3.2 - Logical design",
+  "explanation": "IDCA's Infinity Paradigm takes a macro view, assessing the whole facility and its topology rather than assigning a single tier. The Uptime Institute is the tiered approach the question contrasts with, BICSI covers cabling, and NFPA fire safety."
+ },
+ "74": {
+  "subdomain": "4.5",
+  "difficulty": 2,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "REST inherits HTTP's caching semantics, so responses can be cached by intermediaries - a large part of why REST scales. SOAP messages are not cacheable in that way. Encryption, redundancy and acceleration are available to both and depend on the surrounding infrastructure."
+ },
+ "75": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Virtualization",
+  "explanation": "A Type 1 hypervisor runs directly on the hardware with only the code needed for virtualisation, so its attack surface is minimal. It does not restrict guests to matching operating systems, does not patch its guests, and does not perform hardware-level encryption."
+ },
+ "76": {
+  "subdomain": "2.2",
+  "difficulty": 1,
+  "reference": "CCSP 2.2 - Storage types",
+  "explanation": "PaaS exposes database storage and file system storage to the applications running on the platform. Volume and object are the IaaS storage types, and 'structured/unstructured' and 'freeform' describe data rather than PaaS storage offerings."
+ },
+ "77": {
+  "subdomain": "4.1",
+  "difficulty": 2,
+  "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP",
+  "explanation": "Security misconfiguration covers systems that drift from their hardened baseline or are changed without authorisation. Sensitive data exposure is about unprotected data, insecure direct object references about exposed internal identifiers, and unvalidated redirects about hostile destinations."
+ },
+ "78": {
+  "subdomain": "4.5",
+  "difficulty": 1,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "A SOAP message is wrapped in an envelope containing an optional header and a mandatory body. 'Packet' belongs to networking, and 'payload' and 'object' are generic terms that SOAP does not use for its outermost structure."
+ },
+ "79": {
+  "subdomain": "4.1",
+  "difficulty": 2,
+  "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP",
+  "explanation": "Unvalidated redirects and forwards occur when an application accepts a destination from user input without validating it, letting an attacker send victims to a malicious site from a link that looks legitimate. The other three categories concern unprotected data, unhardened configuration and exposed internal references."
+ },
+ "80": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing definitions",
+  "explanation": "NIST SP 800-145 is 'The NIST Definition of Cloud Computing', the source of the five essential characteristics, three service models and four deployment models. SP 800-53 is the security control catalogue, SP 800-40 covers patch management, and SP 800-153 concerns wireless LAN security."
+ },
+ "81": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Physical design",
+  "explanation": "Leasing means the facility is run to someone else's standards and priorities, so control is what you surrender. Cost is the benefit rather than the drawback, and certification and regulatory posture can be satisfied by a well-chosen colocation provider."
+ },
+ "82": {
+  "subdomain": "2.7",
+  "difficulty": 2,
+  "reference": "CCSP 2.7 - Data archiving procedures and mechanisms",
+  "explanation": "An archive is worthless unless it can actually be restored, and over a long retention period media degrade, formats fall out of support and the keys needed to decrypt may be lost - so recoverability must be tested repeatedly, not assumed. Availability, portability and auditability matter but none of them proves the data can be read back."
+ },
+ "83": {
+  "subdomain": "3.1",
+  "difficulty": 2,
+  "reference": "CCSP 3.1 - Compute",
+  "explanation": "A reservation guarantees a customer a minimum amount of resource that is always available to them. A limit is the maximum ceiling, a share governs relative priority under contention, and 'provision' is not one of these controls."
+ },
+ "84": {
+  "subdomain": "3.1",
+  "difficulty": 3,
+  "reference": "CCSP 3.1 - Virtualization",
+  "explanation": "A powered-off VM is just a file on storage, so it can be copied, mounted or modified while none of its own defences - host firewall, agents, logging - are running, and it will not be patched either. A powered-off physical server is inert metal that offers an attacker nothing comparable. The other options describe protections that apply equally to physical machines."
+ },
+ "85": {
+  "subdomain": "4.1",
+  "difficulty": 2,
+  "reference": "CCSP 4.1 - Common cloud vulnerabilities / OWASP",
+  "explanation": "Insecure direct object references occur when internal identifiers or configuration details are exposed to the client, letting an attacker manipulate them to reach objects they should not. Sensitive data exposure concerns the data itself, misconfiguration the system settings, and unvalidated redirects the destination of a link."
+ },
+ "86": {
+  "subdomain": "2.3",
+  "difficulty": 2,
+  "reference": "CCSP 2.3 - Encryption and key management",
+  "explanation": "Encryption converts a data protection problem into a key management problem: lose the keys and the data is gone, leak them and the encryption was pointless. Modern cipher strength and protocol standards are settled questions, and the efficiency cost is usually acceptable."
+ },
+ "87": {
+  "subdomain": "1.1",
+  "difficulty": 2,
+  "reference": "CCSP 1.1 - Essential cloud computing characteristics",
+  "explanation": "In IaaS the provider pools infrastructure - CPU, memory and storage - and allocates it across tenants. Applications are installed and run by the customer on top of that infrastructure, so the provider has nothing to pool."
+ },
+ "88": {
+  "subdomain": "1.3",
+  "difficulty": 2,
+  "reference": "CCSP 1.3 - Network security",
+  "explanation": "DNSSEC authenticates DNS responses so a resolver can detect forged records; it provides integrity and origin authentication but no confidentiality, and it protects name resolution rather than the data itself. IPsec, TLS-based HTTPS and VPNs all encrypt data in transit."
+ },
+ "89": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service deployment manager gathers metrics on services and manages deployments and deployment processes. The service manager handles provisioning and delivery, the operations manager day-to-day running, and the business manager commercial matters."
+ },
+ "90": {
+  "subdomain": "3.2",
+  "difficulty": 2,
+  "reference": "CCSP 3.2 - Design resilience",
+  "explanation": "Generators sit outside the facility's normal supply chain and take over when external power fails, making them external redundancy. PDUs, feeds to the rack and storage systems are all inside the building and are therefore internal."
+ },
+ "91": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Environmental design",
+  "explanation": "ASHRAE recommends 40-60 percent relative humidity. Below that range static discharge becomes a risk to equipment; above it condensation and corrosion do."
+ },
+ "92": {
+  "subdomain": "2.1",
+  "difficulty": 2,
+  "reference": "CCSP 2.1 - Cloud data life cycle phases",
+  "explanation": "Create is the first phase of the lifecycle, so it is the earliest point at which any control can be applied - which is exactly why classification belongs there. Store, use and share all come later, by which time unprotected data has already existed."
+ },
+ "93": {
+  "subdomain": "2.2",
+  "difficulty": 2,
+  "reference": "CCSP 2.2 - Storage types",
+  "explanation": "Volume storage is presented as a raw block device, so the guest operating system formats it and applies its own file-system permissions and encryption. The hypervisor and management plane allocate the volume but do not format it, and there is no SAN host controller in the guest's view."
+ },
+ "94": {
+  "subdomain": "3.1",
+  "difficulty": 1,
+  "reference": "CCSP 3.1 - Network and communications",
+  "explanation": "SDN stands for software-defined networking, which separates the control plane from the forwarding plane so that network configuration becomes programmable. The other expansions are invented."
+ },
+ "95": {
+  "subdomain": "6.1",
+  "difficulty": 2,
+  "reference": "CCSP 6.1 - eDiscovery",
+  "explanation": "The provider must notify the affected customer first, because the data belongs to that customer and they may have grounds to challenge the order or assert privilege. Collecting or imaging data before notification risks acting on an order the customer could have quashed."
+ },
+ "96": {
+  "subdomain": "1.5",
+  "difficulty": 2,
+  "reference": "CCSP 1.5 - Verification against criteria",
+  "explanation": "Certifying to one customer's specific requirements is impractical in a multitenant environment: the provider runs one platform for everyone and cannot re-engineer it per tenant, nor expose other tenants to that customer's auditors. Virtualisation and resource pooling are the mechanisms rather than the obstacle, and regulation usually drives certification instead of preventing it."
+ },
+ "97": {
+  "subdomain": "3.2",
+  "difficulty": 1,
+  "reference": "CCSP 3.2 - Environmental design",
+  "explanation": "NFPA publishes fire protection standards, including those covering the electrical loads and suppression systems found in data centres. BICSI covers cabling, the Uptime Institute availability tiers, and IDCA a macro-level facility framework."
+ },
+ "98": {
+  "subdomain": "1.1",
+  "difficulty": 1,
+  "reference": "CCSP 1.1 - Cloud computing roles and responsibilities",
+  "explanation": "The cloud service integrator connects and integrates existing systems and services with the cloud environment. The administrator secures and monitors services, the business manager handles commercial matters, and the user consumes the service."
+ },
+ "99": {
+  "subdomain": "2.3",
+  "difficulty": 1,
+  "reference": "CCSP 2.3 - Data obfuscation",
+  "explanation": "Masking replaces the values in a field with substitute characters while preserving the field's shape. Tokenization swaps the value for a surrogate held in a vault so the original can be recovered, anonymisation removes identifiability altogether, and obfuscation is the umbrella term rather than this specific technique."
+ },
+ "100": {
+  "subdomain": "6.4",
+  "difficulty": 2,
+  "reference": "CCSP 6.4 - Difference between data roles",
+  "explanation": "A data custodian is accountable for how data is technically handled, which requires knowing the systems it lives on. In PaaS and especially SaaS those systems are opaque to the customer, so the custodian must discharge a duty over infrastructure they cannot see. Classification and access remain the customer's to determine, and encryption requirements can still be specified contractually."
+ },
+ "101": {
+  "subdomain": "6.2",
+  "difficulty": 1,
+  "reference": "CCSP 6.2 - Difference between contractual and regulated private data",
+  "explanation": "Regulated PII is protected by statute and non-compliance carries legal penalties - fines, enforcement action, sometimes personal liability. Contractual PII is protected by agreement, where the remedy is a breach-of-contract claim rather than a regulator. 'Specific' and 'jurisdictional' are not PII categories."
+ },
+ "102": {
+  "subdomain": "4.7",
+  "difficulty": 1,
+  "reference": "CCSP 4.7 - Federated identity",
+  "explanation": "A federated transaction has three parties: the user, the identity provider that authenticates them, and the relying party that consumes the assertion. 'Proxy relay' is not one of them - no intermediary is required for the trust relationship to work."
+ },
+ "103": {
+  "subdomain": "3.5",
+  "difficulty": 1,
+  "reference": "CCSP 3.5 - Business requirements",
+  "explanation": "The recovery time objective is how long recovery may take before the impact becomes unacceptable. The recovery point objective is how much data loss is tolerable, the recovery service level is what proportion of capacity must be restored, and SRE is a job discipline rather than a BCDR metric."
+ },
+ "104": {
+  "subdomain": "1.2",
+  "difficulty": 1,
+  "reference": "CCSP 1.2 - Cloud deployment models",
+  "explanation": "The community model serves a defined group of organisations with shared concerns - a sector, a regulator, a mission. Public is open to anyone, private serves a single organisation, and hybrid combines models rather than defining membership."
+ },
+ "105": {
+  "subdomain": "4.7",
+  "difficulty": 2,
+  "reference": "CCSP 4.7 - Identity providers",
+  "explanation": "The identity provider authenticates the user and asserts the attributes - group, role, entitlements - that the application uses to decide the appropriate authorisation level. The relying party consumes that assertion rather than producing it, the user is the subject, and federation is the arrangement rather than the source of information."
+ },
+ "106": {
+  "subdomain": "5.3",
+  "difficulty": 1,
+  "reference": "CCSP 5.3 - Configuration management",
+  "explanation": "A baseline is the standard, approved configuration and policy set applied to systems, and it is what deviation is measured against. Hardening is the act of tightening a configuration, standardisation the broader goal, and 'redline' is not a configuration management term."
+ },
+ "107": {
+  "subdomain": "6.2",
+  "difficulty": 2,
+  "reference": "CCSP 6.2 - Jurisdictional differences in data privacy",
+  "explanation": "Russia's Federal Law 242-FZ requires that personal data on Russian citizens be collected and stored on servers physically located in Russia. France and Germany are governed by the GDPR, which restricts transfers outside the EEA but does not mandate in-country storage, and the United States imposes no general localisation requirement."
+ },
+ "108": {
+  "subdomain": "1.2",
+  "difficulty": 1,
+  "reference": "CCSP 1.2 - Cloud shared considerations",
+  "explanation": "Portability is the ability to move services and applications between providers. Interoperability is about systems working together, reversibility is specifically the ability to exit and recover your data, and availability concerns uptime."
+ },
+ "109": {
+  "drop": "Structurally broken. Both SOC 1 and SOC 2 are restricted-use reports, and SOC 1 is offered as a distractor, so two options are defensible. The general-use report is SOC 3, which is absent. Replaced by a correct SOC 1/2/3 question in domain 6."
+ },
+ "110": {
+  "drop": "Duplicate of question 102."
+ },
+ "111": {
+  "drop": "Duplicate of question 103."
+ },
+ "112": {
+  "drop": "Duplicate of question 104."
+ },
+ "113": {
+  "drop": "Duplicate of question 105."
+ },
+ "114": {
+  "drop": "Duplicate of question 106."
+ },
+ "115": {
+  "drop": "Duplicate of question 107."
+ },
+ "116": {
+  "drop": "Duplicate of question 108."
+ },
+ "117": {
+  "drop": "Duplicate of question 109, which is itself structurally broken."
+ },
+ "118": {
+  "subdomain": "4.6",
+  "difficulty": 1,
+  "reference": "CCSP 4.6 - Sandboxing",
+  "explanation": "Sandboxing isolates information or processes within the same system so a compromise in one part cannot reach another. Pooling is the opposite - sharing resources - and 'fencing' and 'cellblocking' are not established security terms."
+ },
+ "119": {
+  "drop": "Tests the effective date of EU Directive 95/46/EC, repealed and replaced by the GDPR in May 2018. Replaced by a GDPR question in domain 6."
+ },
+ "120": {
+  "subdomain": "5.3",
+  "difficulty": 2,
+  "reference": "CCSP 5.3 - Service-level management",
+  "explanation": "An SLA commits the provider to measurable resource and service performance: CPU, memory, network, storage and availability. The number of users is a licensing or capacity dimension the customer controls, so the provider cannot commit to it as a performance target."
+ },
+ "121": {
+  "subdomain": "6.3",
+  "difficulty": 2,
+  "reference": "CCSP 6.3 - Audit planning",
+  "explanation": "Where a regulation prescribes what must be tested, it is not negotiable - management and stakeholders cannot scope it away, and an audit that ignores it fails. Management, shareholders and stakeholders all shape audit scope, but only within whatever the regulator already requires."
+ },
+ "122": {
+  "subdomain": "3.5",
+  "difficulty": 1,
+  "reference": "CCSP 3.5 - Business requirements",
+  "explanation": "The recovery point objective defines how much data the organisation can afford to lose, and therefore how much must be recovered to resume acceptable operations. RTO is about elapsed time rather than data volume, RSL about the proportion of capacity restored, and SRE is not a BCDR metric."
+ },
+ "123": {
+  "subdomain": "4.5",
+  "difficulty": 2,
+  "reference": "CCSP 4.5 - Securing application programming interfaces",
+  "explanation": "SOAP secures the message itself through WS-Security, which applies encryption and signing to the XML so protection survives intermediaries and store-and-forward hops. REST instead leans on the transport, which is why TLS and SSL are the wrong answers here: they secure the channel, not the message. Tokenization is a data protection technique, not a SOAP security mechanism."
+ },
+ "124": {
+  "subdomain": "5.3",
+  "difficulty": 1,
+  "reference": "CCSP 5.3 - Configuration management",
+  "explanation": "Puppet is a widely used configuration management tool, alongside Chef, Ansible and SaltStack. 'Maestro', 'Conductor' and 'Orchestrator' are generic words rather than the names of established tools."
+ },
+ "125": {
+  "subdomain": "2.6",
+  "difficulty": 2,
+  "reference": "CCSP 2.6 - Information Rights Management objectives",
+  "explanation": "The CCSP distinction is that DRM protects consumer media - music, film, ebooks - while IRM protects an enterprise's own documents and intellectual property. PII, financial and healthcare data are regulated categories protected by other controls, not by DRM."
+ },
+ "126": {
+  "subdomain": "5.6",
+  "difficulty": 1,
+  "reference": "CCSP 5.6 - Penetration testing",
+  "explanation": "Penetration testing deliberately uses the same strategies and tools an attacker would, to see what they could actually achieve. Static and dynamic testing analyse code and running applications with defensive tooling, and 'malicious testing' is not a recognised category."
+ },
+ "127": {
+  "subdomain": "3.5",
+  "difficulty": 2,
+  "reference": "CCSP 3.5 - Business continuity / disaster recovery strategy",
+  "explanation": "A BCDR site in another country puts data under a second legal regime, which can breach residency rules or expose it to foreign lawful access - and the moment you fail over is the worst possible time to discover it. Auditing, access provisioning and authorisation are all controls you carry over to the recovery site by design."
+ },
+ "128": {
+  "subdomain": "6.3",
+  "difficulty": 2,
+  "reference": "CCSP 6.3 - Internal and external audit controls",
+  "explanation": "Certification requires an independent external auditor, since an organisation cannot certify itself. Internal audit legitimately examines control design, operational efficiency and cost, all of which are internal management concerns."
+ },
+ "129": {
+  "subdomain": "1.4",
+  "difficulty": 2,
+  "reference": "CCSP 1.4 - Security considerations for different cloud categories",
+  "explanation": "Data is always the customer's responsibility: they own it, classify it and remain accountable for it in IaaS, PaaS and SaaS alike. Responsibility for infrastructure, platform and application shifts to the provider as you move up the service models."
+ },
+ "130": {
+  "subdomain": "5.2",
+  "difficulty": 1,
+  "reference": "CCSP 5.2 - Availability of clustered hosts",
+  "explanation": "Dynamic resource scheduling distributes workloads across the hosts in a cluster, balancing load and restarting guests elsewhere when a host fails. Dynamic optimization tunes an individual host, and 'dynamic clustering' and 'dynamic balancing' are not the standard term."
+ },
+ "131": {
+  "drop": "Duplicate of question 130."
+ },
+ "132": {
+  "subdomain": "1.3",
+  "difficulty": 2,
+  "reference": "CCSP 1.3 - Cryptography and key management",
+  "explanation": "The handshake protocol negotiates the connection, exchanges keys and establishes the session ID; the record protocol then performs the actual encryption of application data. Attributing encryption to the handshake confuses agreeing on keys with using them."
+ },
+ "133": {
+  "subdomain": "6.3",
+  "difficulty": 2,
+  "reference": "CCSP 6.3 - Types of audit reports",
+  "explanation": "A SOC 2 Type 2 report covers a period of at least six months, because operating effectiveness cannot be demonstrated from a single point in time - the auditor needs to see the control working repeatedly. A Type 1 report is the point-in-time assessment of design only."
+ },
+ "134": {
+  "subdomain": "1.3",
+  "difficulty": 2,
+  "reference": "CCSP 1.3 - Network security",
+  "explanation": "DNSSEC is validated by the resolver, below the application, so applications need no changes at all - they issue the same lookups and simply receive answers that have been authenticated for them. It adds no certificate validation or encryption work to the application, and any additional lookups happen inside the resolver."
+ },
+ "135": {
+  "subdomain": "6.3",
+  "difficulty": 1,
+  "reference": "CCSP 6.3 - Types of audit reports",
+  "explanation": "SOC 1 reports on internal controls over financial reporting, which is why auditors of a customer's financial statements ask for it. Security, confidentiality, privacy and processing integrity belong to SOC 2's Trust Services Criteria."
+ },
+ "136": {
+  "subdomain": "1.3",
+  "difficulty": 1,
+  "reference": "CCSP 1.3 - Identity and access control",
+  "explanation": "Confidentiality means data is disclosed only to those authorised - which necessarily includes letting authorised users through, not just keeping others out. Integrity concerns data being unaltered, availability that systems are reachable at all, and nonrepudiation that an action cannot later be denied."
+ },
+ "137": {
+  "subdomain": "6.4",
+  "difficulty": 2,
+  "correct": "Budgetary and cost controls",
+  "reference": "CSA Cloud Controls Matrix",
+  "explanation": "Budgetary and cost controls is a financial management concern and is not a CCM domain - the matrix addresses security control objectives, not spend. Human Resources Security, Datacenter Security and Mobile Security are all genuine CCM domains."
+ },
+ "138": {
+  "subdomain": "2.3",
+  "difficulty": 2,
+  "reference": "CCSP 2.3 - Encryption and key management",
+  "explanation": "Encryption protects the data itself, so an attacker who obtains the system still holds only ciphertext without the keys. Firewalls and access control guard the perimeter and the entry point, and both are bypassed once the attacker is inside; sandboxing isolates processes rather than protecting data at rest."
+ },
+ "139": {
+  "subdomain": "1.4",
+  "difficulty": 2,
+  "reference": "CCSP 1.4 - Security considerations for different cloud categories",
+  "explanation": "The physical environment is always the provider's responsibility - the customer never has access to the facility in any service model. Data is always the customer's, and responsibility for infrastructure and firewalls shifts depending on whether the model is IaaS, PaaS or SaaS."
+ },
+ "140": {
+  "subdomain": "3.4",
+  "difficulty": 1,
+  "reference": "CCSP 3.4 - System, storage and communication protection",
+  "explanation": "A firewall rule matches on source and destination IP, port and protocol, and then permits or denies. Encryption is handled by protocols such as IPsec or TLS, not by the firewall's filtering decision."
+ }
+}

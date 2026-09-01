@@ -1,0 +1,655 @@
+{
+  "domain": 6,
+  "questions": [
+    {
+      "slug": "d6-0001",
+      "subdomain": "6.2",
+      "difficulty": 2,
+      "question": "Which of the following is not a component of contractual PII?",
+      "answers": [
+        {
+          "text": "Scope of processing",
+          "correct": false
+        },
+        {
+          "text": "Value of data",
+          "correct": true
+        },
+        {
+          "text": "Location of data",
+          "correct": false
+        },
+        {
+          "text": "Use of subcontractors",
+          "correct": false
+        }
+      ],
+      "explanation": "Contractual PII terms define how data is handled: the scope of processing, where it may be located, and whether subcontractors may be used. The monetary value of the data is a business consideration, not a handling obligation, so it never appears as a contractual PII component.",
+      "reference": "CCSP 6.2 - Difference between contractual and regulated private data"
+    },
+    {
+      "slug": "d6-0002",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "Which of the following cloud aspects complicates eDiscovery?",
+      "answers": [
+        {
+          "text": "Resource pooling",
+          "correct": false
+        },
+        {
+          "text": "On-demand self-service",
+          "correct": false
+        },
+        {
+          "text": "Multitenancy",
+          "correct": true
+        },
+        {
+          "text": "Measured service",
+          "correct": false
+        }
+      ],
+      "explanation": "Multitenancy is what complicates eDiscovery: one tenant's data sits alongside other tenants' on shared systems, so collection must isolate the target data without exposing anyone else's. Resource pooling, self-service and measured service describe how capacity is allocated and billed and raise no comparable evidentiary problem.",
+      "reference": "CCSP 6.1 - eDiscovery"
+    },
+    {
+      "slug": "d6-0003",
+      "subdomain": "6.1",
+      "difficulty": 1,
+      "question": "What is a serious complication an organization faces from the perspective of compliance with international operations?",
+      "answers": [
+        {
+          "text": "Different certifications",
+          "correct": false
+        },
+        {
+          "text": "Multiple jurisdictions",
+          "correct": true
+        },
+        {
+          "text": "Different capabilities",
+          "correct": false
+        },
+        {
+          "text": "Different operational procedures",
+          "correct": false
+        }
+      ],
+      "explanation": "Operating internationally means being subject to multiple jurisdictions whose laws can contradict one another, so complying with one may put you in breach of another. Differing certifications, capabilities and procedures are operational friction that can be planned around; conflicting law cannot.",
+      "reference": "CCSP 6.1 - Conflicting international legislation"
+    },
+    {
+      "slug": "d6-0004",
+      "subdomain": "6.2",
+      "difficulty": 1,
+      "question": "Which United States law is focused on data related to health records and privacy?",
+      "answers": [
+        {
+          "text": "Safe Harbor",
+          "correct": false
+        },
+        {
+          "text": "SOX",
+          "correct": false
+        },
+        {
+          "text": "GLBA",
+          "correct": false
+        },
+        {
+          "text": "HIPAA",
+          "correct": true
+        }
+      ],
+      "explanation": "HIPAA governs protected health information in the United States. SOX covers financial reporting, GLBA covers financial-industry PII, and Safe Harbor was a transatlantic transfer mechanism, now defunct.",
+      "reference": "CCSP 6.2 - Country-specific legislation related to private data"
+    },
+    {
+      "slug": "d6-0005",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "Which of the following is NOT a criterion for data within the scope of eDiscovery?",
+      "answers": [
+        {
+          "text": "Possession",
+          "correct": false
+        },
+        {
+          "text": "Custody",
+          "correct": false
+        },
+        {
+          "text": "Control",
+          "correct": false
+        },
+        {
+          "text": "Archive",
+          "correct": true
+        }
+      ],
+      "explanation": "eDiscovery scope is defined by possession, custody and control - whether you can produce the data, regardless of where it physically sits. Whether the data happens to be archived is irrelevant: archived data you control is still discoverable.",
+      "reference": "CCSP 6.1 - eDiscovery"
+    },
+    {
+      "slug": "d6-0006",
+      "subdomain": "6.1",
+      "difficulty": 1,
+      "question": "Which United States law is focused on accounting and financial practices of organizations?",
+      "answers": [
+        {
+          "text": "HIPAA",
+          "correct": false
+        },
+        {
+          "text": "Safe Harbor",
+          "correct": false
+        },
+        {
+          "text": "GLBA",
+          "correct": false
+        },
+        {
+          "text": "SOX",
+          "correct": true
+        }
+      ],
+      "explanation": "SOX (the Sarbanes-Oxley Act) regulates the accounting and financial reporting practices of publicly traded US companies. HIPAA covers health data, GLBA covers financial-industry privacy rather than accounting practice, and Safe Harbor concerned data transfers.",
+      "reference": "CCSP 6.1 - Legal framework and guidelines"
+    },
+    {
+      "slug": "d6-0007",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "Which of the following attempts to establish an international standard for eDiscovery processes and best practices?",
+      "answers": [
+        {
+          "text": "ISO/IEC 31000",
+          "correct": false
+        },
+        {
+          "text": "ISO/IEC 19888",
+          "correct": false
+        },
+        {
+          "text": "ISO/IEC 27001",
+          "correct": false
+        },
+        {
+          "text": "ISO/IEC 27050",
+          "correct": true
+        }
+      ],
+      "explanation": "ISO/IEC 27050 is the international standard series for electronic discovery. ISO/IEC 27001 specifies an ISMS, ISO 31000 covers risk management, and ISO/IEC 19888 is not an eDiscovery standard.",
+      "reference": "CCSP 6.1 - eDiscovery"
+    },
+    {
+      "slug": "d6-0008",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "What is the primary reason that makes resolving jurisdictional conflicts complicated?",
+      "answers": [
+        {
+          "text": "Different technology standards",
+          "correct": false
+        },
+        {
+          "text": "Costs",
+          "correct": false
+        },
+        {
+          "text": "Language barriers",
+          "correct": false
+        },
+        {
+          "text": "Lack of international authority",
+          "correct": true
+        }
+      ],
+      "explanation": "There is no supranational authority able to bind sovereign states, so when two jurisdictions' laws conflict there is no forum that can definitively resolve the conflict. Cost, language and differing technical standards are practical obstacles that do not go to the root of the problem.",
+      "reference": "CCSP 6.1 - Conflicting international legislation"
+    },
+    {
+      "slug": "d6-0009",
+      "subdomain": "6.3",
+      "difficulty": 1,
+      "question": "GAAPs are created and maintained by which organization?",
+      "answers": [
+        {
+          "text": "ISO/IEC",
+          "correct": false
+        },
+        {
+          "text": "ISO",
+          "correct": false
+        },
+        {
+          "text": "PCI Council",
+          "correct": false
+        },
+        {
+          "text": "AICPA",
+          "correct": true
+        }
+      ],
+      "explanation": "The AICPA maintains Generally Accepted Accounting Principles, and also authors the SOC reporting framework. ISO and ISO/IEC publish management-system and technical standards, and the PCI Council governs payment card security.",
+      "reference": "CCSP 6.3 - Internal and external audit controls"
+    },
+    {
+      "slug": "d6-0010",
+      "subdomain": "6.4",
+      "difficulty": 1,
+      "question": "Which of the following is not a risk management framework?",
+      "answers": [
+        {
+          "text": "COBIT",
+          "correct": false
+        },
+        {
+          "text": "NIST SP 800-37",
+          "correct": false
+        },
+        {
+          "text": "ISO 31000:2009",
+          "correct": false
+        },
+        {
+          "text": "Hex GBL",
+          "correct": true
+        }
+      ],
+      "explanation": "Hex GBL is not a real framework. COBIT, NIST SP 800-37 (the Risk Management Framework) and ISO 31000 are all genuine, widely used risk management frameworks.",
+      "reference": "CCSP 6.4 - Different risk frameworks"
+    },
+    {
+      "slug": "d6-0011",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "Which of the following is NOT a regulatory system from the United States federal government?",
+      "answers": [
+        {
+          "text": "HIPAA",
+          "correct": false
+        },
+        {
+          "text": "SOX",
+          "correct": false
+        },
+        {
+          "text": "PCI DSS",
+          "correct": true
+        },
+        {
+          "text": "FISMA",
+          "correct": false
+        }
+      ],
+      "explanation": "PCI DSS is a contractual standard imposed by the payment card brands, not law, so no government enforces it - breaching it costs you card processing rather than a statutory penalty. HIPAA, SOX and FISMA are all US federal statutes.",
+      "reference": "CCSP 6.1 - Legal framework and guidelines"
+    },
+    {
+      "slug": "d6-0012",
+      "subdomain": "6.2",
+      "difficulty": 2,
+      "question": "Which jurisdiction lacks specific and comprehensive privacy laws at a national or top level of legal authority?",
+      "answers": [
+        {
+          "text": "European Union",
+          "correct": false
+        },
+        {
+          "text": "Germany",
+          "correct": false
+        },
+        {
+          "text": "United States",
+          "correct": true
+        },
+        {
+          "text": "Russia",
+          "correct": false
+        }
+      ],
+      "explanation": "The United States regulates privacy sectorally - HIPAA for health, GLBA for finance, and a patchwork of state laws - with no comprehensive federal privacy statute. The EU has the GDPR, Germany is bound by it and adds national law, and Russia has a comprehensive localisation and privacy regime.",
+      "reference": "CCSP 6.2 - Jurisdictional differences in data privacy"
+    },
+    {
+      "slug": "d6-0013",
+      "subdomain": "6.2",
+      "difficulty": 1,
+      "question": "Which United States law is focused on PII as it relates to the financial industry?",
+      "answers": [
+        {
+          "text": "HIPAA",
+          "correct": false
+        },
+        {
+          "text": "SOX",
+          "correct": false
+        },
+        {
+          "text": "GLBA",
+          "correct": true
+        },
+        {
+          "text": "Safe Harbor",
+          "correct": false
+        }
+      ],
+      "explanation": "GLBA (the Gramm-Leach-Bliley Act) governs how financial institutions handle customer PII. HIPAA covers health data, SOX covers financial reporting rather than personal data, and Safe Harbor concerned international transfers.",
+      "reference": "CCSP 6.2 - Country-specific legislation related to private data"
+    },
+    {
+      "slug": "d6-0014",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "Which of the following may unilaterally deem a cloud hosting model inappropriate for a system or application?",
+      "answers": [
+        {
+          "text": "Regulation",
+          "correct": true
+        },
+        {
+          "text": "Multitenancy",
+          "correct": false
+        },
+        {
+          "text": "Certification",
+          "correct": false
+        },
+        {
+          "text": "Virtualization",
+          "correct": false
+        }
+      ],
+      "explanation": "Regulation can forbid a hosting arrangement outright, and no amount of compensating control changes that - it is a legal bar, not a risk to be treated. Multitenancy and virtualisation are technical properties that can be mitigated, and certification is something a provider can obtain.",
+      "reference": "CCSP 6.1 - Evaluation of legal risks specific to cloud computing"
+    },
+    {
+      "slug": "d6-0015",
+      "subdomain": "6.3",
+      "difficulty": 1,
+      "question": "Which type of audit report does many cloud providers use to instill confidence in their policies, practices, and procedures to current and potential customers?",
+      "answers": [
+        {
+          "text": "SOX",
+          "correct": false
+        },
+        {
+          "text": "SOC 1",
+          "correct": false
+        },
+        {
+          "text": "SAS-70",
+          "correct": false
+        },
+        {
+          "text": "SOC 2",
+          "correct": true
+        }
+      ],
+      "explanation": "SOC 2 reports on the Trust Services Criteria - security, availability, processing integrity, confidentiality and privacy - which is what a cloud customer needs to see. SOC 1 addresses controls over financial reporting, SAS-70 is the retired predecessor, and SOX is legislation rather than a report.",
+      "reference": "CCSP 6.3 - Types of audit reports"
+    },
+    {
+      "slug": "d6-0016",
+      "subdomain": "6.2",
+      "difficulty": 1,
+      "question": "What type of PII is regulated based on the type of application or per the conditions of the specific hosting agreement?",
+      "answers": [
+        {
+          "text": "Specific",
+          "correct": false
+        },
+        {
+          "text": "Regulated",
+          "correct": false
+        },
+        {
+          "text": "Jurisdictional",
+          "correct": false
+        },
+        {
+          "text": "Contractual",
+          "correct": true
+        }
+      ],
+      "explanation": "Contractual PII is protected because a contract says so - the hosting agreement or application terms define the obligation. Regulated PII derives its protection from law and carries statutory penalties. 'Specific' and 'jurisdictional' are not PII categories.",
+      "reference": "CCSP 6.2 - Difference between contractual and regulated private data"
+    },
+    {
+      "slug": "d6-0017",
+      "subdomain": "6.1",
+      "difficulty": 2,
+      "question": "From a legal perspective, what is the most important first step after an eDiscovery order has been received by the cloud provider?",
+      "answers": [
+        {
+          "text": "Notification",
+          "correct": true
+        },
+        {
+          "text": "Key identification",
+          "correct": false
+        },
+        {
+          "text": "Data collection",
+          "correct": false
+        },
+        {
+          "text": "Virtual image snapshots",
+          "correct": false
+        }
+      ],
+      "explanation": "The provider must notify the affected customer first, because the data belongs to that customer and they may have grounds to challenge the order or assert privilege. Collecting or imaging data before notification risks acting on an order the customer could have quashed.",
+      "reference": "CCSP 6.1 - eDiscovery"
+    },
+    {
+      "slug": "d6-0018",
+      "subdomain": "6.4",
+      "difficulty": 2,
+      "question": "What expectation of data custodians is made much more challenging by a cloud implementation, especially with PaaS or SaaS?",
+      "answers": [
+        {
+          "text": "Knowledge of systems",
+          "correct": true
+        },
+        {
+          "text": "Data classification",
+          "correct": false
+        },
+        {
+          "text": "Access to data",
+          "correct": false
+        },
+        {
+          "text": "Encryption requirements",
+          "correct": false
+        }
+      ],
+      "explanation": "A data custodian is accountable for how data is technically handled, which requires knowing the systems it lives on. In PaaS and especially SaaS those systems are opaque to the customer, so the custodian must discharge a duty over infrastructure they cannot see. Classification and access remain the customer's to determine, and encryption requirements can still be specified contractually.",
+      "reference": "CCSP 6.4 - Difference between data roles"
+    },
+    {
+      "slug": "d6-0019",
+      "subdomain": "6.2",
+      "difficulty": 1,
+      "question": "What type of PII is controlled based on laws and carries legal penalties for noncompliance with requirements?",
+      "answers": [
+        {
+          "text": "Regulated",
+          "correct": true
+        },
+        {
+          "text": "Contractual",
+          "correct": false
+        },
+        {
+          "text": "Specific",
+          "correct": false
+        },
+        {
+          "text": "Jurisdictional",
+          "correct": false
+        }
+      ],
+      "explanation": "Regulated PII is protected by statute and non-compliance carries legal penalties - fines, enforcement action, sometimes personal liability. Contractual PII is protected by agreement, where the remedy is a breach-of-contract claim rather than a regulator. 'Specific' and 'jurisdictional' are not PII categories.",
+      "reference": "CCSP 6.2 - Difference between contractual and regulated private data"
+    },
+    {
+      "slug": "d6-0020",
+      "subdomain": "6.2",
+      "difficulty": 2,
+      "question": "Which entity requires all collection and storing of data on their citizens to be done on hardware that resides within their borders?",
+      "answers": [
+        {
+          "text": "Russia",
+          "correct": true
+        },
+        {
+          "text": "France",
+          "correct": false
+        },
+        {
+          "text": "Germany",
+          "correct": false
+        },
+        {
+          "text": "United States",
+          "correct": false
+        }
+      ],
+      "explanation": "Russia's Federal Law 242-FZ requires that personal data on Russian citizens be collected and stored on servers physically located in Russia. France and Germany are governed by the GDPR, which restricts transfers outside the EEA but does not mandate in-country storage, and the United States imposes no general localisation requirement.",
+      "reference": "CCSP 6.2 - Jurisdictional differences in data privacy"
+    },
+    {
+      "slug": "d6-0021",
+      "subdomain": "6.3",
+      "difficulty": 2,
+      "question": "Which of the following is the MOST important requirement and guidance for testing during an audit?",
+      "answers": [
+        {
+          "text": "Regulations",
+          "correct": true
+        },
+        {
+          "text": "Management",
+          "correct": false
+        },
+        {
+          "text": "Shareholders",
+          "correct": false
+        },
+        {
+          "text": "Stakeholders",
+          "correct": false
+        }
+      ],
+      "explanation": "Where a regulation prescribes what must be tested, it is not negotiable - management and stakeholders cannot scope it away, and an audit that ignores it fails. Management, shareholders and stakeholders all shape audit scope, but only within whatever the regulator already requires.",
+      "reference": "CCSP 6.3 - Audit planning"
+    },
+    {
+      "slug": "d6-0022",
+      "subdomain": "6.3",
+      "difficulty": 2,
+      "question": "Which of the following is NOT a focus or consideration of an internal audit?",
+      "answers": [
+        {
+          "text": "Certification",
+          "correct": true
+        },
+        {
+          "text": "Design",
+          "correct": false
+        },
+        {
+          "text": "Operational efficiency",
+          "correct": false
+        },
+        {
+          "text": "Costs",
+          "correct": false
+        }
+      ],
+      "explanation": "Certification requires an independent external auditor, since an organisation cannot certify itself. Internal audit legitimately examines control design, operational efficiency and cost, all of which are internal management concerns.",
+      "reference": "CCSP 6.3 - Internal and external audit controls"
+    },
+    {
+      "slug": "d6-0023",
+      "subdomain": "6.3",
+      "difficulty": 2,
+      "question": "Unlike SOC Type 1 reports, which are based on a specific point in time, SOC Type 2 reports are done over a period of time. What is the minimum span of time for a SOC Type 2 report?",
+      "answers": [
+        {
+          "text": "Six months",
+          "correct": true
+        },
+        {
+          "text": "One month",
+          "correct": false
+        },
+        {
+          "text": "One year",
+          "correct": false
+        },
+        {
+          "text": "One week",
+          "correct": false
+        }
+      ],
+      "explanation": "A SOC 2 Type 2 report covers a period of at least six months, because operating effectiveness cannot be demonstrated from a single point in time - the auditor needs to see the control working repeatedly. A Type 1 report is the point-in-time assessment of design only.",
+      "reference": "CCSP 6.3 - Types of audit reports"
+    },
+    {
+      "slug": "d6-0024",
+      "subdomain": "6.3",
+      "difficulty": 1,
+      "question": "Which type of controls are the SOC Type 1 reports specifically focused on?",
+      "answers": [
+        {
+          "text": "Financial",
+          "correct": true
+        },
+        {
+          "text": "Integrity",
+          "correct": false
+        },
+        {
+          "text": "Privacy",
+          "correct": false
+        },
+        {
+          "text": "PII",
+          "correct": false
+        }
+      ],
+      "explanation": "SOC 1 reports on internal controls over financial reporting, which is why auditors of a customer's financial statements ask for it. Security, confidentiality, privacy and processing integrity belong to SOC 2's Trust Services Criteria.",
+      "reference": "CCSP 6.3 - Types of audit reports"
+    },
+    {
+      "slug": "d6-0025",
+      "subdomain": "6.4",
+      "difficulty": 2,
+      "question": "Which of the following is NOT a domain of the Cloud Controls Matrix (CCM)?",
+      "answers": [
+        {
+          "text": "Human resources",
+          "correct": false
+        },
+        {
+          "text": "Data center security",
+          "correct": false
+        },
+        {
+          "text": "Mobile security",
+          "correct": false
+        },
+        {
+          "text": "Budgetary and cost controls",
+          "correct": true
+        }
+      ],
+      "explanation": "Budgetary and cost controls is a financial management concern and is not a CCM domain - the matrix addresses security control objectives, not spend. Human Resources Security, Datacenter Security and Mobile Security are all genuine CCM domains.",
+      "reference": "CSA Cloud Controls Matrix"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Validate content and run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Validate the question bank
+        run: python sql/build_db.py --check
+
+      - name: Run tests
+        run: pytest -q
+
+  publish:
+    name: Build and push image
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      REPO_NAME: ${{ secrets.REPO_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # TOKEN_BOT is intentionally absent from this job. A build argument ends
+      # up in the image history, and this image is pushed to a public registry.
+      # The token is supplied at run time instead.
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.DOCKER_USER }}/${{ env.REPO_NAME }}:latest
+            ${{ env.DOCKER_USER }}/${{ env.REPO_NAME }}:${{ github.sha }}
