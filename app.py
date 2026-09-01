@@ -22,6 +22,13 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
 )
+
+# httpx logs every request line at INFO, and the Telegram API carries the token
+# in the URL path - so at INFO the bot token is written to the container logs on
+# every poll. The same secret the Dockerfile and CI keep out of the image would
+# then sit in plain text in `docker logs`. Warnings and errors still come out.
+logging.getLogger("httpx").setLevel(logging.WARNING)
+
 logger = logging.getLogger("ccspbot")
 
 

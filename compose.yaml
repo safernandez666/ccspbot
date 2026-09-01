@@ -1,0 +1,34 @@
+services:
+  ccspbot:
+    build: .
+    image: ccspbot:latest
+    restart: unless-stopped
+
+    # The only required input. Never set this in the Dockerfile or as a build
+    # argument: a build ARG is written into the image history.
+    environment:
+      TOKEN_BOT: ${TOKEN_BOT:?TOKEN_BOT must be set}
+
+    # Attempt history. Without this volume every restart wipes each user's
+    # statistics, since the bank itself is baked into the image read-only.
+    volumes:
+      - ccspbot-data:/app/data
+
+    # No ports. The bot uses Telegram long polling, so all traffic is outbound
+    # to api.telegram.org:443. It needs no inbound port, reverse proxy or
+    # certificate.
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.50"
+
+volumes:
+  ccspbot-data:
