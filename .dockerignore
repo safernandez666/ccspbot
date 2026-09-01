@@ -1,0 +1,27 @@
+# Secrets must never enter the build context. Without this, a local .env
+# holding TOKEN_BOT would be copied into an image layer by `COPY . .` -
+# the same leak that removing the build ARG was meant to close.
+.env
+*.env
+
+# Virtualenvs hold platform-specific binaries that are useless in the image
+.venv
+venv
+
+.git
+.github
+.gitignore
+
+# Attempt history belongs on the mounted volume, not in the image
+data
+
+# Build artifact: the image compiles its own with sql/build_db.py
+sql/questions.db
+
+# Not needed at run time
+tests
+docs
+requirements-dev.txt
+__pycache__
+*.py[cod]
+.pytest_cache
