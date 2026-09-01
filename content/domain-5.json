@@ -1,0 +1,837 @@
+{
+  "domain": 5,
+  "questions": [
+    {
+      "slug": "d5-0001",
+      "subdomain": "5.1",
+      "difficulty": 1,
+      "question": "What is the best source for information about securing a physical asset's BIOS?",
+      "answers": [
+        {
+          "text": "Security policies",
+          "correct": false
+        },
+        {
+          "text": "Manual pages",
+          "correct": false
+        },
+        {
+          "text": "Vendor documentation",
+          "correct": true
+        },
+        {
+          "text": "Regulations",
+          "correct": false
+        }
+      ],
+      "explanation": "Vendor documentation is authoritative for a specific board's BIOS/UEFI settings, because only the vendor knows which options that firmware actually exposes. Security policies state what outcome is required but not which setting produces it; regulations are even further removed; man pages document operating system commands, not firmware.",
+      "reference": "CCSP 5.1 - Hardware specific security configuration requirements"
+    },
+    {
+      "slug": "d5-0002",
+      "subdomain": "5.2",
+      "difficulty": 1,
+      "question": "What is used for local, physical access to hardware within a data center?",
+      "answers": [
+        {
+          "text": "SSH",
+          "correct": false
+        },
+        {
+          "text": "VPN",
+          "correct": false
+        },
+        {
+          "text": "RDP",
+          "correct": false
+        },
+        {
+          "text": "KVM",
+          "correct": true
+        }
+      ],
+      "explanation": "A KVM switch gives an operator local console access to hardware by sharing one keyboard, video display and mouse across many machines. SSH, RDP and VPN are all network protocols and therefore remote access, which is exactly what the question excludes.",
+      "reference": "CCSP 5.2 - Access controls for local and remote access"
+    },
+    {
+      "slug": "d5-0003",
+      "subdomain": "5.4",
+      "difficulty": 1,
+      "question": "Which term relates to the application of scientific methods and practices to evidence?",
+      "answers": [
+        {
+          "text": "Measured",
+          "correct": false
+        },
+        {
+          "text": "Theoretical",
+          "correct": false
+        },
+        {
+          "text": "Methodical",
+          "correct": false
+        },
+        {
+          "text": "Forensics",
+          "correct": true
+        }
+      ],
+      "explanation": "Forensics is the application of scientific method to evidence so that findings are reproducible and admissible. 'Methodical', 'measured' and 'theoretical' describe qualities of an approach but none of them is the discipline the question names.",
+      "reference": "CCSP 5.4 - Forensic data collection methodologies"
+    },
+    {
+      "slug": "d5-0004",
+      "subdomain": "5.2",
+      "difficulty": 2,
+      "question": "What is the best approach for dealing with services or utilities that are installed on a system but not needed to perform their desired function?",
+      "answers": [
+        {
+          "text": "Stop",
+          "correct": false
+        },
+        {
+          "text": "Disable",
+          "correct": false
+        },
+        {
+          "text": "Remove",
+          "correct": true
+        },
+        {
+          "text": "Monitor",
+          "correct": false
+        }
+      ],
+      "explanation": "Removing an unneeded service eliminates the attack surface permanently. Stopping or disabling leaves the vulnerable code on disk, where a later patch, misconfiguration or attacker can start it again, and monitoring detects abuse without preventing it. Hardening baselines therefore call for removal wherever the platform allows it.",
+      "reference": "CCSP 5.2 - Operating system hardening"
+    },
+    {
+      "slug": "d5-0005",
+      "subdomain": "5.1",
+      "difficulty": 1,
+      "question": "What must be secured on physical hardware to prevent unauthorized access to systems?",
+      "answers": [
+        {
+          "text": "ALOM",
+          "correct": false
+        },
+        {
+          "text": "RDP",
+          "correct": false
+        },
+        {
+          "text": "SSH",
+          "correct": false
+        },
+        {
+          "text": "BIOS",
+          "correct": true
+        }
+      ],
+      "explanation": "The BIOS/UEFI runs before any operating system, so an attacker who reaches it can change the boot order or install firmware-level code that no OS control can see. RDP and SSH are remote access services that run after boot, and ALOM is a specific vendor management module rather than the general answer.",
+      "reference": "CCSP 5.1 - Hardware specific security configuration requirements"
+    },
+    {
+      "slug": "d5-0006",
+      "subdomain": "5.3",
+      "difficulty": 1,
+      "question": "What is a standard configuration and policy set that is applied to systems and virtual machines called?",
+      "answers": [
+        {
+          "text": "Baseline",
+          "correct": true
+        },
+        {
+          "text": "Standardization",
+          "correct": false
+        },
+        {
+          "text": "Hardening",
+          "correct": false
+        },
+        {
+          "text": "Redline",
+          "correct": false
+        }
+      ],
+      "explanation": "A baseline is the standard, approved configuration and policy set applied to systems, and it is what deviation is measured against. Hardening is the act of tightening a configuration, standardisation the broader goal, and 'redline' is not a configuration management term.",
+      "reference": "CCSP 5.3 - Configuration management"
+    },
+    {
+      "slug": "d5-0007",
+      "subdomain": "5.3",
+      "difficulty": 2,
+      "question": "Which of the following is NOT a key area for performance monitoring as far as an SLA is concerned?",
+      "answers": [
+        {
+          "text": "Users",
+          "correct": true
+        },
+        {
+          "text": "CPU",
+          "correct": false
+        },
+        {
+          "text": "Memory",
+          "correct": false
+        },
+        {
+          "text": "Network",
+          "correct": false
+        }
+      ],
+      "explanation": "An SLA commits the provider to measurable resource and service performance: CPU, memory, network, storage and availability. The number of users is a licensing or capacity dimension the customer controls, so the provider cannot commit to it as a performance target.",
+      "reference": "CCSP 5.3 - Service-level management"
+    },
+    {
+      "slug": "d5-0008",
+      "subdomain": "5.3",
+      "difficulty": 1,
+      "question": "Which of the following is a commonly used tool for maintaining system configurations?",
+      "answers": [
+        {
+          "text": "Puppet",
+          "correct": true
+        },
+        {
+          "text": "Maestro",
+          "correct": false
+        },
+        {
+          "text": "Conductor",
+          "correct": false
+        },
+        {
+          "text": "Orchestrator",
+          "correct": false
+        }
+      ],
+      "explanation": "Puppet is a widely used configuration management tool, alongside Chef, Ansible and SaltStack. 'Maestro', 'Conductor' and 'Orchestrator' are generic words rather than the names of established tools.",
+      "reference": "CCSP 5.3 - Configuration management"
+    },
+    {
+      "slug": "d5-0009",
+      "subdomain": "5.6",
+      "difficulty": 1,
+      "question": "Which type of testing uses the same strategies and toolsets that hackers would use?",
+      "answers": [
+        {
+          "text": "Penetration",
+          "correct": true
+        },
+        {
+          "text": "Dynamic",
+          "correct": false
+        },
+        {
+          "text": "Static",
+          "correct": false
+        },
+        {
+          "text": "Malicious",
+          "correct": false
+        }
+      ],
+      "explanation": "Penetration testing deliberately uses the same strategies and tools an attacker would, to see what they could actually achieve. Static and dynamic testing analyse code and running applications with defensive tooling, and 'malicious testing' is not a recognised category.",
+      "reference": "CCSP 5.6 - Penetration testing"
+    },
+    {
+      "slug": "d5-0010",
+      "subdomain": "5.2",
+      "difficulty": 1,
+      "question": "What process is used within a clustered system to provide high availability and load balancing?",
+      "answers": [
+        {
+          "text": "Dynamic resource scheduling",
+          "correct": true
+        },
+        {
+          "text": "Dynamic optimization",
+          "correct": false
+        },
+        {
+          "text": "Dynamic clustering",
+          "correct": false
+        },
+        {
+          "text": "Dynamic balancing",
+          "correct": false
+        }
+      ],
+      "explanation": "Dynamic resource scheduling distributes workloads across the hosts in a cluster, balancing load and restarting guests elsewhere when a host fails. Dynamic optimization tunes an individual host, and 'dynamic clustering' and 'dynamic balancing' are not the standard term.",
+      "reference": "CCSP 5.2 - Availability of clustered hosts"
+    },
+    {
+      "slug": "d5-0011",
+      "subdomain": "5.1",
+      "difficulty": 2,
+      "question": "A provider ships every new hypervisor host with remote management enabled, a default administrative password, and all storage protocols listening. Which principle does this deployment violate?",
+      "answers": [
+        {
+          "text": "Secure by default",
+          "correct": true
+        },
+        {
+          "text": "Least privilege",
+          "correct": false
+        },
+        {
+          "text": "Separation of duties",
+          "correct": false
+        },
+        {
+          "text": "Defense in depth",
+          "correct": false
+        }
+      ],
+      "explanation": "Secure by default requires that a system arrive in its hardened state, with unnecessary services off and no default credentials, so that security does not depend on someone remembering to configure it. Least privilege concerns the rights granted to an identity, separation of duties splits a sensitive task between people, and defense in depth is about layering controls - none of them is about the shipped state of the system.",
+      "reference": "CCSP 5.1 - Secure by default"
+    },
+    {
+      "slug": "d5-0012",
+      "subdomain": "5.1",
+      "difficulty": 2,
+      "question": "Which component, if compromised, gives an attacker the broadest control over a cloud environment?",
+      "answers": [
+        {
+          "text": "The management plane",
+          "correct": true
+        },
+        {
+          "text": "A single hypervisor host",
+          "correct": false
+        },
+        {
+          "text": "The object storage service",
+          "correct": false
+        },
+        {
+          "text": "A tenant's virtual firewall",
+          "correct": false
+        }
+      ],
+      "explanation": "The management plane orchestrates every hypervisor, network and storage resource through their APIs, so control of it means the ability to create, move, snapshot or destroy any workload in the environment. A single host affects only its own guests, storage exposes data but not control, and a tenant firewall is scoped to one tenant.",
+      "reference": "CCSP 5.1 - Installation and configuration of management plane tools"
+    },
+    {
+      "slug": "d5-0013",
+      "subdomain": "5.1",
+      "difficulty": 2,
+      "question": "What is the primary security benefit of installing the hypervisor vendor's guest virtualization toolset inside a virtual machine?",
+      "answers": [
+        {
+          "text": "It allows the host to gracefully quiesce and coordinate with the guest",
+          "correct": true
+        },
+        {
+          "text": "It encrypts the virtual machine's disk at rest",
+          "correct": false
+        },
+        {
+          "text": "It isolates the guest from other guests on the same host",
+          "correct": false
+        },
+        {
+          "text": "It replaces the need for a host-based firewall in the guest",
+          "correct": false
+        }
+      ],
+      "explanation": "Guest tools let the host coordinate with the guest operating system - quiescing the file system for a consistent snapshot, shutting down cleanly, reporting health - which is what makes backup and orchestration reliable. Disk encryption, inter-guest isolation and host firewalling are provided by other mechanisms entirely.",
+      "reference": "CCSP 5.1 - Installation of guest operating system virtualization toolsets"
+    },
+    {
+      "slug": "d5-0014",
+      "subdomain": "5.1",
+      "difficulty": 3,
+      "question": "An organization runs containers on a shared Kubernetes cluster. A workload requires a kernel capability that the default container runtime profile denies. Which approach best preserves the security of the cluster?",
+      "answers": [
+        {
+          "text": "Grant only that capability to that workload's security context",
+          "correct": true
+        },
+        {
+          "text": "Run the container as privileged",
+          "correct": false
+        },
+        {
+          "text": "Disable the runtime's seccomp profile cluster-wide",
+          "correct": false
+        },
+        {
+          "text": "Run the workload as root inside the container",
+          "correct": false
+        }
+      ],
+      "explanation": "Adding the single capability the workload needs keeps every other restriction intact, which is least privilege applied to a container. Running privileged grants effectively all capabilities and access to host devices, disabling seccomp cluster-wide removes the syscall filter from every workload, and running as root inside the container does not grant the capability at all while worsening the impact of an escape.",
+      "reference": "CCSP 5.1 - Virtual hardware specific security configuration requirements"
+    },
+    {
+      "slug": "d5-0015",
+      "subdomain": "5.2",
+      "difficulty": 2,
+      "question": "A cloud operations team must patch a fleet of production instances. Which practice most reduces the risk that a patch causes an outage?",
+      "answers": [
+        {
+          "text": "Deploy to a staging environment that mirrors production first",
+          "correct": true
+        },
+        {
+          "text": "Apply patches only during the monthly maintenance window",
+          "correct": false
+        },
+        {
+          "text": "Patch half the fleet and leave the other half at the prior level",
+          "correct": false
+        },
+        {
+          "text": "Require a change ticket for every patch",
+          "correct": false
+        }
+      ],
+      "explanation": "Testing on an environment that mirrors production is what actually surfaces an incompatibility before customers meet it. A maintenance window controls when the damage happens rather than whether it happens, permanently splitting the fleet leaves half of it unpatched and creates two configurations to support, and a change ticket documents the work without validating it.",
+      "reference": "CCSP 5.2 - Patch management"
+    },
+    {
+      "slug": "d5-0016",
+      "subdomain": "5.2",
+      "difficulty": 2,
+      "question": "Which measurement most directly tells an operations team that a cluster needs additional hosts before customers are affected?",
+      "answers": [
+        {
+          "text": "Sustained resource utilization trending toward the cluster's capacity",
+          "correct": true
+        },
+        {
+          "text": "The number of virtual machines currently running",
+          "correct": false
+        },
+        {
+          "text": "The count of open incident tickets",
+          "correct": false
+        },
+        {
+          "text": "The age of the oldest host in the cluster",
+          "correct": false
+        }
+      ],
+      "explanation": "Capacity management works from utilization trends, because the trend is what forecasts the date the cluster runs out and gives time to procure. A raw VM count says nothing about how much each consumes, incident tickets are a lagging indicator that arrives after the impact, and host age is a lifecycle concern rather than a capacity one.",
+      "reference": "CCSP 5.2 - Performance and capacity monitoring"
+    },
+    {
+      "slug": "d5-0017",
+      "subdomain": "5.2",
+      "difficulty": 2,
+      "question": "Why is a host-based intrusion detection agent inside a guest operating system not a substitute for hypervisor-level monitoring?",
+      "answers": [
+        {
+          "text": "An attacker who escapes to the hypervisor is outside the guest agent's visibility",
+          "correct": true
+        },
+        {
+          "text": "Guest agents cannot be centrally managed",
+          "correct": false
+        },
+        {
+          "text": "Guest agents are unable to write to a remote log server",
+          "correct": false
+        },
+        {
+          "text": "Hypervisors do not permit agents to run in guests",
+          "correct": false
+        }
+      ],
+      "explanation": "A guest agent can only observe what happens inside its own operating system, so activity at the hypervisor layer - or in another guest - is invisible to it, and an attacker who escapes the guest can also disable the agent. Guest agents are centrally manageable, do ship logs remotely, and hypervisors do not prevent them from running.",
+      "reference": "CCSP 5.2 - Network security controls"
+    },
+    {
+      "slug": "d5-0018",
+      "subdomain": "5.2",
+      "difficulty": 3,
+      "question": "A backup of a virtual machine is taken by snapshotting its disk while the guest is running, without coordinating with the guest operating system. What is the most likely consequence?",
+      "answers": [
+        {
+          "text": "The restored image may contain an inconsistent file system or database state",
+          "correct": true
+        },
+        {
+          "text": "The snapshot will fail to complete",
+          "correct": false
+        },
+        {
+          "text": "The guest will be forced to reboot",
+          "correct": false
+        },
+        {
+          "text": "The snapshot will be encrypted with the wrong key",
+          "correct": false
+        }
+      ],
+      "explanation": "Without quiescing, writes in flight are captured mid-transaction, so the snapshot is a crash-consistent image that may restore with a corrupt database or a file system needing repair. The snapshot itself completes normally and the guest keeps running, which is precisely why the problem is not discovered until a restore is attempted.",
+      "reference": "CCSP 5.2 - Configuration of host and guest OS backup and restore"
+    },
+    {
+      "slug": "d5-0019",
+      "subdomain": "5.3",
+      "difficulty": 2,
+      "question": "An engineer applies an urgent fix to production during an outage without prior approval. Which process should this be recorded under?",
+      "answers": [
+        {
+          "text": "Emergency change management",
+          "correct": true
+        },
+        {
+          "text": "Problem management",
+          "correct": false
+        },
+        {
+          "text": "Release management",
+          "correct": false
+        },
+        {
+          "text": "Configuration management",
+          "correct": false
+        }
+      ],
+      "explanation": "Emergency change management is the defined path for a change that must happen before the normal approval cycle can run, with review taking place afterwards rather than being skipped. Problem management investigates the underlying cause once the fire is out, release management packages and schedules planned deployments, and configuration management records what the resulting state is.",
+      "reference": "CCSP 5.3 - Change management"
+    },
+    {
+      "slug": "d5-0020",
+      "subdomain": "5.3",
+      "difficulty": 3,
+      "question": "The same database connection failure has caused four separate incidents this quarter, each resolved by restarting the service. Which process should now take ownership?",
+      "answers": [
+        {
+          "text": "Problem management",
+          "correct": true
+        },
+        {
+          "text": "Incident management",
+          "correct": false
+        },
+        {
+          "text": "Availability management",
+          "correct": false
+        },
+        {
+          "text": "Continual service improvement",
+          "correct": false
+        }
+      ],
+      "explanation": "Incident management restores service, which is exactly what the restarts did, but it does not ask why the failure keeps recurring. Problem management owns root cause analysis of recurring incidents and the permanent fix. Availability management sets and tracks the uptime target, and continual service improvement is the broader programme rather than the process that investigates this specific defect.",
+      "reference": "CCSP 5.3 - Problem management"
+    },
+    {
+      "slug": "d5-0021",
+      "subdomain": "5.3",
+      "difficulty": 2,
+      "question": "What distinguishes release management from deployment management?",
+      "answers": [
+        {
+          "text": "Release management decides what ships and when; deployment management moves it into the environment",
+          "correct": true
+        },
+        {
+          "text": "Release management applies to software and deployment management to hardware",
+          "correct": false
+        },
+        {
+          "text": "Release management is performed by the customer and deployment by the provider",
+          "correct": false
+        },
+        {
+          "text": "They are interchangeable terms for the same process",
+          "correct": false
+        }
+      ],
+      "explanation": "Release management plans and authorises the contents and timing of a release, while deployment management performs the mechanical act of installing it into an environment - which is why one release can involve many deployments across regions. The split is not by hardware versus software, nor by which party performs it, and the two are distinct processes.",
+      "reference": "CCSP 5.3 - Release management / Deployment management"
+    },
+    {
+      "slug": "d5-0022",
+      "subdomain": "5.3",
+      "difficulty": 2,
+      "question": "An SLA promises 99.9% monthly availability. Approximately how much downtime does that permit in a 30-day month?",
+      "answers": [
+        {
+          "text": "About 43 minutes",
+          "correct": true
+        },
+        {
+          "text": "About 7 hours",
+          "correct": false
+        },
+        {
+          "text": "About 4 minutes",
+          "correct": false
+        },
+        {
+          "text": "About 3 hours",
+          "correct": false
+        }
+      ],
+      "explanation": "A 30-day month is 43,200 minutes, and 0.1% of that is roughly 43 minutes. About 4 minutes corresponds to 99.99%, about 7 hours to 99%, and about 3 hours falls between the two - none matches three nines.",
+      "reference": "CCSP 5.3 - Service-level management"
+    },
+    {
+      "slug": "d5-0023",
+      "subdomain": "5.4",
+      "difficulty": 3,
+      "question": "An investigator must collect evidence from a virtual machine in a multitenant cloud. Which factor most constrains what can be collected?",
+      "answers": [
+        {
+          "text": "Collection must not expose data belonging to other tenants on the same host",
+          "correct": true
+        },
+        {
+          "text": "Virtual machines cannot be imaged while powered on",
+          "correct": false
+        },
+        {
+          "text": "Cloud evidence is inadmissible in court",
+          "correct": false
+        },
+        {
+          "text": "Hypervisor logs are never available to investigators",
+          "correct": false
+        }
+      ],
+      "explanation": "Multitenancy is the defining constraint: a full image of the underlying host would sweep up other customers' data, so collection must be scoped to the target tenant. Running VMs can be imaged and their memory captured, cloud evidence is admissible when properly handled, and providers do make relevant hypervisor logs available under legal process.",
+      "reference": "CCSP 5.4 - Collecting, acquiring, and preserving digital evidence"
+    },
+    {
+      "slug": "d5-0024",
+      "subdomain": "5.4",
+      "difficulty": 2,
+      "question": "Which order of volatility should guide evidence acquisition from a running cloud instance?",
+      "answers": [
+        {
+          "text": "Memory and running state first, then attached disks, then archived logs",
+          "correct": true
+        },
+        {
+          "text": "Attached disks first, then memory, then archived logs",
+          "correct": false
+        },
+        {
+          "text": "Archived logs first, then memory, then attached disks",
+          "correct": false
+        },
+        {
+          "text": "Any order, provided a hash is taken of each item",
+          "correct": false
+        }
+      ],
+      "explanation": "The most volatile evidence is collected first because it disappears soonest: memory and process state vanish the moment the instance stops, disks persist, and archived logs persist longest of all. Hashing proves integrity of what was collected but does nothing to recover data that evaporated while something less volatile was being imaged.",
+      "reference": "CCSP 5.4 - Forensic data collection methodologies"
+    },
+    {
+      "slug": "d5-0025",
+      "subdomain": "5.4",
+      "difficulty": 2,
+      "question": "What is the purpose of maintaining a chain of custody for digital evidence?",
+      "answers": [
+        {
+          "text": "To document every person who handled the evidence and when, so its integrity can be demonstrated",
+          "correct": true
+        },
+        {
+          "text": "To encrypt the evidence so that it cannot be altered",
+          "correct": false
+        },
+        {
+          "text": "To determine which jurisdiction has authority over the case",
+          "correct": false
+        },
+        {
+          "text": "To establish the retention period for the evidence",
+          "correct": false
+        }
+      ],
+      "explanation": "Chain of custody is an unbroken record of possession and handling, and it is what lets a court accept that the evidence presented is the evidence collected. Encryption and hashing protect and prove integrity but say nothing about who held the item, and jurisdiction and retention are separate legal questions.",
+      "reference": "CCSP 5.4 - Evidence management"
+    },
+    {
+      "slug": "d5-0026",
+      "subdomain": "5.5",
+      "difficulty": 2,
+      "question": "During a confirmed breach affecting customer data, which communication obligation is typically the most time-constrained?",
+      "answers": [
+        {
+          "text": "Notifying the relevant regulator within the statutory deadline",
+          "correct": true
+        },
+        {
+          "text": "Publishing a public post-incident report",
+          "correct": false
+        },
+        {
+          "text": "Briefing the vendor whose component failed",
+          "correct": false
+        },
+        {
+          "text": "Updating the internal knowledge base",
+          "correct": false
+        }
+      ],
+      "explanation": "Regulatory notification runs on a legal clock - the GDPR's 72 hours being the best-known example - and missing it is an offence independent of the breach itself. A public report, a vendor briefing and internal documentation all matter but none carries a statutory deadline.",
+      "reference": "CCSP 5.5 - Regulators"
+    },
+    {
+      "slug": "d5-0027",
+      "subdomain": "5.5",
+      "difficulty": 2,
+      "question": "Why should communication paths with customers, regulators and partners be defined before an incident rather than during one?",
+      "answers": [
+        {
+          "text": "Under time pressure, undefined paths produce delay, contradiction and missed obligations",
+          "correct": true
+        },
+        {
+          "text": "Regulators require the plan to be filed in advance",
+          "correct": false
+        },
+        {
+          "text": "It removes the need to notify anyone during the incident",
+          "correct": false
+        },
+        {
+          "text": "It transfers liability for the incident to the communication team",
+          "correct": false
+        }
+      ],
+      "explanation": "An incident is the worst moment to discover who is authorised to speak, to whom, and by when - the predictable result is inconsistent statements and a missed deadline. Regulators generally do not require a filed plan, notification obligations remain regardless, and liability cannot be transferred by drafting a process.",
+      "reference": "CCSP 5.5 - Manage communication with relevant parties"
+    },
+    {
+      "slug": "d5-0028",
+      "subdomain": "5.6",
+      "difficulty": 2,
+      "question": "Which practice most improves the evidentiary value of logs collected from cloud workloads?",
+      "answers": [
+        {
+          "text": "Forwarding them in near real time to append-only storage the workload cannot modify",
+          "correct": true
+        },
+        {
+          "text": "Increasing the log level to debug on all systems",
+          "correct": false
+        },
+        {
+          "text": "Retaining logs on each instance for ninety days",
+          "correct": false
+        },
+        {
+          "text": "Compressing logs before archiving them",
+          "correct": false
+        }
+      ],
+      "explanation": "Shipping logs off the host immediately to storage the host cannot rewrite means an attacker who compromises the workload cannot erase the record of how they got in. Debug logging adds volume rather than trustworthiness, keeping logs only on the instance leaves them under the attacker's control, and compression is a storage optimisation.",
+      "reference": "CCSP 5.6 - Log capture and analysis"
+    },
+    {
+      "slug": "d5-0029",
+      "subdomain": "5.6",
+      "difficulty": 3,
+      "question": "A vulnerability scan of a cloud environment reports 4,000 findings. What should most influence the order in which they are addressed?",
+      "answers": [
+        {
+          "text": "Exploitability in this environment combined with the value of the asset affected",
+          "correct": true
+        },
+        {
+          "text": "The CVSS base score alone",
+          "correct": false
+        },
+        {
+          "text": "The age of each finding",
+          "correct": false
+        },
+        {
+          "text": "The number of hosts each finding appears on",
+          "correct": false
+        }
+      ],
+      "explanation": "Risk is the product of likelihood and impact, so a flaw that is actually reachable on a system holding sensitive data outranks a theoretically severe one on an isolated test host. The CVSS base score deliberately excludes environmental context, age reflects backlog rather than danger, and a wide but unreachable finding is still low risk.",
+      "reference": "CCSP 5.6 - Vulnerability assessments"
+    },
+    {
+      "slug": "d5-0030",
+      "subdomain": "5.6",
+      "difficulty": 2,
+      "question": "What must be obtained before conducting a penetration test against workloads hosted at a cloud provider?",
+      "answers": [
+        {
+          "text": "Authorization consistent with the provider's testing policy, in addition to the customer's own approval",
+          "correct": true
+        },
+        {
+          "text": "Only the customer's written approval, since they own the workloads",
+          "correct": false
+        },
+        {
+          "text": "Approval from the relevant national regulator",
+          "correct": false
+        },
+        {
+          "text": "Nothing, provided the test is limited to the customer's own IP ranges",
+          "correct": false
+        }
+      ],
+      "explanation": "The infrastructure is shared, so testing that the customer authorises can still affect the provider and other tenants - which is why providers publish testing policies and why authorisation must satisfy both parties. Customer approval alone does not cover the provider's infrastructure, regulators do not approve tests, and traffic confined to the customer's addresses still traverses shared systems.",
+      "reference": "CCSP 5.6 - Penetration testing"
+    },
+    {
+      "slug": "d5-0031",
+      "subdomain": "5.6",
+      "difficulty": 2,
+      "question": "Which capability distinguishes a security operations center from a network operations center?",
+      "answers": [
+        {
+          "text": "The SOC investigates adversarial activity; the NOC maintains service availability and performance",
+          "correct": true
+        },
+        {
+          "text": "The SOC operates continuously while the NOC works business hours",
+          "correct": false
+        },
+        {
+          "text": "The SOC handles cloud systems and the NOC on-premises systems",
+          "correct": false
+        },
+        {
+          "text": "The SOC reports to the regulator and the NOC to management",
+          "correct": false
+        }
+      ],
+      "explanation": "The distinction is the nature of the threat each addresses: a SOC hunts and responds to deliberate adversarial activity, while a NOC keeps the service running and performing. Both can run continuously, both cover cloud and on-premises estates, and neither reports directly to a regulator as a matter of course.",
+      "reference": "CCSP 5.6 - Security operations center"
+    },
+    {
+      "slug": "d5-0032",
+      "subdomain": "5.6",
+      "difficulty": 3,
+      "question": "An alert fires whenever a new administrative role is assigned in the cloud management plane. During an investigation, this alert is found to have fired 200 times in a week, all legitimate. What is the most appropriate response?",
+      "answers": [
+        {
+          "text": "Tune the rule to alert on assignments outside approved automation and change windows",
+          "correct": true
+        },
+        {
+          "text": "Disable the alert, since it has produced no true positives",
+          "correct": false
+        },
+        {
+          "text": "Leave the rule unchanged so no assignment goes unrecorded",
+          "correct": false
+        },
+        {
+          "text": "Route the alert to a low-priority queue reviewed monthly",
+          "correct": false
+        }
+      ],
+      "explanation": "An alert that fires 200 times a week trains analysts to ignore it, so the detection is already failing even though it is technically working. Adding context - which automation, which window - restores signal without losing coverage. Disabling it removes the detection entirely, leaving it unchanged guarantees the real event is missed in the noise, and a monthly queue makes the finding useless for response.",
+      "reference": "CCSP 5.6 - Intelligent monitoring of security controls"
+    }
+  ]
+}

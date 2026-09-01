@@ -1,0 +1,707 @@
+{
+  "domain": 1,
+  "questions": [
+    {
+      "slug": "d1-0001",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles is responsible for creating cloud components and the testing and validation of services?",
+      "answers": [
+        {
+          "text": "Cloud auditor",
+          "correct": false
+        },
+        {
+          "text": "Inter-cloud provider",
+          "correct": false
+        },
+        {
+          "text": "Cloud service broker",
+          "correct": false
+        },
+        {
+          "text": "Cloud service developer",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service developer builds the components and performs the testing and validation of services. The auditor reviews controls rather than building them, the inter-cloud provider handles peering between clouds, and the broker intermediates between customers and providers commercially.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0002",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following concepts refers to a cloud customer paying only for the resources and offerings they use within a cloud environment, and only for the duration that they are consuming them?",
+      "answers": [
+        {
+          "text": "Consumable service",
+          "correct": false
+        },
+        {
+          "text": "Measured service",
+          "correct": true
+        },
+        {
+          "text": "Billable service",
+          "correct": false
+        },
+        {
+          "text": "Metered service",
+          "correct": false
+        }
+      ],
+      "explanation": "Measured service is the NIST SP 800-145 characteristic covering metered, pay-for-what-you-use billing. 'Metered service', 'billable service' and 'consumable service' sound plausible but are not among the five essential characteristics NIST defines.",
+      "reference": "CCSP 1.1 - Essential cloud computing characteristics"
+    },
+    {
+      "slug": "d1-0003",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles involves testing, monitoring, and securing cloud services for an organization?",
+      "answers": [
+        {
+          "text": "Cloud service integrator",
+          "correct": false
+        },
+        {
+          "text": "Cloud service business manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service user",
+          "correct": false
+        },
+        {
+          "text": "Cloud service administrator",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service administrator tests, monitors and secures services on behalf of the customer organisation. The integrator connects existing systems to the cloud, the business manager handles billing and contracts, and the user simply consumes the service.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0004",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles involves overseeing billing, purchasing, and requesting audit reports for an organization within a cloud environment?",
+      "answers": [
+        {
+          "text": "Cloud service integrator",
+          "correct": false
+        },
+        {
+          "text": "Cloud service administrator",
+          "correct": false
+        },
+        {
+          "text": "Cloud service user",
+          "correct": false
+        },
+        {
+          "text": "Cloud service business manager",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service business manager owns the commercial relationship: billing, purchasing and requesting audit reports. The administrator and integrator are technical roles, and the user consumes services without commercial authority.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0005",
+      "subdomain": "1.1",
+      "difficulty": 2,
+      "question": "Within an Infrastructure as a Service model, which of the following would NOT be a measured service?",
+      "answers": [
+        {
+          "text": "CPU",
+          "correct": false
+        },
+        {
+          "text": "Storage",
+          "correct": false
+        },
+        {
+          "text": "Memory",
+          "correct": false
+        },
+        {
+          "text": "Number of Users",
+          "correct": true
+        }
+      ],
+      "explanation": "IaaS meters the infrastructure it provides: CPU, memory and storage. The number of users is a SaaS billing dimension, because in IaaS the customer runs whatever they like on the instances and the provider has no visibility into user counts.",
+      "reference": "CCSP 1.1 - Essential cloud computing characteristics"
+    },
+    {
+      "slug": "d1-0006",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles is responsible for overseeing customer relationships and the processing of financial transactions?",
+      "answers": [
+        {
+          "text": "Cloud service manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service deployment",
+          "correct": false
+        },
+        {
+          "text": "Cloud service operations manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service business manager",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service business manager owns customer relationships and financial transactions. The service manager, operations manager and deployment role are all technical delivery functions with no commercial remit.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0007",
+      "subdomain": "1.2",
+      "difficulty": 2,
+      "question": "Which aspect of cloud computing will be most negatively impacted by vendor lock-in?",
+      "answers": [
+        {
+          "text": "Elasticity",
+          "correct": false
+        },
+        {
+          "text": "Reversibility",
+          "correct": false
+        },
+        {
+          "text": "Interoperability",
+          "correct": false
+        },
+        {
+          "text": "Portability",
+          "correct": true
+        }
+      ],
+      "explanation": "Vendor lock-in is by definition the inability to move a workload elsewhere, which is portability. Interoperability concerns systems working together rather than relocating, reversibility is the narrower ability to exit and retrieve your data, and elasticity is about scaling within one provider.",
+      "reference": "CCSP 1.2 - Cloud shared considerations"
+    },
+    {
+      "slug": "d1-0008",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles is responsible for obtaining new customers and securing contracts and agreements?",
+      "answers": [
+        {
+          "text": "Inter-cloud provider",
+          "correct": false
+        },
+        {
+          "text": "Cloud auditor",
+          "correct": false
+        },
+        {
+          "text": "Cloud service developer",
+          "correct": false
+        },
+        {
+          "text": "Cloud service broker",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service broker intermediates commercially, winning customers and negotiating contracts and agreements. The auditor assesses controls, the developer builds services, and the inter-cloud provider handles technical peering.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0009",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles involves the provisioning and delivery of cloud services?",
+      "answers": [
+        {
+          "text": "Cloud service deployment manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service business manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service operations manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service manager",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service manager handles provisioning and delivery of services. The deployment manager focuses on deployment processes and metrics, the operations manager on running systems, and the business manager on commercial matters.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0010",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles is responsible for preparing systems for the cloud, administering and monitoring services, and managing inventory and assets?",
+      "answers": [
+        {
+          "text": "Cloud service business manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service deployment manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service operations manager",
+          "correct": true
+        }
+      ],
+      "explanation": "The cloud service operations manager prepares systems, administers and monitors services, and manages inventory and assets. The deployment manager owns deployment processes, the service manager provisioning and delivery, and the business manager commercial matters.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0011",
+      "subdomain": "1.2",
+      "difficulty": 1,
+      "question": "Which of the cloud deployment models is used by popular services such as iCloud, Dropbox, and OneDrive?",
+      "answers": [
+        {
+          "text": "Hybrid",
+          "correct": false
+        },
+        {
+          "text": "Community",
+          "correct": false
+        },
+        {
+          "text": "Private",
+          "correct": false
+        },
+        {
+          "text": "Public",
+          "correct": true
+        }
+      ],
+      "explanation": "iCloud, Dropbox and OneDrive are open to anyone who signs up, which is the public model. Private serves a single organisation, community a defined group with shared concerns, and hybrid combines two or more models.",
+      "reference": "CCSP 1.2 - Cloud deployment models"
+    },
+    {
+      "slug": "d1-0012",
+      "subdomain": "1.3",
+      "difficulty": 1,
+      "question": "What are the two protocols that TLS uses?",
+      "answers": [
+        {
+          "text": "Handshake and record",
+          "correct": true
+        },
+        {
+          "text": "Transport and initiate",
+          "correct": false
+        },
+        {
+          "text": "Handshake and transport",
+          "correct": false
+        },
+        {
+          "text": "Record and transmit",
+          "correct": false
+        }
+      ],
+      "explanation": "TLS is built from the handshake protocol, which negotiates parameters and authenticates the peers, and the record protocol, which then carries the encrypted application data. The other pairings mix in transport-layer terms that are not TLS sub-protocols.",
+      "reference": "CCSP 1.3 - Cryptography and key management"
+    },
+    {
+      "slug": "d1-0013",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles is responsible for peering with other cloud services and providers?",
+      "answers": [
+        {
+          "text": "Cloud auditor",
+          "correct": false
+        },
+        {
+          "text": "Cloud service broker",
+          "correct": false
+        },
+        {
+          "text": "Cloud service developer",
+          "correct": false
+        },
+        {
+          "text": "Inter-cloud provider",
+          "correct": true
+        }
+      ],
+      "explanation": "The inter-cloud provider peers and federates with other cloud services and providers. The broker is a commercial intermediary, the auditor assesses controls, and the developer builds service components.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0014",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which concept BEST describes the capability for a cloud environment to automatically scale a system or application, based on its current resource demands?",
+      "answers": [
+        {
+          "text": "On-demand self-service",
+          "correct": false
+        },
+        {
+          "text": "Resource pooling",
+          "correct": false
+        },
+        {
+          "text": "Measured service",
+          "correct": false
+        },
+        {
+          "text": "Rapid elasticity",
+          "correct": true
+        }
+      ],
+      "explanation": "Rapid elasticity is the automatic scaling of resources up and down with demand. On-demand self-service is the customer provisioning without human interaction, resource pooling is the multi-tenant sharing that makes elasticity possible, and measured service is the metering.",
+      "reference": "CCSP 1.1 - Essential cloud computing characteristics"
+    },
+    {
+      "slug": "d1-0015",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which publication from the United States National Institute of Standards and Technology pertains to defining cloud concepts and definitions for the various core components of cloud computing?",
+      "answers": [
+        {
+          "text": "SP 800-153",
+          "correct": false
+        },
+        {
+          "text": "SP 800-40",
+          "correct": false
+        },
+        {
+          "text": "SP 800-53",
+          "correct": false
+        },
+        {
+          "text": "SP 800-145",
+          "correct": true
+        }
+      ],
+      "explanation": "NIST SP 800-145 is 'The NIST Definition of Cloud Computing', the source of the five essential characteristics, three service models and four deployment models. SP 800-53 is the security control catalogue, SP 800-40 covers patch management, and SP 800-153 concerns wireless LAN security.",
+      "reference": "CCSP 1.1 - Cloud computing definitions"
+    },
+    {
+      "slug": "d1-0016",
+      "subdomain": "1.1",
+      "difficulty": 2,
+      "question": "Which of the following would NOT be considered part of resource pooling with an Infrastructure as a Service implementation?",
+      "answers": [
+        {
+          "text": "Application",
+          "correct": true
+        },
+        {
+          "text": "Storage",
+          "correct": false
+        },
+        {
+          "text": "Memory",
+          "correct": false
+        },
+        {
+          "text": "CPU",
+          "correct": false
+        }
+      ],
+      "explanation": "In IaaS the provider pools infrastructure - CPU, memory and storage - and allocates it across tenants. Applications are installed and run by the customer on top of that infrastructure, so the provider has nothing to pool.",
+      "reference": "CCSP 1.1 - Essential cloud computing characteristics"
+    },
+    {
+      "slug": "d1-0017",
+      "subdomain": "1.3",
+      "difficulty": 2,
+      "question": "Which technology is NOT commonly used for security with data in transit?",
+      "answers": [
+        {
+          "text": "DNSSEC",
+          "correct": true
+        },
+        {
+          "text": "IPsec",
+          "correct": false
+        },
+        {
+          "text": "VPN",
+          "correct": false
+        },
+        {
+          "text": "HTTPS",
+          "correct": false
+        }
+      ],
+      "explanation": "DNSSEC authenticates DNS responses so a resolver can detect forged records; it provides integrity and origin authentication but no confidentiality, and it protects name resolution rather than the data itself. IPsec, TLS-based HTTPS and VPNs all encrypt data in transit.",
+      "reference": "CCSP 1.3 - Network security"
+    },
+    {
+      "slug": "d1-0018",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles is responsible for gathering metrics on cloud services and managing cloud deployments and the deployment processes?",
+      "answers": [
+        {
+          "text": "Cloud service deployment manager",
+          "correct": true
+        },
+        {
+          "text": "Cloud service manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service operations manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service business manager",
+          "correct": false
+        }
+      ],
+      "explanation": "The cloud service deployment manager gathers metrics on services and manages deployments and deployment processes. The service manager handles provisioning and delivery, the operations manager day-to-day running, and the business manager commercial matters.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0019",
+      "subdomain": "1.5",
+      "difficulty": 2,
+      "question": "Which of the following would make it more likely that a cloud provider would be unwilling to satisfy specific certification requirements?",
+      "answers": [
+        {
+          "text": "Multitenancy",
+          "correct": true
+        },
+        {
+          "text": "Virtualization",
+          "correct": false
+        },
+        {
+          "text": "Resource pooling",
+          "correct": false
+        },
+        {
+          "text": "Regulation",
+          "correct": false
+        }
+      ],
+      "explanation": "Certifying to one customer's specific requirements is impractical in a multitenant environment: the provider runs one platform for everyone and cannot re-engineer it per tenant, nor expose other tenants to that customer's auditors. Virtualisation and resource pooling are the mechanisms rather than the obstacle, and regulation usually drives certification instead of preventing it.",
+      "reference": "CCSP 1.5 - Verification against criteria"
+    },
+    {
+      "slug": "d1-0020",
+      "subdomain": "1.1",
+      "difficulty": 1,
+      "question": "Which of the following roles involves the connection and integration of existing systems and services to a cloud environment?",
+      "answers": [
+        {
+          "text": "Cloud service integrator",
+          "correct": true
+        },
+        {
+          "text": "Cloud service business manager",
+          "correct": false
+        },
+        {
+          "text": "Cloud service user",
+          "correct": false
+        },
+        {
+          "text": "Cloud service administrator",
+          "correct": false
+        }
+      ],
+      "explanation": "The cloud service integrator connects and integrates existing systems and services with the cloud environment. The administrator secures and monitors services, the business manager handles commercial matters, and the user consumes the service.",
+      "reference": "CCSP 1.1 - Cloud computing roles and responsibilities"
+    },
+    {
+      "slug": "d1-0021",
+      "subdomain": "1.2",
+      "difficulty": 1,
+      "question": "Which of the cloud deployment models requires the cloud customer to be part of a specific group or organization in order to host cloud services within it?",
+      "answers": [
+        {
+          "text": "Community",
+          "correct": true
+        },
+        {
+          "text": "Hybrid",
+          "correct": false
+        },
+        {
+          "text": "Private",
+          "correct": false
+        },
+        {
+          "text": "Public",
+          "correct": false
+        }
+      ],
+      "explanation": "The community model serves a defined group of organisations with shared concerns - a sector, a regulator, a mission. Public is open to anyone, private serves a single organisation, and hybrid combines models rather than defining membership.",
+      "reference": "CCSP 1.2 - Cloud deployment models"
+    },
+    {
+      "slug": "d1-0022",
+      "subdomain": "1.2",
+      "difficulty": 1,
+      "question": "Which of the cloud cross-cutting aspects relates to the ability to easily move services and applications between different cloud providers?",
+      "answers": [
+        {
+          "text": "Portability",
+          "correct": true
+        },
+        {
+          "text": "Availability",
+          "correct": false
+        },
+        {
+          "text": "Reversibility",
+          "correct": false
+        },
+        {
+          "text": "Interoperability",
+          "correct": false
+        }
+      ],
+      "explanation": "Portability is the ability to move services and applications between providers. Interoperability is about systems working together, reversibility is specifically the ability to exit and recover your data, and availability concerns uptime.",
+      "reference": "CCSP 1.2 - Cloud shared considerations"
+    },
+    {
+      "slug": "d1-0023",
+      "subdomain": "1.4",
+      "difficulty": 2,
+      "question": "Which of the following is the sole responsibility of the cloud customer, regardless of which cloud model is used?",
+      "answers": [
+        {
+          "text": "Data",
+          "correct": true
+        },
+        {
+          "text": "Application",
+          "correct": false
+        },
+        {
+          "text": "Platform",
+          "correct": false
+        },
+        {
+          "text": "Infrastructure",
+          "correct": false
+        }
+      ],
+      "explanation": "Data is always the customer's responsibility: they own it, classify it and remain accountable for it in IaaS, PaaS and SaaS alike. Responsibility for infrastructure, platform and application shifts to the provider as you move up the service models.",
+      "reference": "CCSP 1.4 - Security considerations for different cloud categories"
+    },
+    {
+      "slug": "d1-0024",
+      "subdomain": "1.3",
+      "difficulty": 2,
+      "question": "Which of the following is NOT a function performed by the handshake protocol of TLS?",
+      "answers": [
+        {
+          "text": "Encryption",
+          "correct": true
+        },
+        {
+          "text": "Key exchange",
+          "correct": false
+        },
+        {
+          "text": "Negotiation of connection",
+          "correct": false
+        },
+        {
+          "text": "Establish session ID",
+          "correct": false
+        }
+      ],
+      "explanation": "The handshake protocol negotiates the connection, exchanges keys and establishes the session ID; the record protocol then performs the actual encryption of application data. Attributing encryption to the handshake confuses agreeing on keys with using them.",
+      "reference": "CCSP 1.3 - Cryptography and key management"
+    },
+    {
+      "slug": "d1-0025",
+      "subdomain": "1.3",
+      "difficulty": 2,
+      "question": "What changes are necessary to application code in order to implement DNSSEC?",
+      "answers": [
+        {
+          "text": "No changes are needed.",
+          "correct": true
+        },
+        {
+          "text": "Additional DNS lookups",
+          "correct": false
+        },
+        {
+          "text": "Implementing certificate validations",
+          "correct": false
+        },
+        {
+          "text": "Adding encryption modules",
+          "correct": false
+        }
+      ],
+      "explanation": "DNSSEC is validated by the resolver, below the application, so applications need no changes at all - they issue the same lookups and simply receive answers that have been authenticated for them. It adds no certificate validation or encryption work to the application, and any additional lookups happen inside the resolver.",
+      "reference": "CCSP 1.3 - Network security"
+    },
+    {
+      "slug": "d1-0026",
+      "subdomain": "1.3",
+      "difficulty": 1,
+      "question": "Which security concept is based on preventing unauthorized access to data while also ensuring that it is accessible to those authorized to use it?",
+      "answers": [
+        {
+          "text": "Confidentiality",
+          "correct": true
+        },
+        {
+          "text": "Integrity",
+          "correct": false
+        },
+        {
+          "text": "Availability",
+          "correct": false
+        },
+        {
+          "text": "Nonrepudiation",
+          "correct": false
+        }
+      ],
+      "explanation": "Confidentiality means data is disclosed only to those authorised - which necessarily includes letting authorised users through, not just keeping others out. Integrity concerns data being unaltered, availability that systems are reachable at all, and nonrepudiation that an action cannot later be denied.",
+      "reference": "CCSP 1.3 - Identity and access control"
+    },
+    {
+      "slug": "d1-0027",
+      "subdomain": "1.4",
+      "difficulty": 2,
+      "question": "Which of the following is the sole responsibility of the cloud provider, regardless of which cloud model is used?",
+      "answers": [
+        {
+          "text": "Physical environment ",
+          "correct": true
+        },
+        {
+          "text": "Data",
+          "correct": false
+        },
+        {
+          "text": "Firewalls",
+          "correct": false
+        },
+        {
+          "text": "Infrastructure",
+          "correct": false
+        }
+      ],
+      "explanation": "The physical environment is always the provider's responsibility - the customer never has access to the facility in any service model. Data is always the customer's, and responsibility for infrastructure and firewalls shifts depending on whether the model is IaaS, PaaS or SaaS.",
+      "reference": "CCSP 1.4 - Security considerations for different cloud categories"
+    }
+  ]
+}

@@ -1,2 +1,14 @@
 .env
 .vscode
+
+# Build artifact: regenerate with `python sql/build_db.py`
+sql/questions.db
+
+# Attempt history, created at runtime
+data/
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
