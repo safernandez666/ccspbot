@@ -80,3 +80,19 @@ def test_distribution_matches_exam_weights():
         assert abs(share - weight) <= 0.03, (
             f"domain {d} ({title}) is {share:.1%} of the bank, target {weight:.0%}"
         )
+
+
+@pytest.mark.parametrize("q", QUESTIONS, ids=lambda q: q.slug)
+def test_answer_fits_an_inline_button(q):
+    """Telegram truncates long button labels, which hides the difference
+    between two options that share a prefix."""
+    for a in q.answers:
+        assert len(a.text) <= content.MAX_ANSWER_CHARS, a.text
+
+
+@pytest.mark.parametrize("q", QUESTIONS, ids=lambda q: q.slug)
+def test_correct_answer_is_not_giveaway_long(q):
+    """A question answerable by picking the longest option tests nothing."""
+    distractors = [a for a in q.answers if not a.correct]
+    advantage = len(q.correct_answer.text) - max(len(a.text) for a in distractors)
+    assert advantage <= content.MAX_CORRECT_LENGTH_ADVANTAGE

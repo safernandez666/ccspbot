@@ -19,9 +19,20 @@ CONTENT_DIR = Path(__file__).resolve().parent.parent / "content"
 #: correct answer rather than a reason, which teaches nothing.
 MIN_EXPLANATION_CHARS = 80
 
-#: Inline keyboard buttons stop being readable well before this, but a hard
-#: cap keeps a runaway answer from breaking the layout entirely.
-MAX_ANSWER_CHARS = 200
+#: Answer text is rendered as an inline keyboard button. Telegram wraps long
+#: labels and truncates them on narrow screens, so an option past this length
+#: is unreadable on a phone - and two long options sharing a prefix become
+#: indistinguishable. 200 was permissive enough to let that ship.
+#:
+#: Keep options near each other in length as well. When the correct answer is
+#: reliably the longest, the bank teaches candidates to count words.
+MAX_ANSWER_CHARS = 100
+
+#: How much longer the correct answer may be than the longest distractor.
+#: A candidate who cannot answer a question can still often pick the longest
+#: option, because a hedged, fully-qualified statement tends to be the true
+#: one. Keeping the gap small forces the question to be answered on content.
+MAX_CORRECT_LENGTH_ADVANTAGE = 40
 
 ANSWERS_PER_QUESTION = 4
 
@@ -131,6 +142,16 @@ def validate(questions: list[Question]) -> list[str]:
                 errors.append(f"{where} has an empty answer option")
             elif len(a.text) > MAX_ANSWER_CHARS:
                 errors.append(f"{where} answer is {len(a.text)} chars, over the {MAX_ANSWER_CHARS} limit")
+
+        distractors = [a for a in q.answers if not a.correct]
+        if len(correct) == 1 and distractors:
+            advantage = len(correct[0].text) - max(len(a.text) for a in distractors)
+            if advantage > MAX_CORRECT_LENGTH_ADVANTAGE:
+                errors.append(
+                    f"{where} correct answer is {advantage} chars longer than the longest "
+                    f"distractor, over the {MAX_CORRECT_LENGTH_ADVANTAGE} limit; it can be "
+                    f"picked by length alone"
+                )
 
         if len(q.explanation.strip()) < MIN_EXPLANATION_CHARS:
             errors.append(

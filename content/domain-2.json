@@ -546,6 +546,370 @@
       ],
       "explanation": "Encryption protects the data itself, so an attacker who obtains the system still holds only ciphertext without the keys. Firewalls and access control guard the perimeter and the entry point, and both are bypassed once the attacker is inside; sandboxing isolates processes rather than protecting data at rest.",
       "reference": "CCSP 2.3 - Encryption and key management"
+    },
+    {
+      "slug": "d2-0022",
+      "subdomain": "2.4",
+      "difficulty": 2,
+      "question": "A company moves 40 TB of unstructured files into object storage during a lift-and-shift. Nobody can say which buckets hold regulated data. Which discovery approach should run first?",
+      "answers": [
+        {
+          "text": "Content analysis that inspects the objects themselves against pattern and classifier rules",
+          "correct": true
+        },
+        {
+          "text": "Label-based discovery that reads the classification tags applied to each bucket",
+          "correct": false
+        },
+        {
+          "text": "Metadata analysis of object names, sizes and creation timestamps",
+          "correct": false
+        },
+        {
+          "text": "A survey asking each business unit which data it migrated",
+          "correct": false
+        }
+      ],
+      "explanation": "Content analysis is the only method that works when nothing is known about the data, because it derives the answer from the payload rather than trusting something applied earlier. Label-based discovery presumes labels already exist, and in a lift-and-shift they do not. Metadata analysis tells you a file is 4 MB and named export.csv, which does not establish whether it holds cardholder data. A survey inherits every gap in what people happen to remember migrating.",
+      "reference": "CCSP 2.4 - Structured, unstructured and semi-structured data discovery"
+    },
+    {
+      "slug": "d2-0023",
+      "subdomain": "2.4",
+      "difficulty": 3,
+      "question": "A data discovery scan of a production database is proposed. The DBA objects that it will degrade transaction latency during business hours. Which response best balances the two concerns?",
+      "answers": [
+        {
+          "text": "Run the scan against a recent replica or snapshot rather than the primary",
+          "correct": true
+        },
+        {
+          "text": "Reduce the scan to metadata only, so the primary is never read at depth",
+          "correct": false
+        },
+        {
+          "text": "Accept the latency, since regulatory discovery obligations outrank performance",
+          "correct": false
+        },
+        {
+          "text": "Sample five percent of rows on the primary and extrapolate the findings",
+          "correct": false
+        }
+      ],
+      "explanation": "A replica or snapshot carries the same content as the primary, so the scan loses no fidelity while the production workload is untouched - the standard resolution when discovery and availability collide. Metadata-only scanning avoids the load but cannot find regulated values inside columns, which is the point of the exercise. Accepting the latency treats an avoidable trade-off as unavoidable. Sampling yields a statistical estimate, and a single unscanned row holding regulated data is still a compliance failure.",
+      "reference": "CCSP 2.4 - Implement data discovery"
+    },
+    {
+      "slug": "d2-0024",
+      "subdomain": "2.4",
+      "difficulty": 2,
+      "question": "Which characteristic of semi-structured data such as JSON or XML most complicates automated data discovery?",
+      "answers": [
+        {
+          "text": "Schema varies between records, so a field may be present, absent or nested differently",
+          "correct": true
+        },
+        {
+          "text": "The data is encoded in a binary format that scanners cannot parse",
+          "correct": false
+        },
+        {
+          "text": "It cannot be indexed, so every scan must be a full sequential read",
+          "correct": false
+        },
+        {
+          "text": "It carries no metadata at all, unlike structured data",
+          "correct": false
+        }
+      ],
+      "explanation": "Semi-structured data is self-describing but not schema-enforced, so the same logical field can appear at different depths or be missing entirely, and a discovery rule written against one record shape silently misses others. It is text, not binary, so parsing is not the obstacle. It can be indexed - document stores do it routinely. And it carries more inline metadata than structured data, not less; the tags are the source of the problem, not their absence.",
+      "reference": "CCSP 2.4 - Semi-structured data discovery"
+    },
+    {
+      "slug": "d2-0025",
+      "subdomain": "2.5",
+      "difficulty": 3,
+      "question": "An organization's classification policy defines four sensitivity levels, but a review finds 80 percent of data tagged at the highest level. What is the most likely consequence?",
+      "answers": [
+        {
+          "text": "Top-tier controls get waived as unaffordable, so sensitive data is no better protected",
+          "correct": true
+        },
+        {
+          "text": "The classification scheme becomes non-compliant with ISO 27001",
+          "correct": false
+        },
+        {
+          "text": "Discovery tools will no longer be able to reclassify the data",
+          "correct": false
+        },
+        {
+          "text": "Encryption keys for the top level will exhaust their cryptoperiod sooner",
+          "correct": false
+        }
+      ],
+      "explanation": "Over-classification is a real failure mode: when almost everything is top tier, the expensive controls attached to that tier cannot be applied to all of it, exceptions get granted, and the label stops meaning anything - so the truly sensitive data ends up no better protected than the rest. No standard mandates a particular distribution across levels, so this is not a compliance defect in itself. Discovery tools reclassify on content regardless of the current tag. Cryptoperiods are driven by key usage and algorithm, not by how many records share a label.",
+      "reference": "CCSP 2.5 - Data classification policies"
+    },
+    {
+      "slug": "d2-0026",
+      "subdomain": "2.5",
+      "difficulty": 2,
+      "question": "Data classification in a cloud environment should be driven primarily by which factor?",
+      "answers": [
+        {
+          "text": "The impact to the organization if the data were disclosed, altered or lost",
+          "correct": true
+        },
+        {
+          "text": "The storage tier the data currently occupies",
+          "correct": false
+        },
+        {
+          "text": "The cloud service model under which the data is processed",
+          "correct": false
+        },
+        {
+          "text": "The volume of the data and its rate of growth",
+          "correct": false
+        }
+      ],
+      "explanation": "Classification expresses sensitivity, and sensitivity is a statement about consequence - what it would cost the organization if this data leaked, changed or vanished. That is what justifies spending more on one dataset than another. Storage tier is a cost and performance decision that should follow classification, not set it. The service model changes who implements a control, not how sensitive the data is. Volume affects the bill and the scan window, not the harm from disclosure.",
+      "reference": "CCSP 2.5 - Data classification"
+    },
+    {
+      "slug": "d2-0027",
+      "subdomain": "2.5",
+      "difficulty": 3,
+      "question": "A dataset is classified Internal. It is joined with a second Internal dataset, and the result allows individual customers to be identified. What does this illustrate?",
+      "answers": [
+        {
+          "text": "Aggregation, where combining data raises sensitivity above that of any input",
+          "correct": true
+        },
+        {
+          "text": "Inference, where a conclusion is drawn from data the subject never supplied",
+          "correct": false
+        },
+        {
+          "text": "Data remanence, where residual data survives a deletion attempt",
+          "correct": false
+        },
+        {
+          "text": "Tokenization failure, where surrogates were reversed to their original values",
+          "correct": false
+        }
+      ],
+      "explanation": "Aggregation is precisely this: two sets that are individually unremarkable become sensitive once joined, so the output needs reclassification rather than inheriting the inputs' label. Inference is adjacent but different - it derives an unstated fact from patterns, rather than gaining identifiability by combination. Remanence concerns data left behind after deletion. Tokenization is not in play here; nothing was substituted or reversed.",
+      "reference": "CCSP 2.5 - Data classification and sensitivity"
+    },
+    {
+      "slug": "d2-0028",
+      "subdomain": "2.6",
+      "difficulty": 2,
+      "question": "An IRM-protected document is emailed to an external recipient who was never granted access. What happens when they open it?",
+      "answers": [
+        {
+          "text": "The client checks the policy server, is refused, and the content stays encrypted",
+          "correct": true
+        },
+        {
+          "text": "The file opens normally, because IRM controls apply only inside the corporate network",
+          "correct": false
+        },
+        {
+          "text": "The file is deleted from the recipient's device by the IRM agent",
+          "correct": false
+        },
+        {
+          "text": "The file opens read-only, since unknown recipients default to the least privileged role",
+          "correct": false
+        }
+      ],
+      "explanation": "IRM binds protection to the file itself: the payload stays encrypted and the viewer must obtain a key and a usage policy from the rights server on every open, so a recipient with no grant simply cannot decrypt it. That persistence is the reason IRM survives the file leaving the perimeter, which is exactly why the network-boundary answer is wrong. IRM denies access; it does not reach out and delete files on third-party devices. And unknown recipients get no grant at all, rather than a quiet downgrade to read-only.",
+      "reference": "CCSP 2.6 - Information Rights Management objectives"
+    },
+    {
+      "slug": "d2-0029",
+      "subdomain": "2.6",
+      "difficulty": 3,
+      "question": "Which limitation should be raised before selecting IRM to protect engineering drawings shared with suppliers?",
+      "answers": [
+        {
+          "text": "Every recipient needs a compatible viewer and an identity the rights server recognizes",
+          "correct": true
+        },
+        {
+          "text": "IRM cannot protect files larger than the rights server's transaction limit",
+          "correct": false
+        },
+        {
+          "text": "IRM protection is removed automatically when a file crosses an organizational boundary",
+          "correct": false
+        },
+        {
+          "text": "IRM requires the files to be stored unencrypted at rest so policies can be evaluated",
+          "correct": false
+        }
+      ],
+      "explanation": "IRM's practical cost is interoperability: the protection only works where a supported client can run and where the recipient can authenticate to the rights infrastructure, which is a genuine obstacle across supplier organizations with their own tooling. There is no file-size ceiling of that kind. Protection persisting across boundaries is IRM's entire purpose, not a failure of it. And IRM keeps content encrypted at rest - policy evaluation happens in the client against the rights server, not on plaintext.",
+      "reference": "CCSP 2.6 - Information Rights Management challenges"
+    },
+    {
+      "slug": "d2-0030",
+      "subdomain": "2.8",
+      "difficulty": 3,
+      "question": "An investigation finds that a cloud administrator disabled logging, performed several actions, then re-enabled it. Which control would most directly have preserved accountability?",
+      "answers": [
+        {
+          "text": "An append-only log store in a separate account the administrator cannot control",
+          "correct": true
+        },
+        {
+          "text": "Increasing log retention from 90 days to one year",
+          "correct": false
+        },
+        {
+          "text": "Enabling multi-factor authentication on the administrator's account",
+          "correct": false
+        },
+        {
+          "text": "Encrypting the log files at rest with a customer-managed key",
+          "correct": false
+        }
+      ],
+      "explanation": "The failure is that the person being logged also controls the logging, so the fix is to remove that control: shipping events to an append-only destination in an account under separate administration means the gap cannot be created or the record edited. Longer retention preserves logs that were never written. MFA strengthens authentication but this administrator was legitimately authenticated. Encryption protects confidentiality of the logs, not their completeness or immutability.",
+      "reference": "CCSP 2.8 - Definition of event sources and identity attribution"
+    },
+    {
+      "slug": "d2-0031",
+      "subdomain": "2.8",
+      "difficulty": 2,
+      "question": "Why does correlating events across cloud services usually require synchronized time sources?",
+      "answers": [
+        {
+          "text": "Without a common clock, event ordering across services cannot be established",
+          "correct": true
+        },
+        {
+          "text": "Log storage costs are calculated per timestamp, so drift inflates the bill",
+          "correct": false
+        },
+        {
+          "text": "Cloud providers reject log entries whose timestamps differ from their own",
+          "correct": false
+        },
+        {
+          "text": "Encryption of log data requires the timestamp as part of the initialization vector",
+          "correct": false
+        }
+      ],
+      "explanation": "Correlation is fundamentally about sequence: to argue that this API call led to that data access you must know which came first, and clock drift between sources destroys that ordering - which is why time synchronization is a prerequisite for both incident response and evidence that will withstand challenge. Billing is by volume or ingestion, not per timestamp. Providers do not reject entries over drift. And timestamps are not used as initialization vectors, which must be unpredictable or unique per operation.",
+      "reference": "CCSP 2.8 - Logging, storage and analysis of data events"
+    },
+    {
+      "slug": "d2-0032",
+      "subdomain": "2.8",
+      "difficulty": 3,
+      "question": "A SaaS provider offers only aggregated monthly access reports, with no per-user event detail. What is the most significant consequence for the customer?",
+      "answers": [
+        {
+          "text": "Non-repudiation is lost: actions can no longer be attributed to an identity",
+          "correct": true
+        },
+        {
+          "text": "Data at rest is no longer adequately protected",
+          "correct": false
+        },
+        {
+          "text": "The customer loses ownership of the data held in the service",
+          "correct": false
+        },
+        {
+          "text": "Encryption keys must be rotated more frequently to compensate",
+          "correct": false
+        }
+      ],
+      "explanation": "Accountability requires binding an action to an identity, and an aggregate count of logins in a month cannot do that - so no individual can be held to a specific action, which is the definition of losing non-repudiation. It is also why this belongs in contract negotiation before signing. Confidentiality at rest is a separate control unaffected by report granularity. Ownership is set by contract, not by logging detail. Key rotation frequency addresses key compromise risk and does nothing to restore attribution.",
+      "reference": "CCSP 2.8 - Auditability, traceability and accountability of data events"
+    },
+    {
+      "slug": "d2-0033",
+      "subdomain": "2.9",
+      "difficulty": 3,
+      "question": "A team wants to fine-tune a large language model on internal support tickets that contain customer names and account numbers. Which control best reduces the risk of the model reproducing that data to other users?",
+      "answers": [
+        {
+          "text": "De-identify the tickets before training, since weights cannot be selectively unlearned",
+          "correct": true
+        },
+        {
+          "text": "Encrypt the training dataset at rest and restrict access to the storage bucket",
+          "correct": false
+        },
+        {
+          "text": "Apply rate limiting to the inference endpoint to slow extraction attempts",
+          "correct": false
+        },
+        {
+          "text": "Log all prompts and responses so any disclosure can be investigated afterwards",
+          "correct": false
+        }
+      ],
+      "explanation": "Training bakes the data into model weights, and there is no dependable way to excise a specific record short of retraining - so the only robust control acts before training, by removing the identifiers. Encrypting the dataset protects the file but not the model that memorized its contents. Rate limiting raises the cost of bulk extraction without preventing disclosure. Logging is detective: it tells you the leak happened, after it has.",
+      "reference": "CCSP 2.9 - Data protection of AI and machine learning data"
+    },
+    {
+      "slug": "d2-0034",
+      "subdomain": "2.9",
+      "difficulty": 2,
+      "question": "In a retrieval-augmented generation system, which design choice most directly prevents a user from seeing documents they are not authorized to read?",
+      "answers": [
+        {
+          "text": "Filter the retrieval index by the requesting user's entitlements before passing context to the model",
+          "correct": true
+        },
+        {
+          "text": "Instruct the model in its system prompt to refuse to reveal restricted documents",
+          "correct": false
+        },
+        {
+          "text": "Encrypt the vector database so its contents cannot be read directly",
+          "correct": false
+        },
+        {
+          "text": "Reduce the number of retrieved chunks so less content reaches the model",
+          "correct": false
+        }
+      ],
+      "explanation": "Authorization must be enforced where the data is fetched: if the retrieval step only ever returns documents the user is entitled to, unauthorized content never enters the context and the model cannot disclose it. A system-prompt instruction is a request to a probabilistic system and is routinely bypassed by prompt injection. Encrypting the vector store protects it at rest, but the application decrypts to query it and would still retrieve the wrong documents. Retrieving fewer chunks changes the odds, not the permission.",
+      "reference": "CCSP 2.9 - Data protection in AI systems"
+    },
+    {
+      "slug": "d2-0035",
+      "subdomain": "2.9",
+      "difficulty": 3,
+      "question": "Which risk is specific to using a third-party model provider for inference on regulated data?",
+      "answers": [
+        {
+          "text": "Prompts may be retained or used for provider model improvement unless the contract forbids it",
+          "correct": true
+        },
+        {
+          "text": "The model's parameter count may exceed what the regulation permits",
+          "correct": false
+        },
+        {
+          "text": "Inference latency may breach the availability clause of the SLA",
+          "correct": false
+        },
+        {
+          "text": "The provider may use a different floating-point precision than the customer expects",
+          "correct": false
+        }
+      ],
+      "explanation": "Sending regulated data in a prompt is a disclosure to a processor, and the governing question is what that processor may do with it - retention windows and training-on-customer-data terms are the ones that turn an inference call into a compliance breach, which is why they are negotiated explicitly. No regulation limits parameter counts. Latency is an ordinary SLA concern, not specific to regulated data. Numerical precision affects output quality, not the protection of the data.",
+      "reference": "CCSP 2.9 - AI and machine learning data governance"
     }
   ]
 }

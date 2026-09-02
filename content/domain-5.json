@@ -762,7 +762,7 @@
       "question": "What must be obtained before conducting a penetration test against workloads hosted at a cloud provider?",
       "answers": [
         {
-          "text": "Authorization consistent with the provider's testing policy, in addition to the customer's own approval",
+          "text": "Authorization under the provider's testing policy plus the customer's approval",
           "correct": true
         },
         {
@@ -770,11 +770,11 @@
           "correct": false
         },
         {
-          "text": "Approval from the relevant national regulator",
+          "text": "Approval from the relevant national telecommunications regulator",
           "correct": false
         },
         {
-          "text": "Nothing, provided the test is limited to the customer's own IP ranges",
+          "text": "Nothing, provided the test stays within the customer's own IP ranges",
           "correct": false
         }
       ],

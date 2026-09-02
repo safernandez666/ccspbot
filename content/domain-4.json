@@ -416,6 +416,370 @@
       ],
       "explanation": "SOAP secures the message itself through WS-Security, which applies encryption and signing to the XML so protection survives intermediaries and store-and-forward hops. REST instead leans on the transport, which is why TLS and SSL are the wrong answers here: they secure the channel, not the message. Tokenization is a data protection technique, not a SOAP security mechanism.",
       "reference": "CCSP 4.5 - Securing application programming interfaces"
+    },
+    {
+      "slug": "d4-0017",
+      "subdomain": "4.2",
+      "difficulty": 2,
+      "question": "At which point in the software development lifecycle is fixing a security defect typically cheapest?",
+      "answers": [
+        {
+          "text": "During requirements and design, before any code implements the flaw",
+          "correct": true
+        },
+        {
+          "text": "During unit testing, when the defect first becomes reproducible",
+          "correct": false
+        },
+        {
+          "text": "During the security review that precedes the production release",
+          "correct": false
+        },
+        {
+          "text": "After deployment, when real usage shows whether the flaw is exploitable",
+          "correct": false
+        }
+      ],
+      "explanation": "Cost rises with the amount of work built on top of a decision, so a flaw removed while it is still a sentence in a design document costs a rewrite of that sentence. Once it is code, fixing it means changing code, tests and anything that depends on it. Unit testing is already past implementation. A pre-release review is later still, when a fix competes with the release date. And post-deployment is the most expensive case, because it adds incident handling and possibly notification to the engineering work.",
+      "reference": "CCSP 4.2 - Business requirements and phases of the SSDLC"
+    },
+    {
+      "slug": "d4-0018",
+      "subdomain": "4.2",
+      "difficulty": 3,
+      "question": "A team adopts a threat modeling practice. Which outcome indicates it is being used as intended rather than as a checkbox?",
+      "answers": [
+        {
+          "text": "Design decisions change as a result, and the changes are traceable to identified threats",
+          "correct": true
+        },
+        {
+          "text": "Every application has a completed threat model document on file",
+          "correct": false
+        },
+        {
+          "text": "The model enumerates more threats each time it is revisited",
+          "correct": false
+        },
+        {
+          "text": "Threat models are produced by the security team rather than by developers",
+          "correct": false
+        }
+      ],
+      "explanation": "Threat modeling exists to alter what gets built; if no design ever changes because of it, the practice is producing paperwork rather than security, so traceability from threat to design change is the honest measure. A document on file says the ritual was performed. A rising threat count measures enumeration effort, not risk reduction, and can simply mean the list is getting noisier. Having the security team write them is actually a warning sign, since the developers who make the design decisions are the ones who need the understanding.",
+      "reference": "CCSP 4.2 - Threat modeling in the SSDLC"
+    },
+    {
+      "slug": "d4-0019",
+      "subdomain": "4.2",
+      "difficulty": 2,
+      "question": "Which STRIDE category does an attacker altering a message in transit between two microservices represent?",
+      "answers": [
+        {
+          "text": "Tampering",
+          "correct": true
+        },
+        {
+          "text": "Spoofing",
+          "correct": false
+        },
+        {
+          "text": "Repudiation",
+          "correct": false
+        },
+        {
+          "text": "Information disclosure",
+          "correct": false
+        }
+      ],
+      "explanation": "Tampering is unauthorized modification of data, whether at rest or in flight, which is exactly what altering a message in transit is - and it maps to the integrity property. Spoofing is impersonating an identity, which would be the category if the attacker pretended to be one of the services rather than editing its traffic. Repudiation is denying an action took place. Information disclosure is reading data without authorization, which is a confidentiality loss rather than a modification.",
+      "reference": "CCSP 4.2 - Threat modeling with STRIDE"
+    },
+    {
+      "slug": "d4-0020",
+      "subdomain": "4.3",
+      "difficulty": 3,
+      "question": "A CI pipeline runs SAST on every pull request. Developers increasingly merge with findings unreviewed. What is the most effective corrective action?",
+      "answers": [
+        {
+          "text": "Tune the ruleset to cut false positives, then gate the merge on the remaining findings",
+          "correct": true
+        },
+        {
+          "text": "Raise the severity threshold so fewer findings are reported at all",
+          "correct": false
+        },
+        {
+          "text": "Move the SAST scan to a nightly job so it stops blocking pull requests",
+          "correct": false
+        },
+        {
+          "text": "Require a security team sign-off on every pull request with findings",
+          "correct": false
+        }
+      ],
+      "explanation": "The behaviour is a rational response to a noisy tool: when most findings are false, ignoring them is faster than triaging them, so trust has to be rebuilt before a gate can hold. Tuning first and gating second addresses cause then symptom. Raising the threshold hides real findings along with the noise. Moving to a nightly job removes the feedback from the moment the developer can act on it cheaply. And a mandatory sign-off adds a bottleneck without making the findings any more credible.",
+      "reference": "CCSP 4.3 - Applying the SSDLC and secure coding practices"
+    },
+    {
+      "slug": "d4-0021",
+      "subdomain": "4.3",
+      "difficulty": 2,
+      "question": "Why is SAST able to find some vulnerability classes that DAST cannot?",
+      "answers": [
+        {
+          "text": "It reads the source, so it reaches paths that no test input happens to execute",
+          "correct": true
+        },
+        {
+          "text": "It runs against production, where the real data and configuration exist",
+          "correct": false
+        },
+        {
+          "text": "It observes the application's actual responses to malformed input",
+          "correct": false
+        },
+        {
+          "text": "It requires no access to the source code, so coverage is not limited by it",
+          "correct": false
+        }
+      ],
+      "explanation": "Static analysis walks the code itself, so it can reach an unreachable-looking error handler or a rarely taken branch that a running test would never trigger - coverage is bounded by the code, not by the inputs someone thought to send. The other options describe DAST: it is the dynamic technique that exercises a running instance and watches its responses, and the one that needs no source. That is also why the two are complementary rather than alternatives.",
+      "reference": "CCSP 4.3 - Static and dynamic application security testing"
+    },
+    {
+      "slug": "d4-0022",
+      "subdomain": "4.3",
+      "difficulty": 3,
+      "question": "A container image build pulls a base image tagged 'latest'. Which risk does this introduce for the SSDLC?",
+      "answers": [
+        {
+          "text": "Builds are not reproducible, so the tested artifact may differ from the deployed one",
+          "correct": true
+        },
+        {
+          "text": "The image will always be larger than one built from a pinned digest",
+          "correct": false
+        },
+        {
+          "text": "Scanning tools cannot analyze images built from mutable tags",
+          "correct": false
+        },
+        {
+          "text": "The registry will refuse the push if the tag has moved since the last build",
+          "correct": false
+        }
+      ],
+      "explanation": "A mutable tag can point at different content between the build that was tested and the build that ships, which breaks the chain of assurance the whole pipeline rests on - the fix is pinning to an immutable digest. Image size is a function of the layers, not of how the tag was resolved. Scanners analyse whatever image they are given regardless of tag mutability. And registries do not reject pushes because a tag moved; silently allowing it is precisely the problem.",
+      "reference": "CCSP 4.3 - Secure software supply chain"
+    },
+    {
+      "slug": "d4-0023",
+      "subdomain": "4.4",
+      "difficulty": 2,
+      "question": "What distinguishes a penetration test from a vulnerability scan in application assurance?",
+      "answers": [
+        {
+          "text": "It attempts to exploit findings to establish real impact, not just their presence",
+          "correct": true
+        },
+        {
+          "text": "It is automated, whereas a vulnerability scan is performed manually",
+          "correct": false
+        },
+        {
+          "text": "It examines source code, whereas a vulnerability scan examines running systems",
+          "correct": false
+        },
+        {
+          "text": "It is required by regulation, whereas a vulnerability scan is optional",
+          "correct": false
+        }
+      ],
+      "explanation": "The defining difference is exploitation: a scan reports that a condition appears to exist, while a penetration test tries to use it and can therefore separate a theoretical finding from one that yields real access. That is why the two answer different questions and are not substitutes. Scanning is the automated activity and penetration testing the substantially manual one, so that option is reversed. Neither is defined by looking at source. And regulations vary; neither is universally mandatory.",
+      "reference": "CCSP 4.4 - Functional and non-functional security testing"
+    },
+    {
+      "slug": "d4-0024",
+      "subdomain": "4.4",
+      "difficulty": 3,
+      "question": "An application passes all functional tests and its security scan is clean, yet an assessor rejects the assurance evidence. Which gap most likely explains this?",
+      "answers": [
+        {
+          "text": "The tests confirm the software does what it should, but not that it refuses what it should not",
+          "correct": true
+        },
+        {
+          "text": "The tests were run by the development team rather than an external party",
+          "correct": false
+        },
+        {
+          "text": "The scan was performed before the final build rather than after it",
+          "correct": false
+        },
+        {
+          "text": "The test environment used synthetic data instead of production data",
+          "correct": false
+        }
+      ],
+      "explanation": "Functional tests assert positive behaviour and scanners look for known patterns; neither demonstrates negative requirements such as rejecting a forged token or refusing an out-of-scope authorization - abuse cases have to be tested explicitly. Who ran the tests affects independence but not what the tests actually cover. Scan timing is a real process concern but would not by itself make the evidence inadequate. And using synthetic data is the correct practice, not a defect.",
+      "reference": "CCSP 4.4 - Security testing and quality assurance"
+    },
+    {
+      "slug": "d4-0025",
+      "subdomain": "4.4",
+      "difficulty": 2,
+      "question": "In the context of software assurance, what does a Software Bill of Materials primarily enable?",
+      "answers": [
+        {
+          "text": "Identifying which deployed applications contain a component when a CVE is published",
+          "correct": true
+        },
+        {
+          "text": "Proving that the application's source code has not been modified since release",
+          "correct": false
+        },
+        {
+          "text": "Measuring the test coverage achieved across the application's modules",
+          "correct": false
+        },
+        {
+          "text": "Establishing the license cost of the third-party components in use",
+          "correct": false
+        }
+      ],
+      "explanation": "An SBOM is an inventory of components and versions, so its operational value shows up on the day a vulnerability is announced and the question is which of your systems contain the affected library - without it that answer takes days. Integrity of the code is established by signing, not by an inventory. Test coverage is measured by instrumenting the test run. Licence obligations can be derived from an SBOM, but that is a compliance by-product rather than its security purpose.",
+      "reference": "CCSP 4.4 - Software composition analysis and SBOM"
+    },
+    {
+      "slug": "d4-0026",
+      "subdomain": "4.6",
+      "difficulty": 3,
+      "question": "A team places an API gateway in front of thirty microservices. Which security benefit is most specific to that choice?",
+      "answers": [
+        {
+          "text": "Authentication, rate limiting and logging are enforced once instead of thirty times",
+          "correct": true
+        },
+        {
+          "text": "Traffic between the services becomes encrypted without changing the services",
+          "correct": false
+        },
+        {
+          "text": "Each service can be scaled independently of the others",
+          "correct": false
+        },
+        {
+          "text": "Vulnerabilities in the individual services are patched centrally",
+          "correct": false
+        }
+      ],
+      "explanation": "A gateway is a single enforcement point, so cross-cutting controls stop being thirty separate implementations that can each drift or be forgotten - that consolidation is the security argument for it. Encrypting service-to-service traffic is what a service mesh with mutual TLS provides; a gateway sits at the edge. Independent scaling is a property of microservices themselves, present with or without a gateway. And a gateway cannot patch code inside the services it fronts.",
+      "reference": "CCSP 4.6 - Cloud application architecture and supplemental security devices"
+    },
+    {
+      "slug": "d4-0027",
+      "subdomain": "4.6",
+      "difficulty": 2,
+      "question": "Why does a serverless function's short-lived, stateless execution model change how secrets should be handled?",
+      "answers": [
+        {
+          "text": "Secrets must be fetched from a managed store at invocation rather than held on disk",
+          "correct": true
+        },
+        {
+          "text": "Secrets can be embedded in the deployment package, since it is discarded after each run",
+          "correct": false
+        },
+        {
+          "text": "Secrets no longer need rotation, because each invocation gets a fresh environment",
+          "correct": false
+        },
+        {
+          "text": "Secrets must be passed in the event payload, as functions cannot make outbound calls",
+          "correct": false
+        }
+      ],
+      "explanation": "There is no persistent host to hold a credential file and no long-lived process to load one at startup, so the function retrieves what it needs from a secrets manager at runtime using its execution role. Embedding secrets in the deployment package puts them in an artifact that is stored, versioned and readable by anyone with access to it - the ephemerality of the runtime does not make the package ephemeral. Rotation is still required, since the secret outlives the invocation. And functions can make outbound calls, which is how they reach the secrets store.",
+      "reference": "CCSP 4.6 - Cloud application architecture"
+    },
+    {
+      "slug": "d4-0028",
+      "subdomain": "4.6",
+      "difficulty": 3,
+      "question": "Which control most directly mitigates server-side request forgery in a workload running on cloud compute?",
+      "answers": [
+        {
+          "text": "Requiring session-authenticated access to the instance metadata service",
+          "correct": true
+        },
+        {
+          "text": "Enforcing TLS on all outbound connections the workload makes",
+          "correct": false
+        },
+        {
+          "text": "Running the workload as an unprivileged operating system user",
+          "correct": false
+        },
+        {
+          "text": "Applying a web application firewall rule that blocks SQL metacharacters",
+          "correct": false
+        }
+      ],
+      "explanation": "SSRF against cloud compute is dangerous mainly because the metadata endpoint hands out role credentials to anything that can issue a plain request from the host, so requiring a session token for that endpoint removes the payoff. TLS protects the confidentiality of outbound traffic but the forged request is still made and still answered. Dropping OS privileges limits what a shell can do and does not touch a request the application itself makes. And SQL metacharacter filtering targets injection into a database, a different class entirely.",
+      "reference": "CCSP 4.6 - Cloud application architecture and common pitfalls"
+    },
+    {
+      "slug": "d4-0029",
+      "subdomain": "4.7",
+      "difficulty": 3,
+      "question": "An organization federates its SaaS applications to a corporate identity provider. What is the principal security consequence?",
+      "answers": [
+        {
+          "text": "The identity provider becomes a single point of compromise for every federated application",
+          "correct": true
+        },
+        {
+          "text": "Each application must still store and verify its own password hashes",
+          "correct": false
+        },
+        {
+          "text": "Multi-factor authentication has to be configured separately per application",
+          "correct": false
+        },
+        {
+          "text": "Account deprovisioning must be performed individually in each application",
+          "correct": false
+        }
+      ],
+      "explanation": "Federation concentrates trust: an attacker who controls the identity provider can mint assertions for every relying party, which is why that system warrants the strongest protection in the estate. The remaining options describe what federation removes - applications stop holding credentials, MFA is enforced once at the identity provider, and deprovisioning becomes central, which is the operational reason to federate in the first place.",
+      "reference": "CCSP 4.7 - Federated identity and identity providers"
+    },
+    {
+      "slug": "d4-0030",
+      "subdomain": "4.7",
+      "difficulty": 2,
+      "question": "In OAuth 2.0, what is the security purpose of separating the authorization server from the resource server?",
+      "answers": [
+        {
+          "text": "The resource server never handles user credentials, only tokens of limited scope",
+          "correct": true
+        },
+        {
+          "text": "It allows the resource server to issue its own access tokens when offline",
+          "correct": false
+        },
+        {
+          "text": "It removes the need to encrypt tokens in transit between the two",
+          "correct": false
+        },
+        {
+          "text": "It lets the client bypass consent when the two run in one trust domain",
+          "correct": false
+        }
+      ],
+      "explanation": "The split means the application holding the data never sees a password and receives only a scoped, expiring token, so a compromise there does not yield reusable credentials - that containment is the design's point. A resource server issuing its own tokens would dissolve exactly that separation. Tokens are bearer credentials and must still be protected in transit, which is why TLS is mandatory. And consent is a property of the grant, not something a shared trust domain waives.",
+      "reference": "CCSP 4.7 - OAuth, OIDC and access management"
     }
   ]
 }

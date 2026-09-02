@@ -216,19 +216,19 @@
       "question": "Why does a Type 2 hypervisor typically offer less security control than a Type 1 hypervisor?",
       "answers": [
         {
-          "text": "A Type 2 hypervisor is always exposed to the public Internet for federated identity access.",
+          "text": "It is always exposed to the public Internet for federated identity access",
           "correct": false
         },
         {
-          "text": "A Type 2 hypervisor is open source, so attackers can more easily find exploitable vulnerabilities with that access.",
+          "text": "It is open source, so its vulnerabilities are easier for attackers to find",
           "correct": false
         },
         {
-          "text": "A Type 2 hypervisor allows users to directly perform some functions with their own access.",
+          "text": "It lets users perform some virtualization functions with their own access",
           "correct": false
         },
         {
-          "text": "A Type 2 hypervisor runs on top of another operating system and is dependent on the security of the OS for its own security.",
+          "text": "It runs on a host operating system and inherits that OS's attack surface",
           "correct": true
         }
       ],
@@ -424,19 +424,19 @@
       "question": "Why does a Type 1 hypervisor typically offer tighter security controls than a Type 2 hypervisor?",
       "answers": [
         {
-          "text": "A Type 1 hypervisor only hosts virtual machines with the same operating systems as the hypervisor.",
+          "text": "It hosts only guests running the same operating system as the hypervisor",
           "correct": false
         },
         {
-          "text": "A Type 1 hypervisor performs hardware-level encryption for tighter security and efficiency.",
+          "text": "It performs hardware-level encryption, which is tighter and more efficient",
           "correct": false
         },
         {
-          "text": "A Type 1 hypervisor also controls patching of its hosted virtual machines ensure they are always secure.",
+          "text": "It also controls patching of the guests it hosts, keeping them current",
           "correct": false
         },
         {
-          "text": "A Type 1 hypervisor is tied directly to the bare metal and only runs with code necessary to perform its specific mission.",
+          "text": "It runs on bare metal and carries only the code its own function requires",
           "correct": true
         }
       ],
